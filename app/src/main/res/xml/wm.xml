@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
+    <PreferenceCategory android:title="Whatsapp" android:key="cat_wa">
+        <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/ImgHi" android:key="img_max" android:summary="@string/ImgHiSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/ImgShareLimit" android:key="img_limit" android:summary="@string/ImgShareLimitSum" android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceScreen android:title="Privacy" android:summary="Mods For Privacy And Tickes">
+        <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
+        <PreferenceCategory android:title="Contacts" android:key="cat_pc">
+            <CheckBoxPreference android:title="@string/HideRead" android:key="HideReadC" android:summary="@string/HideReadSumC" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HideReceipt" android:key="HideReceiptC" android:summary="@string/HideReceiptSumC" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HidePlay" android:key="HidePlayC" android:summary="@string/HidePlaySumC" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HideRecord" android:key="HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HideCompose" android:key="HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="Group" android:key="cat_pg">
+            <CheckBoxPreference android:title="@string/HideRead" android:key="HideReadG" android:summary="@string/HideReadSumG" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HideReceipt" android:key="HideReceiptG" android:summary="@string/HideReceiptSumG" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HidePlay" android:key="HidePlayG" android:summary="@string/HidePlaySumG" android:defaultValue="false" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="Broadcast" android:key="cat_pb">
+            <CheckBoxPreference android:title="@string/HideRead" android:key="HideReadB" android:summary="@string/HideReadSumB" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HideReceipt" android:key="HideReceiptB" android:summary="@string/HideReceiptSumB" android:defaultValue="false" />
+            <CheckBoxPreference android:title="@string/HidePlay" android:key="HidePlayB" android:summary="@string/HidePlaySumB" android:defaultValue="false" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
+        <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:defaultValue="false" />
+        <ListPreference android:entries="@array/bubble_n" android:title="Bubble Style" android:key="bubble_s" android:summary="@string/SB" android:entryValues="@array/bubble_v" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="About" android:key="cat_wa">
+        <Preference android:title="Kool Whatsapp Mods" android:summary="Join Whatsapp Google+ Community">
+            <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/117929374559788388477" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
+        <com.kmods.BackupP android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
+        <com.kmods.RestoreP android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
+    </PreferenceCategory>
+</PreferenceScreen>
