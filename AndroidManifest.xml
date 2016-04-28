@@ -3,5 +3,12 @@
           package="com.mega">
     <uses-sdk android:minSdkVersion="23"/>
     <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:label="KMods" android:name="com.mega.Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

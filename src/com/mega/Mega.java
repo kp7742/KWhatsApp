@@ -1,6 +1,7 @@
 package com.mega;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.support.v7.app.ActionBar;
 import com.whatsapp.App;
 import com.whatsapp._i;
@@ -10,6 +11,10 @@ import java.lang.reflect.Field;
 
 public class Mega {
     public static Context ctx;
+    public static boolean isNetworkAvailable() {
+        final ConnectivityManager connectivityManager = (ConnectivityManager)ctx.getSystemService("connectivity");
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
+    }
     public static void RestartApp() {
         android.os.Process.killProcess(android.os.Process.myPid());
     }

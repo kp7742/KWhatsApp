@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
 import android.util.Log;
+import android.widget.Toast;
 import com.whatsapp.DialogToastPreferenceActivity;
 
 public class Settings extends DialogToastPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
@@ -61,10 +62,17 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
         this.addPreferencesFromResource(this.getResources().getIdentifier("wm", "xml", this.getPackageName()));
         this.editor = Settings.ctx.getSharedPreferences("com.whatsapp_preferences", 0).edit();
         findPreference("rest").setOnPreferenceClickListener(this);
+        findPreference("cfu").setOnPreferenceClickListener(this);
     }
     public boolean onPreferenceClick(final Preference preference) {
         if (preference.getKey().equals("rest")){
             Mega.RestartApp();
+        } else if (preference.getKey().equals("cfu")){
+            if (Mega.isNetworkAvailable()) {
+                new Update().execute((Void[]) new Void[0]);
+            } else {
+                Toast.makeText(this,"Internet not available!", 0).show();
+            }
         }
         return false;
     }
