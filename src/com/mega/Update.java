@@ -46,7 +46,7 @@ public class Update extends AsyncTask<String, String, String>
         }
     }
     protected void onPostExecute(final String s) {
-        if (this.a > 1 || this.b > 1) {
+        if (this.a > 1 || this.b > 2) {
             WebView wv = new WebView(ctx);
             wv.loadUrl("http://kwhatsapp.tk/update/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
@@ -71,10 +71,10 @@ public class Update extends AsyncTask<String, String, String>
             builder2.create();
             builder2.show();
         } else {
-            WebView wv = new WebView(ctx);
-            wv.loadUrl("http://kwhatsapp.tk/update/CL.html");
+            WebView wv2 = new WebView(ctx);
+            wv2.loadUrl("http://kwhatsapp.tk/update/CL.html");
             AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!" + "KWhatsApp v" + this.a + "." + this.b).setView(wv);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.a + "." + this.b).setView(wv2);
             builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
@@ -86,7 +86,7 @@ public class Update extends AsyncTask<String, String, String>
         this.progDlg.dismiss();
     }
     protected void onPreExecute() {
-        (this.progDlg = new ProgressDialog(ctx)).setMessage("Connecting...");
+        (this.progDlg = new ProgressDialog(ctx)).setMessage("Checking...");
         this.progDlg.setCancelable(true);
         this.progDlg.show();
     }
