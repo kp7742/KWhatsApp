@@ -1,13 +1,13 @@
 package com.mega;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import com.whatsapp.App;
-import com.whatsapp.a1p;
 import com.whatsapp.awk;
 
 import javax.crypto.SecretKey;
@@ -16,7 +16,7 @@ import java.lang.reflect.Field;
 
 public class Mega {
     public static Context ctx;
-    public static void RestartApp() {
+    static void RestartApp() {
         android.os.Process.killProcess(android.os.Process.myPid());
     }
     public static boolean getBoolean(final String s) {
@@ -38,7 +38,7 @@ public class Mega {
         }
         actionBar.setTitle(a);
     }
-    public static String GetType(Object o) {
+    private static String GetType(Object o) {
         for (final Field field : o.getClass().getFields()) {
             if (String.class.isAssignableFrom(field.getType())) {
                 try {
@@ -58,13 +58,13 @@ public class Mega {
                         }
                     }
                 }
-                catch (Exception ex) {}
+                catch (Exception ignored) {}
             }
         }
         o = "C";
         return (String)o;
     }
-    public static int getResId(String s1, String s2){
+    private static int getResId(String s1, String s2){
         return ctx.getResources().getIdentifier(s1, s2, ctx.getPackageName());
     }
     public static int BubbleStyle(final int n){
@@ -196,21 +196,12 @@ public class Mega {
         }
     }
     public static int getUpSize() {
-        int a = 5120;
-        if(!Settings.getBoolean("up_size")){
-            a = a1p.h;
-        }
-        return a;
+        return 5120;
     }
     public static int getMaxImg() {
-        int b = 5315;
-        if(!Settings.getBoolean("img_max")){
-            b = a1p.b;
-        }
-        return b;
+        return 5315;
     }
-    public static void Unlocked_doc_file(final Application application) {
-        // put to com.facebook.buck.android.support.exopackage.ExopackageApplication
+    public static void Unlocked_doc_file() {
         SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
     }
     public static SecretKey ab()
@@ -244,12 +235,18 @@ public class Mega {
     public static boolean TxtSelect() {
         return getBoolean("txt_select");
     }
-    public static boolean always_online() {
-        return getBoolean("always_online");
-    }
     public static void init(final Context ctx) {
-        // put to com.facebook.buck.android.support.exopackage.ExopackageApplication
-        Settings.initContextVar(Mega.ctx = ctx);
+        if (ctx instanceof Activity) {
+            Mega.ctx = ctx.getApplicationContext();
+            Settings.ctx = ctx.getApplicationContext();
+        }
+        else {
+            Mega.ctx = ctx;
+            Settings.ctx = ctx;
+        }
+        if (Settings.ctx == null) {
+            Log.d("KMods", "Context var initialized to NULL!!!");
+        }
     }
     public static boolean getHideInfo() {
         return Settings.getBoolean("hideinfo");

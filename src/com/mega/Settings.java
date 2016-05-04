@@ -1,34 +1,20 @@
 package com.mega;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
-import android.util.Log;
 import com.whatsapp.DialogToastPreferenceActivity;
 
 public class Settings extends DialogToastPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
-    public SharedPreferences.Editor editor;
-    public static Context ctx;
+    private SharedPreferences.Editor editor;
+    static Context ctx;
     static { Settings.ctx = null; }
     public Settings() {
         this.editor = null;
     }
-
     public void onBackPressed(){
         Mega.RestartApp();
-    }
-    public static void initContextVar(final Context ctx) {
-        if (ctx instanceof Activity) {
-            Settings.ctx = ctx.getApplicationContext();
-        }
-        else {
-            Settings.ctx = ctx;
-        }
-        if (Settings.ctx == null) {
-            Log.d("KMods", "Context var initialized to NULL!!!");
-        }
     }
     private void updatePrefSummary(Preference preference) {
         if (preference != null) {
@@ -47,7 +33,7 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
             }
         }
     }
-    public static boolean getBoolean(final String s) {
+    static boolean getBoolean(final String s) {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
     public static int getResId(Context context, String str1, String str2) {

@@ -71,10 +71,8 @@ public class Update extends AsyncTask<String, String, String>
             builder2.create();
             builder2.show();
         } else {
-            WebView wv2 = new WebView(ctx);
-            wv2.loadUrl("http://kwhatsapp.tk/update/CL.html");
             AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.a + "." + this.b).setView(wv2);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.a + "." + this.b);
             builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
