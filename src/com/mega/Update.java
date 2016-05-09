@@ -17,11 +17,13 @@ import java.net.URL;
 
 public class Update extends AsyncTask<String, String, String>
 {
-    public int a = 0;
-    public int b = 0;
-    ProgressDialog progDlg;
-    public Context ctx;
-    public Update(Context ctx){
+    private int a = 0;
+    private int v2 = 3;
+    private int v1 = 1;
+    private int b = 0;
+    private ProgressDialog progDlg;
+    private Context ctx;
+    Update(Context ctx){
         this.ctx = ctx;
     }
     protected String doInBackground(final String... array) {
@@ -46,7 +48,7 @@ public class Update extends AsyncTask<String, String, String>
         }
     }
     protected void onPostExecute(final String s) {
-        if (this.a > 1 || this.b > 2) {
+        if (this.a > this.v1 || this.b > this.v2) {
             WebView wv = new WebView(ctx);
             wv.loadUrl("http://kwhatsapp.tk/update/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
@@ -72,7 +74,7 @@ public class Update extends AsyncTask<String, String, String>
             builder2.show();
         } else {
             AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.a + "." + this.b);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.v1 + "." + this.v2);
             builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();

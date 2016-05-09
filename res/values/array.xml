@@ -16,6 +16,12 @@
         <item>DoodleHang</item>
         <item>Fold</item>
         <item>Eclipsis</item>
+        <item>Altr Crayon</item>
+        <item>Apple</item>
+        <item>GoSMS</item>
+        <item>3D</item>
+        <item>MD</item>
+        <item>Transparent</item>
     </string-array>
     <string-array name="bubble_v">
         <item>0</item>
@@ -33,5 +39,11 @@
         <item>12</item>
         <item>13</item>
         <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
     </string-array>
 </resources>

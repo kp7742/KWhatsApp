@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
     <com.mega.UpdateP android:title="Check For Update" android:key="cfuo" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
     <PreferenceCategory android:title="Whatsapp" android:key="cat_wa">
@@ -34,6 +35,9 @@
         <ListPreference android:entries="@array/bubble_n" android:title="Bubble Style" android:key="bubble_s" android:summary="@string/SB" android:entryValues="@array/bubble_v" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About" android:key="cat_wa">
+	    <Preference android:title="KWhatsApp Website" android:summary="Visit For Latest Updates">
+            <intent android:action="android.intent.action.VIEW" android:data="http://kwhatsapp.tk" />
+        </Preference>
         <Preference android:title="Kool Whatsapp Mods" android:summary="Join Whatsapp Google+ Community">
             <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/117929374559788388477" />
         </Preference>

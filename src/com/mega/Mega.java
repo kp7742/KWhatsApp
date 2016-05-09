@@ -8,7 +8,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import com.whatsapp.App;
-import com.whatsapp.awk;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -31,9 +30,9 @@ public class Mega {
     public static void ShowName(final ActionBar actionBar, final Context context) {
         CharSequence a = "WhatsApp";
         if (getBoolean("show_my_name_check")) {
-            a = awk.b(App.B(context), context);
+            a = App.A(context);
             if (getBoolean("show_my_status_check")) {
-                actionBar.setSubtitle(awk.b(App.a6(), context));
+                actionBar.setSubtitle(App.aR());
             }
         }
         actionBar.setTitle(a);
@@ -179,6 +178,48 @@ public class Mega {
                 n4 = getResId("eclipsis_balloon_incoming_normal_ext", "drawable");
                 break;
             }
+            case 15: {
+                n1 = getResId("altcr_balloon_incoming_normal", "drawable");
+                n2 = getResId("altcr_balloon_outgoing_normal", "drawable");
+                n3 = getResId("altcr_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("altcr_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
+            case 16: {
+                n1 = getResId("apple_balloon_incoming_normal", "drawable");
+                n2 = getResId("apple_balloon_outgoing_normal", "drawable");
+                n3 = getResId("apple_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("apple_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
+            case 17: {
+                n1 = getResId("gosms_balloon_incoming_normal", "drawable");
+                n2 = getResId("gosms_balloon_outgoing_normal", "drawable");
+                n3 = getResId("gosms_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("gosms_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
+            case 18: {
+                n1 = getResId("in_balloon_incoming_normal", "drawable");
+                n2 = getResId("in_balloon_outgoing_normal", "drawable");
+                n3 = getResId("in_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("in_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
+            case 19: {
+                n1 = getResId("md_balloon_incoming_normal", "drawable");
+                n2 = getResId("md_balloon_outgoing_normal", "drawable");
+                n3 = getResId("md_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("md_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
+            case 20: {
+                n1 = getResId("trans_balloon_incoming_normal", "drawable");
+                n2 = getResId("trans_balloon_outgoing_normal", "drawable");
+                n3 = getResId("trans_balloon_outgoing_normal_ext", "drawable");
+                n4 = getResId("trans_balloon_incoming_normal_ext", "drawable");
+                break;
+            }
         }
         switch (n) {
             default: {
@@ -211,20 +252,20 @@ public class Mega {
     }
     public static byte[] a()
     {
-        return HexToByte("11F13BD39524CF43DC95729FD5F6C056");//This Key From Original Apk of v2.16.57.
+        return HexToByte("07DEEF2607CD3BDAE43A0A264E43D88B");//This Key From Original Apk of v2.16.66.
     }
     public static byte[] b()
     {
         return HexToByte("30820332308202F0A00302010202044C2536A4300B06072A8648CE3804030500307C310B3009060355040613025553311330110603550408130A43616C69666F726E6961311430120603550407130B53616E746120436C61726131163014060355040A130D576861747341707020496E632E31143012060355040B130B456E67696E656572696E67311430120603550403130B427269616E204163746F6E301E170D3130303632353233303731365A170D3434303231353233303731365A307C310B3009060355040613025553311330110603550408130A43616C69666F726E6961311430120603550407130B53616E746120436C61726131163014060355040A130D576861747341707020496E632E31143012060355040B130B456E67696E656572696E67311430120603550403130B427269616E204163746F6E308201B83082012C06072A8648CE3804013082011F02818100FD7F53811D75122952DF4A9C2EECE4E7F611B7523CEF4400C31E3F80B6512669455D402251FB593D8D58FABFC5F5BA30F6CB9B556CD7813B801D346FF26660B76B9950A5A49F9FE8047B1022C24FBBA9D7FEB7C61BF83B57E7C6A8A6150F04FB83F6D3C51EC3023554135A169132F675F3AE2B61D72AEFF22203199DD14801C70215009760508F15230BCCB292B982A2EB840BF0581CF502818100F7E1A085D69B3DDECBBCAB5C36B857B97994AFBBFA3AEA82F9574C0B3D0782675159578EBAD4594FE67107108180B449167123E84C281613B7CF09328CC8A6E13C167A8B547C8D28E0A3AE1E2BB3A675916EA37F0BFA213562F1FB627A01243BCCA4F1BEA8519089A883DFE15AE59F06928B665E807B552564014C3BFECF492A0381850002818100D1198B4B81687BCF246D41A8A725F0A989A51BCE326E84C828E1F556648BD71DA487054D6DE70FFF4B49432B6862AA48FC2A93161B2C15A2FF5E671672DFB576E9D12AAFF7369B9A99D04FB29D2BBBB2A503EE41B1FF37887064F41FE2805609063500A8E547349282D15981CDB58A08BEDE51DD7E9867295B3DFB45FFC6B259300B06072A8648CE3804030500032F00302C021400A602A7477ACF841077237BE090DF436582CA2F0214350CE0268D07E71E55774AB4EACD4D071CD1EFAD");
     }
-    private static byte[] HexToByte(String paramString)
+    private static byte[] HexToByte(String s)
     {
-        int j = paramString.length();
-        byte[] arrayOfByte = new byte[j / 2];
+        int j = s.length();
+        byte[] arb = new byte[j / 2];
         for (int i = 0; i < j; i += 2) {
-            arrayOfByte[(i / 2)] = ((byte)((Character.digit(paramString.charAt(i), 16) << 4) + Character.digit(paramString.charAt(i + 1), 16)));
+            arb[(i / 2)] = ((byte)((Character.digit(s.charAt(i), 16) << 4) + Character.digit(s.charAt(i + 1), 16)));
         }
-        return arrayOfByte;
+        return arb;
     }
     @SuppressLint("CommitPrefEdits")
     private static void SetPrefString(final String s1, final String s2) {
@@ -247,6 +288,7 @@ public class Mega {
         if (Settings.ctx == null) {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
+        Unlocked_doc_file();
     }
     public static boolean getHideInfo() {
         return Settings.getBoolean("hideinfo");
