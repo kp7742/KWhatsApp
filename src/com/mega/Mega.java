@@ -1,12 +1,7 @@
 package com.mega;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
 import com.whatsapp.App;
 
 import javax.crypto.SecretKey;
@@ -14,11 +9,14 @@ import javax.crypto.spec.SecretKeySpec;
 import java.lang.reflect.Field;
 
 public class Mega {
-    public static Context ctx;
+    private static Context ctx;
     static void RestartApp() {
         android.os.Process.killProcess(android.os.Process.myPid());
     }
-    public static boolean getBoolean(final String s) {
+    private static boolean getBoolean(final String s) {
+        if(Mega.ctx == null){
+            Mega.ctx = ctx.getApplicationContext();
+        }
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
     public static String Apply(final String s) {
@@ -242,9 +240,7 @@ public class Mega {
     public static int getMaxImg() {
         return 5315;
     }
-    public static void Unlocked_doc_file() {
-        SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
-    }
+
     public static SecretKey ab()
     {
         byte[] arrayOfByte = HexToByte("7905796AAFC283ADC6B2AD6CB2137D4F7821F94529D30230D31807613D5B9C28C4A8E25028246B5B17407B6CAFB0378224BF98E06DCF443D87505EE8520886A3");
@@ -267,55 +263,43 @@ public class Mega {
         }
         return arb;
     }
-    @SuppressLint("CommitPrefEdits")
-    private static void SetPrefString(final String s1, final String s2) {
-        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
-        edit.putString(s1, s2);
-        edit.commit();
-    }
     public static boolean TxtSelect() {
         return getBoolean("txt_select");
     }
     public static void init(final Context ctx) {
-        if (ctx instanceof Activity) {
-            Mega.ctx = ctx.getApplicationContext();
-            Settings.ctx = ctx.getApplicationContext();
-        }
-        else {
-            Mega.ctx = ctx;
-            Settings.ctx = ctx;
-        }
-        if (Settings.ctx == null) {
-            Log.d("KMods", "Context var initialized to NULL!!!");
-        }
-        Unlocked_doc_file();
+    Mega.ctx = ctx;
+    Settings.ctx = ctx;
+    if (Settings.ctx == null || Mega.ctx == null) {
+        Mega.ctx = ctx.getApplicationContext();
+        Settings.ctx = ctx.getApplicationContext();
+    }
     }
     public static boolean getHideInfo() {
-        return Settings.getBoolean("hideinfo");
+        return getBoolean("hideinfo");
     }
     public static boolean Img_limit() {
-        return Settings.getBoolean("img_limit");
+        return getBoolean("img_limit");
     }
     public static boolean HideSeen(){
-        return Settings.getBoolean("hide_seen");
+        return getBoolean("hide_seen");
     }
     public static boolean HideRead(final Object o) {
-        return Settings.getBoolean("HideRead" + GetType(o));
+        return getBoolean("HideRead" + GetType(o));
     }
     public static boolean HideCR(final String s) {
         boolean b;
         if (s != null) {
-            b = Settings.getBoolean("HideRecord");
+            b = getBoolean("HideRecord");
         }
         else {
-            b = Settings.getBoolean("HideCompose");
+            b = getBoolean("HideCompose");
         }
         return b;
     }
     public static boolean HidePlay(final Object o) {
-        return Settings.getBoolean("HidePlay" + GetType(o));
+        return getBoolean("HidePlay" + GetType(o));
     }
     public static boolean HideReceipt(final Object o) {
-        return Settings.getBoolean("HideReceipt" + GetType(o));
+        return getBoolean("HideReceipt" + GetType(o));
     }
 }

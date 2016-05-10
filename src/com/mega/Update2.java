@@ -1,7 +1,6 @@
 package com.mega;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,15 +14,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class Update extends AsyncTask<String, String, String>
+public class Update2 extends AsyncTask<String, String, String>
 {
     private int a = 0;
     private int b = 0;
     private int v1 = 1;
     private int v2 = 3;
-    private ProgressDialog progDlg;
     private Context ctx;
-    public Update(Context ctx){
+    public Update2(Context ctx){
         this.ctx = ctx;
     }
     protected String doInBackground(final String... array) {
@@ -56,7 +54,7 @@ public class Update extends AsyncTask<String, String, String>
             builder.setView(wv);
             builder.setPositiveButton("Download Now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                     ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://kwhatsapp.tk/")));
+                    ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://kwhatsapp.tk/")));
                 }
             });
             builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
@@ -67,27 +65,6 @@ public class Update extends AsyncTask<String, String, String>
             });
             builder.create();
             builder.show();
-        } else if(s.equals("?")){
-            AlertDialog.Builder builder2 = new AlertDialog.Builder(ctx);
-            builder2.setTitle("Error!").setMessage("You Not Connect With Internet!");
-            builder2.create();
-            builder2.show();
-        } else {
-            AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + this.v1 + "." + this.v2);
-            builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                }
-            });
-            builder3.create();
-            builder3.show();
         }
-        this.progDlg.dismiss();
-    }
-    protected void onPreExecute() {
-        (this.progDlg = new ProgressDialog(ctx)).setMessage("Checking...");
-        this.progDlg.setCancelable(true);
-        this.progDlg.show();
     }
 }
