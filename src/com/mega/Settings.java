@@ -1,5 +1,6 @@
 package com.mega;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,17 +34,21 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
             }
         }
     }
-    static boolean getBoolean(final String s) {
-        return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
-    }
     public static int getResId(Context context, String str1, String str2) {
         return ctx.getResources().getIdentifier(str1, str2, context.getPackageName());
+    }
+    @SuppressLint("CommitPrefEdits")
+    private static void SetPrefString(final String s1, final String s2) {
+        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(Settings.ctx).edit();
+        edit.putString(s1, s2);
+        edit.commit();
     }
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         if (Settings.ctx == null) {
-            Settings.ctx = this.getBaseContext();
+            Settings.ctx = this.getApplicationContext();
         }
+        SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
         this.addPreferencesFromResource(this.getResources().getIdentifier("wm", "xml", this.getPackageName()));
         this.editor = Settings.ctx.getSharedPreferences("com.whatsapp_preferences", 0).edit();
         findPreference("rest").setOnPreferenceClickListener(this);
