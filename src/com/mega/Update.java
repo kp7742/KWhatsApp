@@ -18,12 +18,12 @@ import java.net.URL;
 public class Update extends AsyncTask<String, String, String>
 {
     private int a = 0;
-    private int b = 0;
-    private int v1 = 1;
     private int v2 = 3;
+    private int v1 = 1;
+    private int b = 0;
     private ProgressDialog progDlg;
     private Context ctx;
-    public Update(Context ctx){
+    Update(Context ctx){
         this.ctx = ctx;
     }
     protected String doInBackground(final String... array) {

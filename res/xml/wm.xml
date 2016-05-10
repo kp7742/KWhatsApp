@@ -9,6 +9,7 @@
         <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceScreen android:title="Privacy" android:summary="Mods For Privacy And Tickes">
+        <CheckBoxPreference android:title="Always Online" android:key="always_online" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
         <PreferenceCategory android:title="Contacts" android:key="cat_pc">
             <CheckBoxPreference android:title="@string/HideRead" android:key="HideReadC" android:summary="@string/HideReadSumC" android:defaultValue="false" />
