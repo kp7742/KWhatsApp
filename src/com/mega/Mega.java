@@ -19,6 +19,15 @@ public class Mega {
         }
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
+    public static boolean Archv_chats() {
+        return getBoolean("Archv_chats");
+    }
+    public static boolean Audio_ears() {
+        return getBoolean("Audio_ears");
+    }
+    public static boolean Audio_sensor() {
+        return getBoolean("Audio_sensor");
+    }
     public static String Apply(final String s) {
         return s.replace("com.whatsapp", "com.whatsapp").replace("com.whatsapp.util", "com.whatsapp.util").replace("com.whatsapp.Voip", "com.whatsapp.Voip").replace("com.whatsapp.VideoFrameConverter", "com.whatsapp.VideoFrameConverter").replace("com.whatsapp.util.OpusPlayer", "com.whatsapp.util.OpusPlayer").replace("com.whatsapp.proto", "com.whatsapp.proto").replace("com.whatsapp.util.OpusRecorder", "com.whatsapp.util.OpusRecorder");
     }

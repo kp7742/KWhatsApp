@@ -7,6 +7,7 @@
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceScreen android:title="Privacy" android:summary="Mods For Privacy And Tickes">
         <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
@@ -31,6 +32,8 @@
     <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
         <CheckBoxPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/AudioSensor" android:key="Audio_sensor" android:summary="@string/AudioSensorSum" android:defaultValue="true" />
+        <CheckBoxPreference android:title="@string/AudioEars" android:key="Audio_ears" android:summary="@string/AudioEarsSum" android:dependency="Audio_sensor" android:defaultValue="false" />
         <ListPreference android:entries="@array/bubble_n" android:title="Bubble Style" android:key="bubble_s" android:summary="@string/SB" android:entryValues="@array/bubble_v" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About" android:key="cat_wa">
