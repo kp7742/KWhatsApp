@@ -10,10 +10,6 @@ import com.whatsapp.DialogToastPreferenceActivity;
 public class Settings extends DialogToastPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
     private SharedPreferences.Editor editor;
     static Context ctx;
-    static { Settings.ctx = null; }
-    public Settings() {
-        this.editor = null;
-    }
     public void onBackPressed(){
         Mega.RestartApp();
     }
@@ -34,9 +30,6 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
             }
         }
     }
-    public static int getResId(Context context, String str1, String str2) {
-        return ctx.getResources().getIdentifier(str1, str2, context.getPackageName());
-    }
     @SuppressLint("CommitPrefEdits")
     private static void SetPrefString(final String s1, final String s2) {
         final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(Settings.ctx).edit();
@@ -45,17 +38,17 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
     }
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
-        if (Settings.ctx == null) {
-            Settings.ctx = this.getApplicationContext();
-        }
         SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
         this.addPreferencesFromResource(this.getResources().getIdentifier("wm", "xml", this.getPackageName()));
-        this.editor = Settings.ctx.getSharedPreferences("com.whatsapp_preferences", 0).edit();
+        this.editor = ctx.getSharedPreferences("com.whatsapp_preferences", 0).edit();
         findPreference("rest").setOnPreferenceClickListener(this);
+        findPreference("cfu").setOnPreferenceClickListener(this);
     }
     public boolean onPreferenceClick(final Preference preference) {
         if (preference.getKey().equals("rest")){
             Mega.RestartApp();
+        } else if (preference.getKey().equals("cfu")){
+            new Update(ctx, true).execute((String[]) new String[0]);
         }
         return false;
     }

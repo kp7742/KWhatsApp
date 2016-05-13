@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.mega.UpdateP android:title="Check For Update" android:key="cfuo" android:summary="Checking Latest Update" />
+    <Preference android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
     <PreferenceCategory android:title="Whatsapp" android:key="cat_wa">
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />

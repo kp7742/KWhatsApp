@@ -44,5 +44,4 @@
     <string name="AudioSensorSum">Enabled by default, disable to turn it off.</string>
     <string name="AudioEars">Disable Output Switching</string>
     <string name="AudioEarsSum">Prevents speaker/earpiece switching while playing</string>
-    <string name="title_activity_main">KMODS</string>
 </resources>

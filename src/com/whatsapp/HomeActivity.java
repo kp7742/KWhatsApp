@@ -4,7 +4,6 @@ import com.mega.*;
 
 public class HomeActivity {
     void onResume(){
-        new Update2(App.A()).execute((String[]) new String[0]);
-        Mega.init(App.A());
+        new Update(App.A(),false).execute((String[]) new String[0]);
     }
 }
