@@ -2,7 +2,7 @@ package com.mega;
 
 import java.lang.reflect.Field;
 
-import static java.lang.Boolean.getBoolean;
+import static com.mega.Mega.getBoolean;
 
 public class Privacy {
     private static String GetType(Object o) {

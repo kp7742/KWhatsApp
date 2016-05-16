@@ -33,7 +33,7 @@ public class BackupP extends Preference implements OnPreferenceClickListener {
         if (new File(Environment.getDataDirectory(), "data/com.whatsapp").exists()) {
             new CopyTask(getContext(), true, new File(Environment.getDataDirectory(), "data/com.whatsapp"), new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup")).execute(new File[0]);
         } else {
-            Toast.makeText(getContext(), "Can't find a Data!", 0).show();
+            Toast.makeText(getContext(), "Can't find a Data!", Toast.LENGTH_SHORT).show();
         }
         return false;
     }

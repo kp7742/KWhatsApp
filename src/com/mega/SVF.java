@@ -11,7 +11,7 @@ public class SVF {
     }
     public static byte[] a()
     {
-        return HexToByte("07DEEF2607CD3BDAE43A0A264E43D88B");//This Key From Original Apk of v2.16.66.
+        return HexToByte("F3678928788074B2126F1176D414EACC");//This Key From Original Apk of v2.16.58.
     }
     public static byte[] b()
     {

@@ -34,7 +34,7 @@ public class RestoreB extends Button implements View.OnClickListener
         if (new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup").exists()) {
             new CopyTask(getContext(), false, new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup"), new File(Environment.getDataDirectory(), "data/com.whatsapp")).execute(new File[0]);
         } else {
-            Toast.makeText(getContext(),"Can't find a backup in '/sdcard/WhatsApp'!", 0).show();
+            Toast.makeText(getContext(),"Can't find a backup in '/sdcard/WhatsApp'!", Toast.LENGTH_SHORT).show();
         }
     }
 }

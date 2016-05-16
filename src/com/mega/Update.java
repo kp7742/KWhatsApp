@@ -21,10 +21,8 @@ public class Update extends AsyncTask<String, String, String>
     private int b = 0;
     private ProgressDialog progDlg;
     private Context ctx;
-    private static boolean dis;
-    public Update(Context ctx, boolean t){
+    public Update(Context ctx){
         this.ctx = ctx;
-        dis = t;
     }
     protected String doInBackground(final String... array) {
         try {
@@ -48,7 +46,7 @@ public class Update extends AsyncTask<String, String, String>
         }
     }
     protected void onPostExecute(final String s) {
-        if (this.a > Main.v1 || this.b > Main.v2) {
+        if (this.a > Mega.v1 || this.b > Mega.v2) {
             WebView wv = new WebView(ctx);
             wv.loadUrl("http://kwhatsapp.tk/update/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
@@ -56,43 +54,38 @@ public class Update extends AsyncTask<String, String, String>
             builder.setView(wv);
             builder.setPositiveButton("Download Now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                     ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://kwhatsapp.tk/")));
+                    ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://kwhatsapp.tk/")));
                 }
             });
             builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(ctx, "Ok Update Later!", 0).show();
+                    Toast.makeText(ctx, "Ok Update Later!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             });
             builder.create();
             builder.show();
+        } else if (s.equals("?")) {
+            AlertDialog.Builder builder2 = new AlertDialog.Builder(ctx);
+            builder2.setTitle("Error!").setMessage("You Not Connect With Internet!");
+            builder2.create();
+            builder2.show();
+        } else {
+            AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + Mega.v1 + "." + Mega.v2);
+            builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder3.create();
+            builder3.show();
         }
-        if(dis) {
-            if (s.equals("?")) {
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(ctx);
-                builder2.setTitle("Error!").setMessage("You Not Connect With Internet!");
-                builder2.create();
-                builder2.show();
-            } else {
-                AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-                builder3.setTitle("Good!").setMessage("You have latest update!:" + " KWhatsApp v" + Main.v1 + "." + Main.v2);
-                builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                builder3.create();
-                builder3.show();
-            }
-            this.progDlg.dismiss();
-        }
+        this.progDlg.dismiss();
     }
     protected void onPreExecute() {
-        if(dis) {
-            (this.progDlg = new ProgressDialog(ctx)).setMessage("Checking...");
-            this.progDlg.setCancelable(true);
-            this.progDlg.show();
-        }
+        (this.progDlg = new ProgressDialog(ctx)).setMessage("Checking...");
+        this.progDlg.setCancelable(true);
+        this.progDlg.show();
     }
 }

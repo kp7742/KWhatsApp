@@ -5,7 +5,7 @@ KWhatsApp is a modification (mod) of WhatsApp for Android. Includes new features
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
 # **_Feature_**
-- Base On v2.12.66
+- Base On v2.12.58
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
@@ -17,6 +17,7 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Hide Call Icon in conversation screen
 - Hide Archived Chat
 - Audio Mods
+- Contact Status Copy
 - Hide Date and name while copying 2 messages or more
 - Fast Backup and Restore
 - Restore Button like wa reborn

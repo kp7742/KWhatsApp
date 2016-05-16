@@ -24,9 +24,6 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
             } else if (preference instanceof CheckBoxPreference) {
                 this.editor.putBoolean(key, ((CheckBoxPreference) preference).isChecked());
                 this.editor.commit();
-            } else if (preference instanceof TwoStatePreference) {
-                this.editor.putBoolean(key, ((TwoStatePreference)preference).isChecked());
-                this.editor.commit();
             }
         }
     }
@@ -38,17 +35,17 @@ public class Settings extends DialogToastPreferenceActivity implements SharedPre
     }
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
+        if (Settings.ctx == null) {
+           Settings.ctx = this.getBaseContext();
+        }
         SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
         this.addPreferencesFromResource(this.getResources().getIdentifier("wm", "xml", this.getPackageName()));
         this.editor = ctx.getSharedPreferences("com.whatsapp_preferences", 0).edit();
         findPreference("rest").setOnPreferenceClickListener(this);
-        findPreference("cfu").setOnPreferenceClickListener(this);
     }
     public boolean onPreferenceClick(final Preference preference) {
         if (preference.getKey().equals("rest")){
             Mega.RestartApp();
-        } else if (preference.getKey().equals("cfu")){
-            new Update(ctx, true).execute((String[]) new String[0]);
         }
         return false;
     }

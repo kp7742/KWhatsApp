@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
+    <com.mega.UpdateP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
     <PreferenceCategory android:title="Whatsapp" android:key="cat_wa">
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Checking Update If Available (Default: False)" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceScreen android:title="Privacy" android:summary="Mods For Privacy And Tickes">
         <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
