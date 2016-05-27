@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference android:entries="@array/bubble_n" android:title="Bubble Style" android:key="bubble_s" android:summary="@string/SB" android:entryValues="@array/bubble_v" />
+    <ListPreference android:entries="@array/tick_n" android:title="Tick Style" android:key="tick_s" android:summary="@string/ST" android:entryValues="@array/tick_v" />
+</PreferenceScreen>

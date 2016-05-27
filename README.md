@@ -4,8 +4,9 @@ KWhatsApp is a modification (mod) of WhatsApp for Android. Includes new features
 # How to use
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
-# **_Feature_**
-- Base On v2.12.58
+# **_Features_**
+- KWhatsApp 1.5
+- Base On v2.12.90
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
@@ -22,8 +23,14 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Fast Backup and Restore
 - Restore Button like wa reborn
 - 20 Bubble Style.
+- 15 Ticks Style.
 - Auto Restart. Restart As Back Button Press.
 - In App Update Checker With Auto Update Checking.
+- MultiTask Chat.
+- Privacy Per Contact.
+
+# **Developing Features**
+- Online Contact Toast.
 
 # **Note**:
 This project is NOT affiliated or approved by WhatsApp Inc.
