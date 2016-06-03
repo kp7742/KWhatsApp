@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-public class RestoreB extends Button implements View.OnClickListener
-{
+public class RestoreB extends Button implements View.OnClickListener {
     public RestoreB(final Context context) {
         super(context);
         this.init();
@@ -26,8 +25,8 @@ public class RestoreB extends Button implements View.OnClickListener
         this.init();
     }
 
-    public void init() {
-        this.setOnClickListener((View.OnClickListener)this);
+    private void init() {
+        this.setOnClickListener(this);
     }
 
     public void onClick(final View view) {

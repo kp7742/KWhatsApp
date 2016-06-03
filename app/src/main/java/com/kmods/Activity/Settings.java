@@ -12,7 +12,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Utils.SetPrefString("documents", "pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
+        Utils.SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,unknown");
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsF()).commit();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

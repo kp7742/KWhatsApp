@@ -1,12 +1,12 @@
 package com.kmods;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.lang.reflect.Field;
 
-import static com.kmods.Utils.ctx;
-
 public class Privacy {
+    public static Context ctx;
     public static String JID;
     private static String GetType(Object o) {
         String s = null;
@@ -36,19 +36,20 @@ public class Privacy {
     public static boolean getPrivacyB(final String s) {
         return ctx.getSharedPreferences("kmods_privacy", 0).getBoolean(s, false);
     }
-    //Contact Privacy
-    public static void SetPrivacy(String s) {
+    public static void SetJID(String s) {
         JID = s;
         SharedPreferences prefs = ctx.getSharedPreferences("kmods_privacy", 0);
         SharedPreferences.Editor edit = prefs.edit();
-        if(!prefs.contains(s + "_HideRead") || !prefs.contains(s + "_HidePlay") || !prefs.contains(s + "_HideRecord") || !prefs.contains(s + "_HidePlay")) {
-            edit.putBoolean(s + "_HideRead", false);
-            edit.putBoolean(s + "_HidePlay", false);
-            edit.putBoolean(s + "_HideRecord", false);
-            edit.putBoolean(s + "_HideCompose", false);
+        if(!prefs.contains(JID + "_HideRead") || !prefs.contains(JID + "_HidePlay") || !prefs.contains(JID + "_HideRecord") || !prefs.contains(JID + "_HideCompose") || !prefs.contains(JID + "_HideReceipt")) {
+            edit.putBoolean(JID + "_HideRead", false);
+            edit.putBoolean(JID + "_HideReceipt", false);
+            edit.putBoolean(JID + "_HideCompose", false);
+            edit.putBoolean(JID + "_HideRecord", false);
+            edit.putBoolean(JID + "_HidePlay", false);
             edit.apply();
         }
     }
+    //Contact Privacy
     public static boolean CHideRead(final Object o) {
         Boolean b;
         if(getPrivacyB(GetType(o) + "_HideRead")){

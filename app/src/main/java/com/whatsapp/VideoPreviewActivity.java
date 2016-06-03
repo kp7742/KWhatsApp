@@ -5,5 +5,6 @@ import com.kmods.Utils;
 public class VideoPreviewActivity {
     void a(){
         int a = Utils.UpSize;
+        int b = Utils.UpSize;
     }
 }
