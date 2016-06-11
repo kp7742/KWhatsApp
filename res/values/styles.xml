@@ -1,0 +1,6 @@
+<resources>
+    <style name="ScreenFooterButton" parent="@android:style/Widget.Button">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
