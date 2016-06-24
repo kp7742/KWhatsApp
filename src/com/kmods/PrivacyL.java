@@ -55,16 +55,16 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
         toggle1.setChecked(Privacy.getPrivacyB(JID + "_HideRead"));
             final ToggleButton toggle2 = (ToggleButton) dialog.findViewById(getResID("tb2", "id"));
             toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HideReceipt", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HideReceipt", false);
-                        edit.apply();
-                    }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    edit.putBoolean(JID + "_HideReceipt", true);
+                    edit.apply();
+                } else {
+                    edit.putBoolean(JID + "_HideReceipt", false);
+                    edit.apply();
                 }
-            });
+            }
+        });
         toggle2.setChecked(Privacy.getPrivacyB(JID + "_HideReceipt"));
             final ToggleButton toggle3 = (ToggleButton) dialog.findViewById(getResID("tb3", "id"));
             toggle3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

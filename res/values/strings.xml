@@ -29,6 +29,7 @@
     <string name="HideComposeSum">"Don't tell the sender that you are typing a message."</string>
     <string name="CallBtn">Hide Call Button</string>
     <string name="CallBtnSum">Hide call button from conversation action bar</string>
+    <string name="sCallBtn">Show Call Button</string>
     <string name="TxtSelect">Make Text Selectable</string>
     <string name="TxtSelectSum">Enable chat bubble text selection</string>
     <string name="ArchvChat">Hide Archived Chats</string>
@@ -39,6 +40,7 @@
     <string name="SmSSum">Set Your Status To Home ActionBar Under Name</string>
     <string name="HideDate">Hide date and name</string>
     <string name="HideDateSum">Hide the date and the name when copying 2 messages or more</string>
+    <string name="ShowDate">Show date and name</string>
     <string name="ImgShareLimit">Disable Image Share Limit</string>
     <string name="ImgShareLimitSum">Send more than 10 image files at once</string>
     <string name="UpSizeLimit">Video Size Limit</string>

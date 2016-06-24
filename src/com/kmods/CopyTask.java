@@ -39,7 +39,7 @@ public class CopyTask extends AsyncTask<File, Integer, Integer> {
         this.dialog.setCancelable(false);
         this.dialog.setIndeterminate(false);
         this.dialog.setTitle(this.str);
-        this.dialog.setMessage("Procces Data...");
+        this.dialog.setMessage("Proccess Data...");
         this.sourceLocation = file;
         this.targetLocation = file2;
     }

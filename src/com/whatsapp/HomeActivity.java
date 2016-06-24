@@ -6,11 +6,12 @@ import com.kmods.Utils;
 
 public class HomeActivity extends AppCompatActivity {
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if(Utils.Auto_update()) {
             new Update2(this).execute((String[]) new String[0]);
         }
+        Utils.init(this.getApplicationContext());
         Utils.ShowName(getSupportActionBar(), this);
     }
 }

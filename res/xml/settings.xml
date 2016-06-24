@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-	<PreferenceCategory android:title="Whatsapp" android:key="cat_wa">
+	<PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
@@ -20,12 +20,12 @@
         <CheckBoxPreference android:title="@string/AudioSensor" android:key="Audio_sensor" android:summary="@string/AudioSensorSum" android:defaultValue="true" />
         <CheckBoxPreference android:title="@string/AudioEars" android:key="Audio_ears" android:summary="@string/AudioEarsSum" android:dependency="Audio_sensor" android:defaultValue="false" />
     </PreferenceCategory>
-	 <PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
+	<PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
         <Preference android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
         <Preference android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About" android:key="cat_wa">
-	    <Preference android:title="KWhatsApp 1.7 - Base v2.16.102" android:key="about" android:summary="Modded by Kuldip Patel" >
+	    <Preference android:title="KWhatsApp 1.9 - Base v2.16.134" android:key="about" android:summary="Modded by Kuldip Patel" >
 		        <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/117929374559788388477" />
         </Preference>
 		<Preference android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />

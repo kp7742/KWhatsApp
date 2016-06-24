@@ -69,14 +69,20 @@ public class Privacy extends AppCompatActivity {
     public static void SetJID(String s) {
         JID = s;
         SharedPreferences prefs = pctx.getSharedPreferences("kmods_privacy", 0);
+        SharedPreferences prefs2 = pctx.getSharedPreferences("KMODS", 0);
         SharedPreferences.Editor edit = prefs.edit();
-        if(!prefs.contains(JID + "_HideRead") || !prefs.contains(JID + "_HidePlay") || !prefs.contains(JID + "_HideRecord") || !prefs.contains(JID + "_HideCompose") || !prefs.contains(JID + "_HideReceipt")) {
+        SharedPreferences.Editor edit2 = prefs2.edit();
+        if(!prefs.contains(JID + "_HideRead") || !prefs.contains(JID + "_HidePlay") || !prefs.contains(JID + "_HideRecord") || !prefs.contains(JID + "_HideCompose") || !prefs.contains(JID + "_HideReceipt") || !prefs2.contains(JID + "-call_btn") || !prefs2.contains(JID + "-txt_select") || !prefs2.contains(JID + "-hideinfo")) {
             edit.putBoolean(JID + "_HideRead", false);
             edit.putBoolean(JID + "_HideReceipt", false);
             edit.putBoolean(JID + "_HideCompose", false);
             edit.putBoolean(JID + "_HideRecord", false);
             edit.putBoolean(JID + "_HidePlay", false);
+            edit2.putBoolean(JID + "-call_btn", false);
+            edit2.putBoolean(JID + "-txt_select", false);
+            edit2.putBoolean(JID + "-hideinfo", false);
             edit.apply();
+            edit2.apply();
         }
     }
     //Contact Privacy
