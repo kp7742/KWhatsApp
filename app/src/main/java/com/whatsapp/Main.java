@@ -1,8 +1,7 @@
 package com.whatsapp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.app.s;
 
-public class Main extends AppCompatActivity {
+public class Main extends s {
 
 }

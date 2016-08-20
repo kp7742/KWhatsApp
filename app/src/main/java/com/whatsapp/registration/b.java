@@ -1,6 +1,6 @@
 package com.whatsapp.registration;
 
-import com.kmods.SVF;
+import kmods.SVF;
 
 import javax.crypto.SecretKey;
 

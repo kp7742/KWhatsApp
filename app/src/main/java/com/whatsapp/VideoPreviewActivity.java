@@ -1,10 +1,11 @@
 package com.whatsapp;
 
-import com.kmods.Utils;
+
+import kmods.Utils;
 
 public class VideoPreviewActivity {
     void a(){
-        int a = Utils.UpSize;
-        int b = Utils.UpSize;
+        int a = Utils.getUpSize();
+        int b = Utils.getUpSize();
     }
 }

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 	<View android:background="@drawable/list_separator_bot" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_card_spacing" />
 	<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content">
-	<com.kmods.PrivacyL android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/selector_orange_gradient" android:paddingLeft="@dimen/info_screen_padding" android:paddingRight="12.0dip"
+	<kmods.PrivacyL android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/selector_orange_gradient" android:paddingLeft="@dimen/info_screen_padding" android:paddingRight="12.0dip"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:minHeight="@dimen/info_screen_row"
@@ -11,17 +11,7 @@
 	<LinearLayout android:gravity="center|left" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
                  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/CPrivacy" style="@style/ListItemTitle" />
     </LinearLayout>
-    </com.kmods.PrivacyL>
-	<View android:id="@id/status_separator" style="@style/FlatCardSeparator" />
-	<com.kmods.ModsL android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/selector_orange_gradient" android:paddingLeft="@dimen/info_screen_padding" android:paddingRight="12.0dip"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:minHeight="@dimen/info_screen_row"
-                  android:clickable="true">
-	<LinearLayout android:gravity="center|left" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
-                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Mods" style="@style/ListItemTitle" />
-    </LinearLayout>
-    </com.kmods.ModsL>
+    </kmods.PrivacyL>
 	</LinearLayout>
 	<View android:background="@drawable/list_separator_top" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_card_spacing" />
 </LinearLayout>	

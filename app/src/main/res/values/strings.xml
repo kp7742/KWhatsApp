@@ -44,7 +44,7 @@
     <string name="ImgShareLimit">Disable Image Share Limit</string>
     <string name="ImgShareLimitSum">Send more than 10 image files at once</string>
     <string name="UpSizeLimit">Video Size Limit</string>
-    <string name="UpSizeLimitSum">Increase video file size upload limit to 5GB</string>
+    <string name="UpSizeLimitSum">Increase video file size upload limit to 1GB</string>
     <string name="ImgHi">Full Resolution</string>
     <string name="ImgHiSum">Add full resolution send button in Image Preview screen</string>
     <string name="AudioSensor">Enable Proximity Sensor</string>
@@ -54,4 +54,12 @@
     <string name="MultiChat">Multi Task Chat</string>
     <string name="MultiChatSum">Multiple Task Chat For Lollipop And Up</string>
     <string name="ShortcutSum">Create KWhatsApp Shortcut on home screen To Fix Counter Message unread</string>
+    <string name="report">Report</string>
+    <string name="reportSum">Report About Any Problem Of KWhatsApp To ME</string>
+    <string name="coToast">Contact Online Toast</string>
+    <string name="coToastSum">"Show toast when contact is online,
+        1. You must be online
+        2. You must have a chat created with contact"</string>
+    <string name="gCounter">Group Message Counter</string>
+    <string name="gCounterSum">Count Messeages For Each Member in Group And Display It.</string>
 </resources>

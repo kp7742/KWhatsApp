@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
+    <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
 	<PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
@@ -13,29 +13,47 @@
     <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
         <CheckBoxPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />\
         <CheckBoxPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
-        <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
+        <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
+        <kmods.ActionP android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Audio Mods" android:key="cat_misc">
-        <CheckBoxPreference android:title="@string/AudioSensor" android:key="Audio_sensor" android:summary="@string/AudioSensorSum" android:defaultValue="true" />
-        <CheckBoxPreference android:title="@string/AudioEars" android:key="Audio_ears" android:summary="@string/AudioEarsSum" android:dependency="Audio_sensor" android:defaultValue="false" />
+    <PreferenceCategory android:title="Special Mods" android:key="cat_extra">
+        <CheckBoxPreference android:title="@string/coToast" android:key="contact_online_toast" android:summary="@string/coToastSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
+		<CheckBoxPreference android:title="Group Invites" android:key="group_invites" android:summary="Invite Friends to group with invite link" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Video Calling" android:key="video_calling" android:summary="Enable Video Calling" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Multi Cast" android:key="multicast" android:summary="Send Media To multiple Contacts at a time" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Doodle" android:key="doodle" android:summary="Draw on photos" android:defaultValue="true" />
+        <CheckBoxPreference android:title="Two Step Authentication" android:key="two_factor_auth" android:summary="Enable Two step authentication" android:defaultValue="true" />
+		<CheckBoxPreference android:title="Gif Supporting" android:key="gif" android:summary="Send Gif To Contact(Not Working Yet.)" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
+        <CheckBoxPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
     </PreferenceCategory>
 	<PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
-        <Preference android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
-        <Preference android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
+        <kmods.ActionP android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
+        <kmods.ActionP android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
     </PreferenceCategory>
     <PreferenceCategory android:title="About" android:key="cat_wa">
-	    <Preference android:title="KWhatsApp 1.9 - Base v2.16.134" android:key="about" android:summary="Modded by Kuldip Patel" >
+	    <Preference android:title="KWhatsApp 2.3 - Base v2.16.229" android:key="about" android:summary="Modded by Kuldip Patel" >
 		        <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/117929374559788388477" />
         </Preference>
-		<Preference android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
+		<kmods.ActionP android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
+        <kmods.ActionP android:title="@string/report" android:key="report" android:summary="@string/reportSum" />
+        <kmods.ActionP android:title="Reset" android:key="reset2" android:summary="Reset Your All Settings To Default." />
         <PreferenceScreen android:title="Special Thanks To" android:summary="Credits">
             <PreferenceCategory android:title="Credits Goes To" android:key="cat_misc">
+			    <Preference android:title="Rafalense" android:summary="For WhatsApp+ Codes" />
                 <Preference android:title="Brian Valente" android:summary="For Multiple Task Chat And Privacy Per Contact Inspiration">
                     <intent android:action="android.intent.action.VIEW" android:data="https://twitter.com/brianelv" />
                 </Preference>
-                <Preference android:title="Me" android:summary="For Make This Mod">
+                <Preference android:title="Peter Kuefer" android:summary="For Group State Counter">
+                    <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+PeterKuefer" />
+                </Preference>
+                <Preference android:title="Yousef Al-Basha" android:summary="For Many Of Codes">
+                    <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+YousefAlBasha" />
+                </Preference>
+                <Preference android:title="Me" android:summary="For This Mod">
                     <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+KuldipPatel7742" />
                 </Preference>
             </PreferenceCategory>

@@ -3,4 +3,15 @@
         <item name="android:textSize">17.0sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+	<style name="gc">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">#ff517cd3</item>
+        <item name="android:background">@drawable/gc</item>
+        <item name="android:paddingLeft">4.0dip</item>
+        <item name="android:paddingTop">2.0dip</item>
+        <item name="android:paddingRight">4.0dip</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

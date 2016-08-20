@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-  <com.kmods.RestoreB android:gravity="center" android:layout_gravity="center" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="280.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="Restore" android:layout_centerInParent="true" style="@style/ScreenFooterButton" />
-</LinearLayout>
