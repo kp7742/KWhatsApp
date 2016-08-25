@@ -14,21 +14,17 @@ public class RestoreB extends Button implements View.OnClickListener {
         super(context);
         this.init();
     }
-
     public RestoreB(final Context context, final AttributeSet set) {
         super(context, set);
         this.init();
     }
-
     public RestoreB(final Context context, final AttributeSet set, final int n) {
         super(context, set, n);
         this.init();
     }
-
     private void init() {
         this.setOnClickListener(this);
     }
-
     public void onClick(final View view) {
         if (new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup/com.whatsapp").exists()) {
             new CopyTask(getContext(), false, new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup/com.whatsapp"), new File(Environment.getDataDirectory(), "data/com.whatsapp")).execute(new File[0]);

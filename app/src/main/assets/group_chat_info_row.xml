@@ -6,8 +6,8 @@
 		<LinearLayout android:orientation="vertical" android:clipChildren="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
             <LinearLayout android:orientation="horizontal" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <com.whatsapp.TextEmojiLabel android:gravity="left" android:id="@id/name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/ListItemTitle" />
+				<com.whatsapp.TextEmojiLabel android:gravity="center" android:id="@id/gcounter" android:visibility="gone" android:text="\?" style="@style/TextGroupAdmin" />
                 <TextView android:id="@id/owner" android:visibility="gone" style="@style/TextGroupAdmin" />
-				<com.whatsapp.TextEmojiLabel android:id="@id/gcounter" android:visibility="gone" android:text="\?" style="@style/gc" />
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <com.whatsapp.TextEmojiLabel android:gravity="left" android:layout_gravity="left" android:id="@id/status" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/ListItemSubtitleSmall" />

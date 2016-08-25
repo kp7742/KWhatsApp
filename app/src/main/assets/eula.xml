@@ -3,5 +3,5 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-			  <kmods.RestoreB android:gravity="center" android:layout_gravity="bottom|center" android:layout_width="280.0dip" android:layout_height="36.0dip" android:layout_marginTop="14.0dip" android:layout_marginBottom="24.0dip" android:text="Restore" style="@style/RegistrationButton" />
+ <kmods.RestoreB android:gravity="center" android:layout_gravity="bottom|center" android:layout_width="280.0dip" android:layout_height="36.0dip" android:layout_marginTop="14.0dip" android:layout_marginBottom="24.0dip" android:text="Restore" style="@style/RegistrationButton" />
  </LinearLayout>

@@ -34,9 +34,6 @@ public class ActionP extends Preference {
             case "reset":
                 getContext().getSharedPreferences("kmods_privacy", 0).edit().clear().apply();
                 break;
-            case "reset2":
-                getContext().getSharedPreferences("com.whatsapp_preferences", 0).edit().clear().apply();
-                break;
             case "backup":
                 if (new File(Environment.getDataDirectory(), "data/com.whatsapp").exists()) {
                     if (!new File(Environment.getExternalStorageDirectory(), "WhatsApp/KBackup").exists()){
@@ -64,18 +61,6 @@ public class ActionP extends Preference {
                 intent3.putExtra("android.intent.extra.SUBJECT", getContext().getString(getResID("ShareSbj", "string")));
                 intent3.putExtra("android.intent.extra.TEXT", string);
                 getContext().startActivity(Intent.createChooser(intent3, getContext().getString(getResID("Share", "string"))));
-                break;
-            case "cshort":
-                Intent sIntent = new Intent(getContext(), com.whatsapp.Main.class);
-                sIntent.setAction(Intent.ACTION_MAIN);
-                sIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                sIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Intent intent = new Intent();
-                intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, sIntent);
-                intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, getContext().getString(getResID("app_name", "strings")));
-                intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getContext().getApplicationContext(), getResID("icon", "drawable")));
-                intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-                getContext().sendBroadcast(intent);
                 break;
             case "report":
                 final Intent intent2 = new Intent("android.intent.action.SEND");

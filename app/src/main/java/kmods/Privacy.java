@@ -3,11 +3,11 @@ package kmods;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.whatsapp.yp;
+import com.whatsapp.yr;
 
 import java.lang.reflect.Field;
 
-public class Privacy extends yp {
+public class Privacy extends yr {
     static Context pctx;
     static String JID;
     @Override
@@ -50,10 +50,13 @@ public class Privacy extends yp {
         if (o != null) {
             if (o.contains("@broadcast")) {
                 s = "B";
+                return s;
             } else if (o.contains("@s.whatsapp.net")) {
                 s = "G";
+                return s;
             } else if (o.contains("g.us")) {
                 s = "G";
+                return s;
             }
         }
         return s;
@@ -84,45 +87,53 @@ public class Privacy extends yp {
         }
         return b;
     }
-    public static boolean CHidePlay() {
+    public static boolean AlwaysOnline(){
+        return getPrivacyB("always_online");
+    }
+    public static boolean HideSeen(){
+        return getPrivacyB("hide_seen");
+    }
+    public static boolean HideCR(final int n) {
+        boolean b;
+        if (n == 1) {
+            if(getPrivacyB("HideRecord")) {
+                b = getPrivacyB("HideRecord");
+            } else {
+                b = getPrivacyB(JID + "_HideRecord");
+            }
+        } else {
+            if(getPrivacyB("HideCompose")) {
+                b = getPrivacyB("HideCompose");
+            } else {
+                b = getPrivacyB(JID + "_HideCompose");
+            }
+        }
+        return b;
+    }
+    public static boolean HideRead(final Object o) {
         Boolean b;
-        if(getPrivacyB("HidePlay")){
-            b = getPrivacyB("HidePlay");
+        if(getPrivacyB(GetType(o) +"_HideRead")){
+            b = getPrivacyB(GetType(o) +"_HideRead");
+        } else {
+            b = getPrivacyB(JID + "_HideRead");
+        }
+        return b;
+    }
+    public static boolean HidePlay(final Object o) {
+        Boolean b;
+        if(getPrivacyB(GetType(o) + "_HidePlay")){
+            b = getPrivacyB(GetType(o) + "_HidePlay");
         }  else {
             b = getPrivacyB(JID + "_HidePlay");
         }
         return b;
     }
-    public static boolean CHideReceipt() {
+    public static boolean HideReceipt(final Object o) {
         Boolean b;
-        if(getPrivacyB("HideReceipt")){
-            b = getPrivacyB("HideReceipt");
+        if(getPrivacyB(GetType(o) + "_HideReceipt")){
+            b = getPrivacyB(GetType(o) + "_HideReceipt");
         } else {
             b = getPrivacyB(JID + "_HideReceipt");
-        }
-        return b;
-    }
-    public static boolean CHideCR(final String s) {
-        boolean b;
-        if (s != null) {
-            b = getPrivacyB(JID + "_HideCompose");
-        }
-        else {
-            b = getPrivacyB(JID + "_HideRecord");
-        }
-        return b;
-    }
-    //Global Privacy
-    public static boolean HideSeen(){
-        return getPrivacyB("hide_seen");
-    }
-    public static boolean HideCR(final String s) {
-        boolean b;
-        if (s != null) {
-            b = getPrivacyB("HideCompose");
-        }
-        else {
-            b = getPrivacyB("HideRecord");
         }
         return b;
     }

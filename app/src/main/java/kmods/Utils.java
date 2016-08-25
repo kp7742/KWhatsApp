@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
@@ -34,26 +36,32 @@ public class Utils {
     private static boolean getBoolean(final String s) {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
-    static void toTxt(String str, String name){
-        try {
-            FileWriter out = new FileWriter(new File(Environment.getExternalStorageDirectory().getPath(), name));
-            out.write(str);
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    //Menu
+    public static void addMenu(com.whatsapp.HomeActivity a, MenuItem b){
+        if(b.getItemId() == getResID("mods", "id")){
+            a.startActivity(new Intent(a, kmods.Settings.class));
+        }
+        if(b.getItemId() == getResID("privacy", "id")){
+            a.startActivity(new Intent(a, kmods.Privacy.class));
         }
     }
+    public static MenuItem setMenuS(Menu menu){
+        return menu.add(2,getResID("mods", "id"),0,getResID("Mods", "string"));
+    }
+    public static MenuItem setMenuP(Menu menu){
+        return menu.add(2,getResID("privacy", "id"),0,getResID("Privacy", "string"));
+    }
+    //Group Counter
     public static void SetDB(final SQLiteOpenHelper sql) {
         Utils.sql = sql;
     }
     public static LinkedHashMap GetGroupMsgs(final String s) {
-        final LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();
-        final Cursor rawQuery = Utils.sql.getReadableDatabase().rawQuery("SELECT remote_resource, count(remote_resource) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND remote_resource!=\"\" GROUP BY remote_resource UNION SELECT remote_resource, count(key_from_me) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND key_from_me=1 And receipt_server_timestamp!=-1 GROUP BY remote_resource ORDER BY total DESC", (String[])null);
+        final LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        final Cursor rawQuery = Utils.sql.getReadableDatabase().rawQuery("SELECT remote_resource, count(remote_resource) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND remote_resource!=\"\" GROUP BY remote_resource UNION SELECT remote_resource, count(key_from_me) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND key_from_me=1 And receipt_server_timestamp!=-1 GROUP BY remote_resource ORDER BY total DESC", null);
         rawQuery.moveToFirst();
         if (rawQuery.getCount() <= 0) {
             rawQuery.close();
-        }
-        else {
+        } else {
             do {
                 linkedHashMap.put(rawQuery.getString(0), rawQuery.getInt(1));
             } while (rawQuery.moveToNext());
@@ -61,25 +69,25 @@ public class Utils {
         }
         return linkedHashMap;
     }
-    public static void SetMsgs(final String s, final GroupChatInfo groupChatInfo, final View view) {
+    public static void SetGroupMsgs(final String s, final GroupChatInfo groupChatInfo, final View view) {
         final LinkedHashMap counter = groupChatInfo.Counter;
+        String s2 = s;
         final TextView textView = (TextView)view.findViewById(getResID("gcounter", "id"));
         if (counter != null) {
             if(getBoolean("gCounter_check")) {
                 textView.setVisibility(View.VISIBLE);
             }
-            String s2 = s;
             if (s.equals("me")) {
                 s2 = null;
             }
-            if (groupChatInfo.Counter.get(s2) == null) {
+            if (counter.get(s2) == null) {
                 textView.setText("0");
-            }
-            else {
-                textView.setText(String.valueOf(groupChatInfo.Counter.get(s2)));
+            } else {
+                textView.setText(String.valueOf(counter.get(s2)));
             }
         }
     }
+    //custom wallp
     public static Drawable getCwallp(final Drawable drawable) {
         try {
             final String string = "/data/data/com.whatsapp/files/" + JID + "_wallpaper.jpg";
@@ -112,6 +120,7 @@ public class Utils {
             return name;
         }
     }
+    //mutitask
     public static Intent multiTask(Intent intent){
         if(getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
@@ -120,6 +129,7 @@ public class Utils {
         }
         return intent;
     }
+    //ActionBar Name
     public static void ShowName(final android.support.v7.app.a actionBar, final Context ctx) {
         CharSequence name = "WhatsApp";
         if (getBoolean("show_my_name_check")) {
@@ -130,6 +140,7 @@ public class Utils {
         }
         actionBar.a(name);
     }
+    //Media Size
     public static int getUpSize() {
         int n = 16;
         if(getBoolean("up_size")){
@@ -147,6 +158,7 @@ public class Utils {
     static int getResID(String name, String type){
         return ctx.getResources().getIdentifier(name, type, ctx.getPackageName());
     }
+    //online toast
     public static boolean contact_online_toast() {
         return getBoolean("contact_online_toast");
     }
@@ -165,6 +177,7 @@ public class Utils {
         edit.putBoolean(name, value);
         edit.apply();
     }
+    //Exo Init
     public static void init(Context ctx){
         if (ctx instanceof Activity) {
             Utils.ctx = ctx.getApplicationContext();

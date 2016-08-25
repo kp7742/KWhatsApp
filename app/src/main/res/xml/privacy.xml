@@ -3,11 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Global" android:key="cat_pc">
         <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Always Online" android:key="always_online" android:summary="Stay always online even when screen is off" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideRecord" android:key="HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideCompose" android:key="HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/HideRead" android:key="HideRead" android:summary="@string/HideReadSumC" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/HideReceipt" android:key="HideReceipt" android:summary="@string/HideReceiptSumC" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/HidePlay" android:key="HidePlay" android:summary="@string/HidePlaySumC" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Contacts" android:key="cat_pc">
         <CheckBoxPreference android:title="@string/HideRead" android:key="C_HideRead" android:summary="@string/HideReadSumC" android:defaultValue="false" />

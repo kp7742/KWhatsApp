@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@android:id/widget_frame" android:paddingLeft="15.0dip" android:paddingTop="5.0dip" android:paddingRight="10.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/seekBarPrefUnitsRight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <TextView android:gravity="right" android:id="@id/seekBarPrefValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/seekBarPrefUnitsRight" />
+    <TextView android:id="@id/seekBarPrefUnitsLeft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/seekBarPrefValue" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/seekBarPrefBarContainer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/seekBarPrefUnitsRight" android:layout_alignParentLeft="true">
+        <SeekBar android:id="@id/seekBarPrefSeekBar" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
