@@ -1,69 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:robobunny="http://robobunny.com">
-    <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
-    <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-	<PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
+  	<PreferenceCategory android:title="GeekWhatsApp" />
+	<kmods.preference.ActionP android:icon="@drawable/update" android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
+    <Preference android:icon="@drawable/restart" android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
+    <PreferenceScreen android:icon="@drawable/whatsapp" android:title="GeekWhatsApp 1.0" android:summary="Base v2.16.247">
+	<PreferenceCategory android:title="Follow GeekBros" />
+        <Preference android:icon="@drawable/web" android:title="Visit GeekBros's Website" android:summary="Visit Our Official Website For Other Updates" >
+            <intent android:action="android.intent.action.VIEW" android:data="http://geekbros.ml/" />
+        </Preference>
+        <Preference android:icon="@drawable/gplus" android:title="Join GeekBros On G+" android:summary="Join Our Google Plus Community" >
+            <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/104734492401532515715" />
+        </Preference>
+        <Preference android:icon="@drawable/about_logo" android:title="Join GeekBros On WhatsApp" android:summary="Join Our Official WhatsApp Group" >
+            <intent android:action="android.intent.action.VIEW" android:data="https://chat.whatsapp.com/5597xaq1KG8DpPAtuA2W0i" />
+        </Preference>
+		<Preference android:icon="@drawable/fb" android:title="Visit GeekBros's On FaceBook" android:summary="Visit And LikeOur Official FaceBook Page" >
+            <intent android:action="android.intent.action.VIEW" android:data="http://www.facebook.com/" />
+        </Preference>
+	</PreferenceScreen>
+    <kmods.preference.ActionP android:icon="@drawable/credits" android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
+	<PreferenceCategory android:title="GeekWhatsApp Mods" />
+    <PreferenceScreen android:icon="@drawable/general" android:title="General Mods">
+	<PreferenceCategory android:title="General Mods" android:key="cat_wa">
         <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
 		<CheckBoxPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Update Checking" android:defaultValue="true" />
     </PreferenceCategory>
+	</PreferenceScreen>
+	<PreferenceScreen android:icon="@drawable/misc" android:title="Misc Mods">
     <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
         <CheckBoxPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
-        <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
+        <kmods.preference.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
         <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>
+	</PreferenceScreen>
+	<PreferenceScreen android:icon="@drawable/plus" android:title="Special Mods">
     <PreferenceCategory android:title="Special Mods" android:key="cat_extra">
         <CheckBoxPreference android:title="@string/coToast" android:key="contact_online_toast" android:summary="@string/coToastSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
-		<CheckBoxPreference android:title="Group Invites" android:key="group_invites" android:summary="Invite Friends to group with invite link" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Video Calling" android:key="video_calling" android:summary="Enable Video Calling" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Multi Cast" android:key="multicast" android:summary="Send Media To multiple Contacts at a time" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Doodle" android:key="doodle" android:summary="Draw on photos" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Two Step Authentication" android:key="two_factor_auth" android:summary="Enable Two step authentication" android:defaultValue="true" />
-		<CheckBoxPreference android:title="Gif Supporting" android:key="gif" android:summary="Send Gif To Contact" android:defaultValue="true" />
-		<CheckBoxPreference android:title="Mention Feature" android:key="user" android:summary="You Can Mention Any One In Group." android:defaultValue="true" />
+		<ListPreference android:entries="@array/bubble_n" android:title="@string/B" android:key="bubble_s" android:summary="@string/SB" android:defaultValue="stock" android:entryValues="@array/bubble_v" />
+        <ListPreference android:entries="@array/tick_n" android:title="@string/T" android:key="tick_s" android:summary="@string/ST" android:defaultValue="stock" android:entryValues="@array/tick_v" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
+	</PreferenceScreen>
+	<PreferenceScreen android:icon="@drawable/hidden" android:title="Hidden Mods">
+    <PreferenceCategory android:title="Hidden Mods" android:key="cat_hidden">
+        <CheckBoxPreference android:title="Mentions" android:key="user" android:summary="Quote members of group using push names" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Group Invites" android:key="group_invites" android:summary="Generate WhatsApp Group Invitation Links." android:defaultValue="false" />
+        <CheckBoxPreference android:title="Video Calling" android:key="video_calling" android:summary="Enable Video Calling On WhatsApp.(Not Working From Server-Side)" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Multi Cast" android:key="multicast" android:summary="Send anything to multiple conversation." android:defaultValue="false" />
+        <CheckBoxPreference android:title="Doodle" android:key="doodle" android:summary="Edit the images before sending (Only works with the quick action camera button)" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Two Step Auth." android:key="two_factor_auth" android:summary="Secure Your WhatsApp Account." android:defaultValue="false" />
+        <CheckBoxPreference android:title="GIF Support" android:key="gif" android:summary="Enable sending GIFs" android:defaultValue="false" />
+    </PreferenceCategory>
+	</PreferenceScreen>
+	<PreferenceScreen android:icon="@drawable/media" android:title="Media Mods">
+    <PreferenceCategory android:title="Image Mods" android:key="cat_imisc">
+        <CheckBoxPreference android:title="@string/ImgHi" android:key="high_res" android:summary="@string/ImgHiSum" android:defaultValue="false" />
+        <kmods.BadlatiPrefs android:max="10240" android:title="Maximum Image Size" android:key="image_max_kbytes" android:dependency="high_res" android:defaultValue="5120" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="KB" />
+        <kmods.BadlatiPrefs android:max="100" android:title="JPG Image Quality" android:key="image_quality" android:dependency="high_res" android:defaultValue="80" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="%" />
+        <kmods.BadlatiPrefs android:max="5315" android:title="Maximum Image Resolution" android:key="image_max_edge" android:dependency="high_res" android:defaultValue="1280" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="PX" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Video Mods" android:key="cat_vmisc">
         <CheckBoxPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
-		<kmods.BadlatiPrefs android:max="1024" android:title="Media Size Limit" android:key="media_limit_mb" android:dependency="up_size" android:defaultValue="16" robobunny:min="16" robobunny:unitsLeft="" robobunny:unitsRight="MB" />
-        <kmods.BadlatiPrefs android:max="10240" android:title="Maximum Image Size" android:key="image_max_kbytes" android:defaultValue="5120" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="KB" />
-        <kmods.BadlatiPrefs android:max="100" android:title="JPG Image Quality" android:key="image_quality" android:defaultValue="80" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="%" />
-        <kmods.BadlatiPrefs android:max="5315" android:title="Maximum Image Resolution" android:key="image_max_edge" android:defaultValue="1280" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="PX" />
-	</PreferenceCategory>
+		<kmods.BadlatiPrefs android:max="72" android:title="Media Size Limit" android:key="media_limit_mb" android:dependency="up_size" android:defaultValue="16" robobunny:min="16" robobunny:unitsLeft="" robobunny:unitsRight="MB" />
+    </PreferenceCategory>
+    </PreferenceScreen>
+	<PreferenceScreen android:icon="@drawable/backup" android:title="Backup And Restore">
 	<PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
-        <kmods.ActionP android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
-        <kmods.ActionP android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
+        <kmods.preference.ActionP android:title="@string/Backup" android:key="backup" android:summary="@string/BackupSum" />
+        <kmods.preference.ActionP android:title="@string/Restore" android:key="restore" android:summary="@string/RestoreSum" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="About" android:key="cat_wa">
-	    <Preference android:title="KWhatsApp 2.3 - Base v2.16.236" android:key="about" android:summary="Modded by Kuldip Patel" >
-		        <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/117929374559788388477" />
-        </Preference>
-		<kmods.ActionP android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
-        <kmods.ActionP android:title="@string/report" android:key="report" android:summary="@string/reportSum" />
-        <PreferenceScreen android:title="Special Thanks To" android:summary="Credits">
-            <PreferenceCategory android:title="Credits Goes To" android:key="cat_misc">
-			    <Preference android:title="Rafalense" android:summary="For WhatsApp+ Codes" />
-                <Preference android:title="Brian Valente" android:summary="For Multiple Task Chat And Privacy Per Contact Inspiration">
-                    <intent android:action="android.intent.action.VIEW" android:data="https://twitter.com/brianelv" />
-                </Preference>
-                <Preference android:title="Peter Kuefer" android:summary="For Group State Counter">
-                    <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+PeterKuefer" />
-                </Preference>
-                <Preference android:title="Yousef Al-Basha" android:summary="For Many Of Codes">
-                    <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+YousefAlBasha" />
-                </Preference>
-				<Preference android:title="Team GeekBros">
-                    <intent android:action="android.intent.action.VIEW" android:data="http://GeekBros.ml/" />
-                </Preference>
-                <Preference android:title="Me" android:summary="For This Mod">
-                    <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/+KuldipPatel7742" />
-                </Preference>
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
+	</PreferenceScreen>
+    <PreferenceCategory android:title="Share And Report" />
+    <kmods.preference.ActionP android:icon="@drawable/share" android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
+    <Preference android:icon="@drawable/report" android:title="@string/report" android:summary="@string/reportSum" >
+        <intent android:action="android.intent.action.VIEW" android:data="http://geekbros.ml/contact-us/" />
+    </Preference>
 </PreferenceScreen>

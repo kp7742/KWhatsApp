@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.App.Home.Splash" parent="@style/Theme.App.Home">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+	<style name="Theme.App" parent="@android:style/Theme.DeviceDefault" />
+    <style name="Theme.Prefs" parent="@style/Theme.App">
+        <item name="android:windowBackground">@drawable/setting</item>
+    </style>
+</resources>

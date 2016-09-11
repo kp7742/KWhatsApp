@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="wamod_supportsAlpha" format="boolean" />
+    </declare-styleable>
+    <!-- CircularImageView -->
+    <attr name="border" format="boolean" />
+    <attr name="border_color" format="color" />
+    <attr name="border_width" format="dimension" />
+    <attr name="circularImageViewStyle" format="reference" />
+    <attr name="selector" format="boolean" />
+    <attr name="selector_color" format="color" />
+    <attr name="selector_stroke_color" format="color" />
+    <attr name="selector_stroke_width" format="dimension" />
+    <attr name="shadow" format="boolean" />
+	<declare-styleable name="SwatchView">
+        <attr name="radialMargin" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ColorPicker">
+        <attr name="colorpicker_selectNoneButtonText" format="string" />
+        <attr name="colorpicker_noneSelectedSummaryText" format="string" />
+        <attr name="colorpicker_showAlpha" format="boolean"/>
+        <attr name="colorpicker_showHex" format="boolean"/>
+    </declare-styleable>
+</resources>

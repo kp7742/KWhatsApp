@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ripple_material_dark">#55888888</color>
+    <color name="ripple_material_light">#55888888</color>
+	<color name="disabled_gray">#44888888</color>
+    <color name="gray600">#757575</color>
+	<color name="about_statusbar">#ffff5252</color>
+    <color name="accent">#ffff5252</color>
+	<color name="accent_light">#ffff5252</color>
+	<color name="action_mode">#ffff5252</color>
+    <color name="action_mode_dark">#ffff5252</color>
+	<color name="primary">#ff00bcd4</color>
+    <color name="primary_dark">#ff01adc3</color>
+</resources>

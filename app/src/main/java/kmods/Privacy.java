@@ -3,23 +3,29 @@ package kmods;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.whatsapp.yr;
+import com.whatsapp.ti;
 
 import java.lang.reflect.Field;
 
-public class Privacy extends yr {
+import static kmods.Utils.getResID;
+
+public class Privacy extends ti {
     static Context pctx;
     static String JID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getPreferenceManager().setSharedPreferencesName("kmods_privacy");
-        this.addPreferencesFromResource(Utils.getResID("privacy", "xml"));
+        this.getPreferenceManager().setSharedPreferencesName("geekmods_privacy");
+        this.addPreferencesFromResource(getResID("privacy", "xml"));
     }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
     private static String GetType(Object o) {
         for (final Field field : o.getClass().getFields()) {
@@ -62,11 +68,11 @@ public class Privacy extends yr {
         return s;
     }
     static boolean getPrivacyB(final String s) {
-        return pctx.getSharedPreferences("kmods_privacy", 0).getBoolean(s, false);
+        return pctx.getSharedPreferences("geekmods_privacy", 0).getBoolean(s, false);
     }
     public static void SetJID(String s) {
         JID = s;
-        SharedPreferences prefs = pctx.getSharedPreferences("kmods_privacy", 0);
+        SharedPreferences prefs = pctx.getSharedPreferences("geekmods_privacy", 0);
         SharedPreferences.Editor edit = prefs.edit();
         if(!prefs.contains(JID + "_HideRead") || !prefs.contains(JID + "_HidePlay") || !prefs.contains(JID + "_HideRecord") || !prefs.contains(JID + "_HideCompose") || !prefs.contains(JID + "_HideReceipt")) {
             edit.putBoolean(JID + "_HideRead", false);
@@ -78,63 +84,31 @@ public class Privacy extends yr {
         }
     }
     //Contact Privacy
-    public static boolean CHideRead() {
-        Boolean b;
-        if(getPrivacyB("HideRead")){
-            b = getPrivacyB("HideRead");
-        } else {
-            b = getPrivacyB(JID + "_HideRead");
-        }
-        return b;
-    }
     public static boolean AlwaysOnline(){
         return getPrivacyB("always_online");
     }
     public static boolean HideSeen(){
         return getPrivacyB("hide_seen");
     }
-    public static boolean HideCR(final int n) {
+    public static boolean HideCR(String JIDs,final int n) {
         boolean b;
         if (n == 1) {
-            if(getPrivacyB("HideRecord")) {
-                b = getPrivacyB("HideRecord");
-            } else {
-                b = getPrivacyB(JID + "_HideRecord");
-            }
+            b = getPrivacyB("HideRecord") || getPrivacyB(JIDs + "_HideRecord");
         } else {
-            if(getPrivacyB("HideCompose")) {
-                b = getPrivacyB("HideCompose");
-            } else {
-                b = getPrivacyB(JID + "_HideCompose");
-            }
+            b = getPrivacyB("HideCompose") || getPrivacyB(JIDs + "_HideCompose");
         }
         return b;
     }
-    public static boolean HideRead(final Object o) {
-        Boolean b;
-        if(getPrivacyB(GetType(o) +"_HideRead")){
-            b = getPrivacyB(GetType(o) +"_HideRead");
-        } else {
-            b = getPrivacyB(JID + "_HideRead");
-        }
-        return b;
+    public static boolean HideRead(final com.whatsapp.alh o) {
+        String JIDs = o.a.a;
+        return getPrivacyB(GetType(o) + "_HideRead") || getPrivacyB(JIDs + "_HideRead");
     }
-    public static boolean HidePlay(final Object o) {
-        Boolean b;
-        if(getPrivacyB(GetType(o) + "_HidePlay")){
-            b = getPrivacyB(GetType(o) + "_HidePlay");
-        }  else {
-            b = getPrivacyB(JID + "_HidePlay");
-        }
-        return b;
+    public static boolean HidePlay(final com.whatsapp.protocol.by o) {
+        String JIDs = o.e.a;
+        return getPrivacyB(GetType(o) + "_HidePlay") || getPrivacyB(JIDs + "_HidePlay");
     }
-    public static boolean HideReceipt(final Object o) {
-        Boolean b;
-        if(getPrivacyB(GetType(o) + "_HideReceipt")){
-            b = getPrivacyB(GetType(o) + "_HideReceipt");
-        } else {
-            b = getPrivacyB(JID + "_HideReceipt");
-        }
-        return b;
+    public static boolean HideReceipt(final com.whatsapp.protocol.by o) {
+        String JIDs = o.e.a;
+        return getPrivacyB(GetType(o) + "_HideReceipt") || getPrivacyB(JIDs + "_HideReceipt");
     }
 }

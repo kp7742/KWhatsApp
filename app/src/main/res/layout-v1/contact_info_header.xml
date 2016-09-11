@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@+id/header_placeholder" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_header" />
+    <include layout="@layout/media_card" />
+    <include layout="@layout/actions_card" />
+    <include layout="@layout/privacy_card" />
+    <LinearLayout android:orientation="vertical" android:id="@+id/status_card" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="@drawable/list_separator_bot" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_card_spacing" />
+        <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout style="@style/FlatCardHeader">
+                <TextView android:paddingLeft="@dimen/info_screen_padding" android:text="@string/contact_status_and_phone" style="@style/FlatCardTitle" />
+            </FrameLayout>
+            <com.whatsapp.TextEmojiLabel android:ellipsize="none" android:layout_gravity="left" android:id="@+id/status" android:paddingLeft="@dimen/info_screen_padding" android:paddingTop="10.0dip" android:paddingRight="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="false" style="@style/ListItemTitle" />
+            <TextView android:layout_gravity="left" android:id="@+id/status_info" android:paddingLeft="@dimen/info_screen_padding" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/ListItemSubtitleSmall" />
+            <View android:id="@+id/status_separator" style="@style/FlatCardSeparator" />
+            <include layout="@layout/contact_info_phone" />
+        </LinearLayout>
+        <View android:background="@drawable/list_separator_top" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_card_spacing" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/groups_card" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="@drawable/list_separator_bot" android:layout_width="fill_parent" android:layout_height="@dimen/info_screen_card_spacing" />
+        <FrameLayout android:background="@color/white" android:paddingLeft="@dimen/info_screen_padding" style="@style/FlatCardHeader">
+            <TextView android:ellipsize="end" android:id="@+id/groups_title" android:paddingRight="32.0dip" android:text="@string/groups_in_common" android:singleLine="true" style="@style/FlatCardTitle" />
+            <TextView android:id="@+id/groups_info" style="@style/FlatCardInfo" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

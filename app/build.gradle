@@ -1,20 +1,19 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "kmods.res"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -23,10 +22,5 @@ android {
 dependencies {
     provided files('libs/whatsapp.jar')
     compile files('libs/fabric.jar')
-    compile('com.crashlytics.sdk.android:answers:1.3.9@aar') {
-        transitive = true;
-    }
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
-        transitive = true;
-    }
+    compile 'com.pkmmte.view:circularimageview:1.1'
 }

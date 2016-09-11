@@ -8,13 +8,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.ToggleButton;
-
 import static kmods.Privacy.JID;
 import static kmods.Utils.getResID;
 
 public class PrivacyL extends LinearLayout implements View.OnClickListener {
-    private SharedPreferences prefs = getContext().getSharedPreferences("kmods_privacy", 0);
+    private SharedPreferences prefs = getContext().getSharedPreferences("geekmods_privacy", 0);
     private SharedPreferences.Editor edit = prefs.edit();
     private Dialog dialog = new Dialog(getContext());
     public PrivacyL(Context context) {

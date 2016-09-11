@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="tbtnSelectionColor" format="color" />
+    <attr name="tbtnRadius" format="dimension" />
+    <attr name="tbtnBorderSize" format="dimension" />
+    <attr name="tbtnBorderColor" format="color" />
+    <attr name="tbtnAspectRatio" format="float" />
+    <attr name="tbtnForegroundOnly" format="boolean" />
+    <attr name="tbtnText" format="string" />
+    <attr name="tbtnIcon" format="reference" />
+    <attr name="tbtnTextSize" format="dimension" />
+    <attr name="tbtnTextColor" format="color" />
+    <attr name="tbtnTextGravity" format="integer" />
+    <attr name="tbtnBackgroundColor" format="color" />
+    <attr name="pstsIndicatorColor" format="color" />
+    <attr name="pstsUnderlineColor" format="color" />
+    <attr name="pstsDividerColor" format="color" />
+    <attr name="pstsIndicatorHeight" format="dimension" />
+    <attr name="pstsUnderlineHeight" format="dimension" />
+    <attr name="pstsDividerPadding" format="dimension" />
+    <attr name="pstsTabPaddingLeftRight" format="dimension" />
+    <attr name="pstsScrollOffset" format="dimension" />
+    <attr name="pstsTabBackground" format="reference" />
+    <attr name="pstsShouldExpand" format="boolean" />
+    <attr name="pstsTextAllCaps" format="boolean" />
+</resources>

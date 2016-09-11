@@ -15,18 +15,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-class Update extends AsyncTask<String, String, String>
+public class Update extends AsyncTask<String, String, String>
 {
     private int a = 0;
     private int b = 0;
     private ProgressDialog progDlg;
     private Context ctx;
-    Update(Context ctx){
+    public Update(Context ctx){
         this.ctx = ctx;
     }
     protected String doInBackground(final String... array) {
         try {
-            InputStreamReader in = new InputStreamReader(new URL("http://kp7742.github.io/update/UpdateC.html").openStream());
+            InputStreamReader in = new InputStreamReader(new URL("http://geekbros.ml/update/UpdateC.html").openStream());
             BufferedReader br = new  BufferedReader(in);
             String string = "";
             while (true) {
@@ -48,13 +48,13 @@ class Update extends AsyncTask<String, String, String>
     protected void onPostExecute(final String s) {
         if (this.a > Utils.v1 || this.b > Utils.v2 && this.b != 10) {
             WebView wv = new WebView(ctx);
-            wv.loadUrl("http://kp7742.github.io/update/CL.html");
+            wv.loadUrl("http://geekbros.ml/update/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
-            builder.setTitle("New Update Of KWhatsApp v" + this.a + "." + this.b);
+            builder.setTitle("New Update Of GeekWhatsApp v" + this.a + "." + this.b);
             builder.setView(wv);
             builder.setPositiveButton("Download Now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://plus.google.com/u/0/communities/117929374559788388477")));
+                    ctx.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("http://geekbros.ml/")));
                 }
             });
             builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
@@ -72,7 +72,7 @@ class Update extends AsyncTask<String, String, String>
             builder2.show();
         } else {
             AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!:" + "\nKWhatsApp v" + Utils.v1 + "." + Utils.v2);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + "\nGeekWhatsApp v" + Utils.v1 + "." + Utils.v2);
             builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();

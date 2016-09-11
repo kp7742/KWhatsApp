@@ -1,12 +1,15 @@
-# What is KWhatsApp?
-KWhatsApp is a modification (mod) of WhatsApp for Android. Includes new features like privacy.
+# What is GeekWhatsApp(KWhatsApp)?
+GeekWhatsApp Is Basically Well Improved And Pollished KWhatsApp. GeekWhatsApp is a modification(mod) of WhatsApp for Android. Includes new features like privacy.
 
+# Why KWhatsApp Became GeekWhatsAppk?
+After Join Team GeekBros All Members Do MeetUp And Decide To Make KWhatsApp More Better So Solution We Got Is GeekWhatsApp. KWhatsApp Is Rename To GeekWhatsApp,GeekWhatsApp Have All Features Of KWhatsApp. And KMods Rename To GeekMods.
+ 
 # How to use
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
 # **_Features_**
-- KWhatsApp 2.3
-- Base On v2.16.236
+- GeekWhatsApp 1.0
+- Base On v2.16.247
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
@@ -28,8 +31,9 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Privacy Per Contact.
 - Contact Online Toast.
 - Group Counter.
+- Bottom Tabs.
+- Navigation Drawer.
 - All Hidden Features UnLocked.
 
 # **Note**:
 This project is NOT affiliated or approved by WhatsApp Inc.
-

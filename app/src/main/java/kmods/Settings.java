@@ -2,14 +2,16 @@ package kmods;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.widget.Toast;
-import com.whatsapp.yr;
+import com.whatsapp.ti;
+
 import static kmods.Utils.getResID;
 
-public class Settings extends yr implements Preference.OnPreferenceClickListener {
-    static Context sctx;
+public class Settings extends ti implements Preference.OnPreferenceClickListener {
+    private static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class Settings extends yr implements Preference.OnPreferenceClickListener
         if (preference.getKey().equals("rest")) {
             android.os.Process.killProcess(android.os.Process.myPid());
         } else if (preference.getKey().equals("cshort")) {
-            Intent sIntent = new Intent(sctx.getApplicationContext(), com.whatsapp.HomeActivity.class);
+            Intent sIntent = new Intent(sctx.getApplicationContext(), com.whatsapp.Main.class);
             sIntent.setAction(Intent.ACTION_MAIN);
             sIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             sIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -48,5 +50,9 @@ public class Settings extends yr implements Preference.OnPreferenceClickListener
         if(Utils.Auto_restart()) {
             android.os.Process.killProcess(android.os.Process.myPid());
         }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

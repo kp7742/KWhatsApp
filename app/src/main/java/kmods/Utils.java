@@ -6,34 +6,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.view.*;
 import android.widget.TextView;
-import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.answers.Answers;
-import com.whatsapp.App;
-import com.whatsapp.GroupChatInfo;
-import io.fabric.sdk.android.Fabric;
+import com.whatsapp.*;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.LinkedHashMap;
 
 import static kmods.Privacy.JID;
 
 public class Utils {
-    static int v1 = 2;
-    static int v2 = 3;
-    private static Context ctx;
+    static int v1 = 1;
+    static int v2 = 0;
+    public static Context ctx;
     private static SQLiteOpenHelper sql;
-    private static boolean getBoolean(final String s) {
+    static boolean getBoolean(final String s) {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
     //Menu
@@ -120,7 +112,7 @@ public class Utils {
             return name;
         }
     }
-    //mutitask
+    //multitask
     public static Intent multiTask(Intent intent){
         if(getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
@@ -130,21 +122,29 @@ public class Utils {
         return intent;
     }
     //ActionBar Name
-    public static void ShowName(final android.support.v7.app.a actionBar, final Context ctx) {
+    static void ShowName(final android.support.v7.app.a actionbar, final android.support.v7.app.m act) {
         CharSequence name = "WhatsApp";
         if (getBoolean("show_my_name_check")) {
-            name = App.b(ctx);
+            name = getUserName(act);
             if (getBoolean("show_my_status_check")) {
-                actionBar.b(App.e());
+                actionbar.b(getStatus(act));
             }
         }
-        actionBar.a(name);
+        actionbar.a(name);
+    }
+    private static String getUserName(Context ctx) {
+        SharedPreferences prefs = ctx.getSharedPreferences("com.whatsapp_preferences", 0);
+        return prefs.getString("push_name", "WhatsApp");
+    }
+    private static String getStatus(Context ctx) {
+        SharedPreferences prefs = ctx.getSharedPreferences("com.whatsapp_preferences", 0);
+        return prefs.getString("my_current_status", "_Set_Your_Status_");
     }
     //Media Size
     public static int getUpSize() {
         int n = 16;
         if(getBoolean("up_size")){
-            n = 5120;
+            n = 700;
         }
         return n;
     }
@@ -154,9 +154,6 @@ public class Utils {
             n = 5315;
         }
         return n;
-    }
-    static int getResID(String name, String type){
-        return ctx.getResources().getIdentifier(name, type, ctx.getPackageName());
     }
     //online toast
     public static boolean contact_online_toast() {
@@ -187,9 +184,8 @@ public class Utils {
             Privacy.pctx = ctx;
         }
         if(Utils.ctx == null || Privacy.pctx == null){
-            Log.d("KMods", "Context var initialized to NULL!!!");
+            Log.d("GeekMods", "Context var initialized to NULL!!!");
         }
-        Fabric.with(ctx.getApplicationContext(), new Answers(), new Crashlytics());
         PrefSet();
     }
     public static String ChangeP(final String s) {
@@ -201,52 +197,6 @@ public class Utils {
                 .replace("com.whatsapp.util.OpusRecorder", "com.whatsapp.util.OpusRecorder")
                 .replace("com.whatsapp.proto", "com.whatsapp.proto");
     }
-    public static String ChangeF(final String s) {
-        String replace = s;
-        String WA = "KWhatsApp";
-        if (WA.equals("KWhatsApp")) {
-            return replace;
-        }
-        try {
-            final String lowerCase = s.toLowerCase();
-            if (!lowerCase.contains("whatsapp")) {
-                replace = s;
-                if (!lowerCase.contains("WhatsApp")) {
-                    return replace;
-                }
-            }
-            replace = s;
-            if (!lowerCase.contains("k")) {
-                replace = s;
-                if (!lowerCase.contains(".jpg")) {
-                    replace = s;
-                    if (!lowerCase.contains(".3gp")) {
-                        replace = s;
-                        if (!lowerCase.contains(".mp4")) {
-                            replace = s;
-                            if (!lowerCase.contains(".mp3")) {
-                                replace = s;
-                                if (!lowerCase.contains(".3ga")) {
-                                    replace = s;
-                                    if (!lowerCase.contains(".aac")) {
-                                        replace = s;
-                                        if (!lowerCase.contains(".m4a")) {
-                                            replace = s.replace("whatsapp", "kwhatsapp").replace("WhatsApp", "KWhatsapp");
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return replace;
-        }
-        catch (Exception ex) {
-            replace = s;
-            return replace;
-        }
-    }
     public static boolean Archv_chats() {
         return getBoolean("Archv_chats");
     }
@@ -256,7 +206,7 @@ public class Utils {
     public static boolean Audio_sensor() {
         return getBoolean("Audio_sensor");
     }
-    public static boolean Auto_update() {
+    static boolean Auto_update() {
         return getBoolean("Auto_update");
     }
     static boolean Auto_restart() {
@@ -277,5 +227,8 @@ public class Utils {
     }
     public static boolean getHideInfo() {
         return getBoolean("hideinfo");
+    }
+    public static int getResID(String name, String type) {
+        return ctx.getResources().getIdentifier(name, type, Utils.ctx.getPackageName());
     }
 }
