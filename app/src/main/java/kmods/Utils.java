@@ -21,11 +21,11 @@ import java.util.LinkedHashMap;
 import static kmods.Privacy.JID;
 
 public class Utils {
-    static int v1 = 1;
-    static int v2 = 0;
+    static int v1 = 2;
+    static int v2 = 4;
     public static Context ctx;
     private static SQLiteOpenHelper sql;
-    static boolean getBoolean(final String s) {
+    private static boolean getBoolean(final String s) {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
     //Menu
@@ -122,7 +122,7 @@ public class Utils {
         return intent;
     }
     //ActionBar Name
-    static void ShowName(final android.support.v7.app.a actionbar, final android.support.v7.app.m act) {
+    static void ShowName(final android.support.v7.a.a actionbar, final android.support.v7.a.m act) {
         CharSequence name = "WhatsApp";
         if (getBoolean("show_my_name_check")) {
             name = getUserName(act);
@@ -174,7 +174,6 @@ public class Utils {
         edit.putBoolean(name, value);
         edit.apply();
     }
-    //Exo Init
     public static void init(Context ctx){
         if (ctx instanceof Activity) {
             Utils.ctx = ctx.getApplicationContext();
@@ -184,7 +183,7 @@ public class Utils {
             Privacy.pctx = ctx;
         }
         if(Utils.ctx == null || Privacy.pctx == null){
-            Log.d("GeekMods", "Context var initialized to NULL!!!");
+            Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
     }

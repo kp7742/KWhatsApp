@@ -13,13 +13,4 @@
     <attr name="selector_stroke_color" format="color" />
     <attr name="selector_stroke_width" format="dimension" />
     <attr name="shadow" format="boolean" />
-	<declare-styleable name="SwatchView">
-        <attr name="radialMargin" format="dimension" />
-    </declare-styleable>
-    <declare-styleable name="ColorPicker">
-        <attr name="colorpicker_selectNoneButtonText" format="string" />
-        <attr name="colorpicker_noneSelectedSummaryText" format="string" />
-        <attr name="colorpicker_showAlpha" format="boolean"/>
-        <attr name="colorpicker_showHex" format="boolean"/>
-    </declare-styleable>
 </resources>

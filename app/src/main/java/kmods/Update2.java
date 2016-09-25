@@ -14,16 +14,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class Update2 extends AsyncTask<String, String, String> {
+class Update2 extends AsyncTask<String, String, String> {
     private int a = 0;
     private int b = 0;
     private Context ctx;
-    public Update2(Context ctx) {
+    Update2(Context ctx) {
         this.ctx = ctx;
     }
     protected String doInBackground(final String... array) {
         try {
-            InputStreamReader in = new InputStreamReader(new URL("http://geekbros.ml/update/UpdateC.html").openStream());
+            InputStreamReader in = new InputStreamReader(new URL("https://kp7742.github.io/update/UpdateC.html").openStream());
             BufferedReader br = new BufferedReader(in);
             String string = "";
             while (true) {
@@ -44,9 +44,9 @@ public class Update2 extends AsyncTask<String, String, String> {
     protected void onPostExecute(final String s) {
         if (this.a > Utils.v1 || this.b > Utils.v2 && this.b != 10) {
             WebView wv = new WebView(ctx);
-            wv.loadUrl("http://geekbros.ml/update/CL.html");
+            wv.loadUrl("https://kp7742.github.io/update/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
-            builder.setTitle("New Update Of GeekWhatsApp v" + this.a + "." + this.b);
+            builder.setTitle("New Update Of KWhatsApp v" + this.a + "." + this.b);
             builder.setView(wv);
             builder.setPositiveButton("Download Now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {

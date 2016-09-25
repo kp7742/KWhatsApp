@@ -9,7 +9,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.preference.Preference;
-import android.support.v7.app.m;
+import android.support.v7.a.m;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -143,7 +143,6 @@ public class ColorPickerPreference extends Preference {
             @Override
             public void onGlobalLayout() {
                wamod_colorpicker_preview.setMinimumWidth(((ViewGroup)wamod_colorpicker_tv_hex.getParent()).getMeasuredWidth());
-                wamod_colorpicker_tv_hex.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
     }

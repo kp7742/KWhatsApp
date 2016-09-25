@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "kmods.res"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,7 @@ android {
 
 dependencies {
     provided files('libs/whatsapp.jar')
+    provided files('libs/drawer.jar')
     compile files('libs/fabric.jar')
     compile 'com.pkmmte.view:circularimageview:1.1'
 }

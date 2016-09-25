@@ -1,26 +1,23 @@
-# What is GeekWhatsApp(KWhatsApp)?
-GeekWhatsApp Is Basically Well Improved And Pollished KWhatsApp. GeekWhatsApp is a modification(mod) of WhatsApp for Android. Includes new features like privacy.
+# What is KWhatsApp?
+KWhatsApp Is Basically Well Improved And Pollished WhatsApp. KWhatsApp is a modification(mod) of WhatsApp for Android. Includes new features like privacy.
 
-# Why KWhatsApp Became GeekWhatsAppk?
-After Join Team GeekBros All Members Do MeetUp And Decide To Make KWhatsApp More Better So Solution We Got Is GeekWhatsApp. KWhatsApp Is Rename To GeekWhatsApp,GeekWhatsApp Have All Features Of KWhatsApp. And KMods Rename To GeekMods.
- 
 # How to use
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
 # **_Features_**
-- GeekWhatsApp 1.0
-- Base On v2.16.247
+- KWhatsApp 2.4
+- Base On v2.16.278
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
-- Privacy (choose Privacy for Groups, Broadcasts, Contacts)
-- Media Sharing Limit Increased to 1GB (send video(s) upto 1 GB)
+- Smart Custom Privacy (choose Privacy for Groups, Broadcasts, Contacts And Custom Contact)
+- Media Sharing Limit Increased to 72MB (send video(s) upto 72MB)
 - Send more than 10 images!
 - Set status upto 256
+- Group Subject Name upto 35
 - Select text in conversation
 - Hide Call Icon in conversation screen
 - Hide Archived Chat
-- Audio Mods
 - Contact Status Copy
 - Hide Date and name while copying 2 messages or more
 - Fast Backup and Restore
@@ -28,11 +25,11 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Auto Restart. Restart As Back Button Press.
 - In App Update Checker With Auto Update Checking.
 - MultiTask Chat.
-- Privacy Per Contact.
 - Contact Online Toast.
 - Group Counter.
-- Bottom Tabs.
-- Navigation Drawer.
+- Profile Pic Zoom.
+- Clear Recent Emojis.
+- Bubble And Tick Changing.
 - All Hidden Features UnLocked.
 
 # **Note**:

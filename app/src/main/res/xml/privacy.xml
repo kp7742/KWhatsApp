@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="GeekWhatsApp Priavcy" />
+	<PreferenceCategory android:title="KWhatsApp Priavcy" />
 	<CheckBoxPreference android:icon="@drawable/privacy_last" android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
     <PreferenceScreen android:icon="@drawable/privacy_global" android:title="Global" android:summary="General Privacy For All">
 	<PreferenceCategory android:title="Global" android:key="cat_pc">

@@ -26,7 +26,7 @@ public class Rango {
     private static int Toolbaritemcolor = Color.parseColor("#ffffffff");
     private static int Statusbarcolor = Color.parseColor("#ffff5252");
     private static int Navbarcolor = Color.parseColor("#ffff5252");
-    public static void DoColor(final android.support.v7.app.a actionbar, final android.support.v7.app.m act){
+    public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.m act){
         try{
             if(act instanceof com.whatsapp.HomeActivity){
                 initHome((com.whatsapp.HomeActivity)act);
@@ -37,13 +37,13 @@ public class Rango {
             e.printStackTrace();
         }
     }
-    public static void DoColor(final android.support.v7.app.m act){
+    public static void DoColor(final android.support.v7.a.m act){
         try {
             boolean coloredToolbarColor = !(act instanceof MediaView) &&
                     !(act instanceof ViewProfilePhoto) &&
                     !(act instanceof QuickContactActivity) &&
                     !(act instanceof ContactInfo) &&
-                    !(act instanceof eg);
+                    !(act instanceof ei);
             if (coloredToolbarColor) {
                 act.h().b(new ColorDrawable(Toolbarcolor));
                 final ViewGroup actionbarVG = (ViewGroup) act.findViewById(getResID("action_bar", "id"));
@@ -117,7 +117,7 @@ public class Rango {
             act.getWindow().setNavigationBarColor(Navbarcolor);
         }
     }
-    public static void DoColorB(final BubbleRelativeLayout bubble) {
+    public static void DoColorB(final cy bubble) {
         ImageView status = (ImageView) bubble.findViewById(getResID("status", "id"));
         boolean rightBubble = false;
         if (status != null) {rightBubble = true;}

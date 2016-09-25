@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.view.*;
@@ -48,12 +47,11 @@ public class NavigationDrawerGoogle extends RelativeLayout {
             @Override
             public void onGlobalLayout() {
                 init();
-                getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
     }
     private void init() {
-        final NavigationView navigationView = (NavigationView) activity.findViewById(getResID("mod_drawer", "id"));
+        final View navigationView = activity.findViewById(getResID("mod_drawer", "id"));
         final DrawerLayout drawerLayout = (DrawerLayout) activity.findViewById(getResID("drawer_parent", "id"));
         final ViewStub wamod_drawer_header = (ViewStub) activity.findViewById(getResID("drawer_header", "id"));
         wamod_drawer_header.setLayoutResource(getResID("home_drawer_header_centered", "layout"));
@@ -154,10 +152,8 @@ public class NavigationDrawerGoogle extends RelativeLayout {
                         @Override
                         public void onGlobalLayout() {
                             statusbar.setLayoutParams(new LayoutParams(NavigationDrawerGoogle.this.getWidth(), getStatusBarHeight(getContext())));
-                            statusbar.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
-                    drawerHeader.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 }
             });
         }

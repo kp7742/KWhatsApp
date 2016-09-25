@@ -14,8 +14,6 @@ public class Styles {
             int n2 = getHexID("balloon_outgoing_normal_ext", "drawable");
             int n3 = getHexID("balloon_incoming_normal", "drawable");
             int n4 = getHexID("balloon_incoming_normal_ext", "drawable");
-            int color1 = 0;
-            int color2 = 0;
             if (id == n1) {
                 n = 1;
             } else if (id == n2) {
@@ -30,33 +28,24 @@ public class Styles {
                 n2 = getHexID(name + "_balloon_outgoing_normal_ext", "drawable");
                 n3 = getHexID(name + "_balloon_incoming_normal", "drawable");
                 n4 = getHexID(name + "_balloon_incoming_normal_ext", "drawable");
-                color1 = Color.parseColor("#ff00e3ff");
-                color2 = Color.parseColor("#ffff5252");
             }
             switch (n) {
                 case 1: {
-                    return colorB(ctx,n1,color1);
+                    return ctx.getResources().getDrawable(n1);
                 }
                 case 2: {
-                    return colorB(ctx,n2,color1);
+                    return ctx.getResources().getDrawable(n2);
                 }
                 case 3: {
-                    return colorB(ctx,n3,color2);
+                    return ctx.getResources().getDrawable(n3);
                 }
                 default: {
-                    return colorB(ctx,n4,color2);
+                    return ctx.getResources().getDrawable(n4);
                 }
             }
         } catch (Exception e){
            return ctx.getResources().getDrawable(id);
         }
-    }
-    private static Drawable colorB(Context ctx, int id, int color){
-        Drawable d = ctx.getResources().getDrawable(id);
-        if (d != null && color != 0) {
-            d.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
-        }
-        return d;
     }
     //getStatusDrawable(I)I
     public static int TickStyle(final int id){//ConversationRow
@@ -185,18 +174,6 @@ public class Styles {
                     return n4;
                 }
             }
-        } catch (Exception e){
-            return id;
-        }
-    }
-    public static int ChatEntryStyle(final int id){//Conversation
-        try {
-            String name = Utils.ctx.getSharedPreferences("com.whatsapp_preferences", 0).getString("entry_s", "stock");
-            int n = getHexID("conversation", "layout");
-            if (!name.equals("stock")) {
-                n = getHexID(name + "_conversation", "layout");
-            }
-            return n;
         } catch (Exception e){
             return id;
         }

@@ -8,11 +8,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+
 import static kmods.Privacy.JID;
+import static kmods.Privacy.getPrivacyB;
 import static kmods.Utils.getResID;
 
 public class PrivacyL extends LinearLayout implements View.OnClickListener {
-    private SharedPreferences prefs = getContext().getSharedPreferences("geekmods_privacy", 0);
+    private SharedPreferences prefs = getContext().getSharedPreferences("kmods_privacy", 0);
     private SharedPreferences.Editor edit = prefs.edit();
     private Dialog dialog = new Dialog(getContext());
     public PrivacyL(Context context) {
@@ -30,71 +32,93 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
     public void onClick(View v) {
             dialog.setTitle("Set Privacy");
             dialog.setContentView(getResID("custom_privacy", "layout"));
+            final SwitchCompat toggle = (SwitchCompat) dialog.findViewById(getResID("tb", "id"));
             final SwitchCompat toggle1 = (SwitchCompat) dialog.findViewById(getResID("tb1", "id"));
-            toggle1.setChecked(Privacy.getPrivacyB(JID + "_HideRead"));
+            final SwitchCompat toggle2 = (SwitchCompat) dialog.findViewById(getResID("tb2", "id"));
+            final SwitchCompat toggle3 = (SwitchCompat) dialog.findViewById(getResID("tb3", "id"));
+            final SwitchCompat toggle4 = (SwitchCompat) dialog.findViewById(getResID("tb4", "id"));
+            final SwitchCompat toggle5 = (SwitchCompat) dialog.findViewById(getResID("tb5", "id"));
+            toggle.setChecked(getPrivacyB(JID));
+            toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    edit.putBoolean(JID, isChecked);
+                    edit.apply();
+                    toggle1.setEnabled(isChecked);
+                    toggle2.setEnabled(isChecked);
+                    toggle3.setEnabled(isChecked);
+                    toggle4.setEnabled(isChecked);
+                    toggle5.setEnabled(isChecked);
+                    if(isChecked){
+                        edit.putBoolean(JID + "_HideRead", getSpecific(JID ,"_HideRead"));
+                        toggle1.setChecked(getSpecific(JID ,"_HideRead"));
+                        edit.putBoolean(JID + "_HideReceipt", getSpecific(JID,"_HideReceipt"));
+                        toggle2.setChecked(getSpecific(JID,"_HideReceipt"));
+                        edit.putBoolean(JID + "_HideCompose", getPrivacyB("HideCompose"));
+                        toggle3.setChecked(getPrivacyB("HideCompose"));
+                        edit.putBoolean(JID + "_HideRecord", getPrivacyB("HideRecord"));
+                        toggle4.setChecked(getPrivacyB("HideRecord"));
+                        edit.putBoolean(JID + "_HidePlay", getSpecific(JID,"_HidePlay"));
+                        toggle5.setChecked(getSpecific(JID,"_HidePlay"));
+                        edit.apply();
+                    }
+                }
+            });
+            if(!toggle.isChecked()){
+                edit.putBoolean(JID + "_HideRead", getSpecific(JID ,"_HideRead"));
+                edit.putBoolean(JID + "_HideReceipt", getSpecific(JID,"_HideReceipt"));
+                edit.putBoolean(JID + "_HideCompose", getPrivacyB("HideCompose"));
+                edit.putBoolean(JID + "_HideRecord", getPrivacyB("HideRecord"));
+                edit.putBoolean(JID + "_HidePlay", getSpecific(JID,"_HidePlay"));
+            }
+            toggle1.setChecked(getPrivacyB(JID + "_HideRead"));
             toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HideRead", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HideRead", false);
-                        edit.apply();
-                    }
+                    edit.putBoolean(JID + "_HideRead", isChecked);
+                    edit.apply();
                 }
             });
-            final SwitchCompat toggle2 = (SwitchCompat) dialog.findViewById(getResID("tb2", "id"));
-            toggle2.setChecked(Privacy.getPrivacyB(JID + "_HideReceipt"));
+            toggle2.setChecked(getPrivacyB(JID + "_HideReceipt"));
             toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HideReceipt", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HideReceipt", false);
-                        edit.apply();
-                    }
+                    edit.putBoolean(JID + "_HideReceipt", isChecked);
+                    edit.apply();
                 }
             });
-            final SwitchCompat toggle3 = (SwitchCompat) dialog.findViewById(getResID("tb3", "id"));
-            toggle3.setChecked(Privacy.getPrivacyB(JID + "_HideCompose"));
+            toggle3.setChecked(getPrivacyB(JID + "_HideCompose"));
             toggle3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HideCompose", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HideCompose", false);
-                        edit.apply();
-                    }
+                    edit.putBoolean(JID + "_HideCompose", isChecked);
+                    edit.apply();
                 }
             });
-            final SwitchCompat toggle4 = (SwitchCompat) dialog.findViewById(getResID("tb4", "id"));
-            toggle4.setChecked(Privacy.getPrivacyB(JID + "_HideRecord"));
+            toggle4.setChecked(getPrivacyB(JID + "_HideRecord"));
             toggle4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HideRecord", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HideRecord", false);
-                        edit.apply();
-                    }
+                    edit.putBoolean(JID + "_HideRecord", isChecked);
+                    edit.apply();
                 }
             });
-            final SwitchCompat toggle5 = (SwitchCompat) dialog.findViewById(getResID("tb5", "id"));
-            toggle5.setChecked(Privacy.getPrivacyB(JID + "_HidePlay"));
+            toggle5.setChecked(getPrivacyB(JID + "_HidePlay"));
             toggle5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked) {
-                        edit.putBoolean(JID + "_HidePlay", true);
-                        edit.apply();
-                    } else {
-                        edit.putBoolean(JID + "_HidePlay", false);
-                        edit.apply();
-                    }
+                    edit.putBoolean(JID + "_HidePlay", isChecked);
+                    edit.apply();
                 }
             });
+			if(!toggle.isChecked()){
+				toggle1.setEnabled(false);
+				toggle2.setEnabled(false);
+				toggle3.setEnabled(false);
+				toggle4.setEnabled(false);
+				toggle5.setEnabled(false);
+			}
             dialog.show();
+    }
+    private static Boolean getSpecific(String jid,String type){
+        if(jid.contains("g.us")){
+            return getPrivacyB("G" + type);
+        } else {
+            return getPrivacyB("C" + type);
+        }
     }
 }

@@ -4,16 +4,14 @@
 	<item type="id" name="privacy" />
     <item type="id" name="cprivacy" />
     <item type="id" name="gcounter" />
-	
-    <item type="id" name="tb1" />
+    <item type="id" name="tb" />
+	<item type="id" name="tb1" />
     <item type="id" name="tb2" />
     <item type="id" name="tb3" />
     <item type="id" name="tb4" />
     <item type="id" name="tb5" />
-	
 	<item type="id" name="fab_reloadcontacts" />
     <item type="id" name="fab_clearcalls" />
-	
 	<item type="id" name="mod_drawer" />
 	<item type="id" name="drawer_parent" />
 	<item type="id" name="drawer_overlay" />
@@ -34,20 +32,17 @@
 	<item type="id" name="drawer_photo" />
 	<item type="id" name="drawer_header_2ndprofilepic" />
 	<item type="id" name="drawer_statusbar" />
-
     <item type="id" name="wamod_colorpicker_seekbar_red" />
     <item type="id" name="wamod_colorpicker_seekbar_green" />
     <item type="id" name="wamod_colorpicker_seekbar_blue" />
     <item type="id" name="wamod_colorpicker_seekbar_alpha" />
     <item type="id" name="wamod_colorpicker_tv_hex" />
     <item type="id" name="wamod_colorpicker_preview" />
-	
 	<item type="id" name="seekBarPrefBarContainer" />
     <item type="id" name="seekBarPrefSeekBar" />
     <item type="id" name="seekBarPrefUnitsLeft" />
     <item type="id" name="seekBarPrefUnitsRight" />
     <item type="id" name="seekBarPrefValue" />
-
     <item type="id" name="thumbnails" />
     <item type="id" name="colorPreview" />
     <item type="id" name="swatchView" />

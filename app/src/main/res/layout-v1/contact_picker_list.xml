@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.whatsapp.observablelistview.ObservableListView android:id="@android:id/list" android:paddingLeft="@dimen/contact_list_padding_left" android:paddingRight="@dimen/contact_list_padding_right" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="@android:color/transparent" android:divider="@drawable/conversations_list_divider" android:dividerHeight="0.5dip" android:choiceMode="singleChoice" android:headerDividersEnabled="false" android:footerDividersEnabled="true" />
-    <FrameLayout android:gravity="center" android:id="@android:id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <include android:id="@+id/contacts_empty" android:visibility="gone" layout="@layout/empty_tell_a_friend" />
-        <include android:id="@+id/contacts_empty_permission_denied" android:visibility="gone" layout="@layout/empty_contacts_permissions_needed" />
-        <ProgressBar android:layout_gravity="center" android:id="@+id/init_contacts_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyle" />
-        <TextView android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:gravity="center" android:id="@+id/search_no_matches" android:paddingLeft="12.0dip" android:paddingTop="96.0dip" android:paddingRight="12.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_calls" />
-    </FrameLayout>
     <ImageView
         android:layout_width="56dp"
         android:layout_height="56dp"

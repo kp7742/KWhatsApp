@@ -26,7 +26,7 @@
         <activity
                 android:theme="@style/Theme.Prefs"
                 android:name="kmods.Settings"
-                android:label="GeekMods" />
+                android:label="KMods" />
         <activity
                 android:theme="@style/Theme.Prefs"
                 android:name="kmods.Privacy"

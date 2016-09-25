@@ -2,15 +2,14 @@ package kmods;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.widget.Toast;
-import com.whatsapp.ti;
+import com.whatsapp.*;
 
 import static kmods.Utils.getResID;
 
-public class Settings extends ti implements Preference.OnPreferenceClickListener {
+public class Settings extends ui implements Preference.OnPreferenceClickListener {
     private static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
