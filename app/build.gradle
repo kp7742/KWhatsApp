@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
-
     defaultConfig {
         applicationId "kmods.res"
         minSdkVersion 14
@@ -13,7 +12,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,7 +20,5 @@ android {
 
 dependencies {
     provided files('libs/whatsapp.jar')
-    provided files('libs/drawer.jar')
     compile files('libs/fabric.jar')
-    compile 'com.pkmmte.view:circularimageview:1.1'
 }

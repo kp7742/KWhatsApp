@@ -6,7 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 public class Styles {
-    public static Drawable BubbleStyle(Context ctx,final int id){//BubbleRelativeLayout
+    public static Drawable BubbleStyle(Context ctx,final int id){//cy
         try {
             String name = ctx.getSharedPreferences("com.whatsapp_preferences", 0).getString("bubble_s", "stock");
             int n = 0;
@@ -22,6 +22,8 @@ public class Styles {
                 n = 3;
             } else if (id == n4) {
                 n = 4;
+            } else {
+                return ctx.getResources().getDrawable(id);
             }
             if (!name.equals("stock")) {
                 n1 = getHexID(name + "_balloon_outgoing_normal", "drawable");
@@ -47,8 +49,8 @@ public class Styles {
            return ctx.getResources().getDrawable(id);
         }
     }
-    //getStatusDrawable(I)I
-    public static int TickStyle(final int id){//ConversationRow
+    //a(I)I
+    public static int TickStyle(final int id){
         try {
             String name = Utils.ctx.getSharedPreferences("com.whatsapp_preferences", 0).getString("tick_s", "stock");
             int n = 0;
@@ -64,6 +66,8 @@ public class Styles {
                 n = 3;
             } else if (id == n4) {
                 n = 4;
+            } else {
+                return id;
             }
             if (!name.equals("stock")) {
                 n1 = getHexID(name + "_message_unsent", "drawable");
@@ -89,7 +93,7 @@ public class Styles {
             return id;
         }
     }
-    //getStatusDrawable(I)I
+    //a(I)I
     public static int TickStyle2(final int id){//ConversationRowVideo,ConversationRowImage
         try {
             final String name = Utils.ctx.getSharedPreferences("com.whatsapp_preferences", 0).getString("tick_s", "stock");
@@ -106,6 +110,8 @@ public class Styles {
                 n = 3;
             } else if (id == n4) {
                 n = 4;
+            } else {
+                return id;
             }
             if (!name.equals("stock")) {
                 n1 = getHexID(name + "_message_unsent", "drawable");
@@ -153,6 +159,8 @@ public class Styles {
                 n = 3;
             } else if (id == n4) {
                 n = 4;
+            } else {
+                return id;
             }
             if (!name.equals("stock")) {
                 n1 = getHexID(name + "_message_unsent", "drawable");

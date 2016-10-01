@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">KWhatsApp</string>
 	<string name="Mods">KMods</string>
 	<string name="Privacy">Privacy</string>
     <string name="CPrivacy">Custom Privacy</string>

@@ -5,13 +5,13 @@ KWhatsApp Is Basically Well Improved And Pollished WhatsApp. KWhatsApp is a modi
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
 # **_Features_**
-- KWhatsApp 2.4
-- Base On v2.16.278
+- KWhatsApp 2.5
+- Base On v2.16.284
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
 - Smart Custom Privacy (choose Privacy for Groups, Broadcasts, Contacts And Custom Contact)
-- Media Sharing Limit Increased to 72MB (send video(s) upto 72MB)
+- Media Sharing Limit Increased to 700MB (send video(s) upto 700MB)
 - Send more than 10 images!
 - Set status upto 256
 - Group Subject Name upto 35

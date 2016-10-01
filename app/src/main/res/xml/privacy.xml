@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="KWhatsApp Priavcy" />
-	<CheckBoxPreference android:icon="@drawable/privacy_last" android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
-    <PreferenceScreen android:icon="@drawable/privacy_global" android:title="Global" android:summary="General Privacy For All">
-	<PreferenceCategory android:title="Global" android:key="cat_pc">
-        <CheckBoxPreference android:title="@string/awonline" android:key="always_online" android:summary="@string/awonlineSum" android:defaultValue="false" />
+    <PreferenceCategory android:title="Global" android:key="cat_pc">
+        <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="Always Online" android:key="always_online" android:summary="Stay always online even when screen is off" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideRecord" android:key="HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideCompose" android:key="HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
     </PreferenceCategory>
-	</PreferenceScreen>
-	<PreferenceScreen android:icon="@drawable/privacy_contact" android:title="Contacts" android:summary="General Privacy For Contact Only">
     <PreferenceCategory android:title="Contacts" android:key="cat_pc">
         <CheckBoxPreference android:title="@string/HideRead" android:key="C_HideRead" android:summary="@string/HideReadSumC" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideReceipt" android:key="C_HideReceipt" android:summary="@string/HideReceiptSumC" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HidePlay" android:key="C_HidePlay" android:summary="@string/HidePlaySumC" android:defaultValue="false" />
     </PreferenceCategory>
-	</PreferenceScreen>
-	<PreferenceScreen android:icon="@drawable/privacy_group" android:title="Groups" android:summary="General Privacy For Groups Only">
-    <PreferenceCategory android:title="Groups" android:key="cat_pg">
+    <PreferenceCategory android:title="Group" android:key="cat_pg">
         <CheckBoxPreference android:title="@string/HideRead" android:key="G_HideRead" android:summary="@string/HideReadSumG" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideReceipt" android:key="G_HideReceipt" android:summary="@string/HideReceiptSumG" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HidePlay" android:key="G_HidePlay" android:summary="@string/HidePlaySumG" android:defaultValue="false" />
     </PreferenceCategory>
-	</PreferenceScreen>
-	<PreferenceScreen android:icon="@drawable/privacy_broadcast" android:title="Broadcast" android:summary="General Privacy For Broadcast Only">
     <PreferenceCategory android:title="Broadcast" android:key="cat_pb">
         <CheckBoxPreference android:title="@string/HideRead" android:key="B_HideRead" android:summary="@string/HideReadSumB" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideReceipt" android:key="B_HideReceipt" android:summary="@string/HideReceiptSumB" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HidePlay" android:key="B_HidePlay" android:summary="@string/HidePlaySumB" android:defaultValue="false" />
     </PreferenceCategory>
-	</PreferenceScreen>
     <PreferenceCategory android:title="Reset Privacy" android:key="cat_rest">
-        <kmods.preference.ActionP android:icon="@drawable/restart" android:title="Reset" android:key="reset" android:summary="Reset Your All Privacy Settings To Default." />
+        <kmods.ActionP android:title="Reset" android:key="reset" android:summary="Reset Your All Privacy Settings To Default." />
     </PreferenceCategory>
 </PreferenceScreen>

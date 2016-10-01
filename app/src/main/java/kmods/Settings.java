@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.widget.Toast;
-import com.whatsapp.*;
 
+import com.whatsapp.ut;
 import static kmods.Utils.getResID;
 
-public class Settings extends ui implements Preference.OnPreferenceClickListener {
-    private static Context sctx;
+public class Settings extends ut implements Preference.OnPreferenceClickListener {
+    static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sctx = this;
         this.getPreferenceManager().setSharedPreferencesName("com.whatsapp_preferences");
         this.addPreferencesFromResource(getResID("settings", "xml"));
         this.findPreference("rest").setOnPreferenceClickListener(this);
@@ -49,9 +48,5 @@ public class Settings extends ui implements Preference.OnPreferenceClickListener
         if(Utils.Auto_restart()) {
             android.os.Process.killProcess(android.os.Process.myPid());
         }
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }

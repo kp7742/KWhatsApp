@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.*;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import com.whatsapp.*;
+import com.whatsapp.GroupChatInfo;
 
 import java.io.File;
 import java.util.LinkedHashMap;
@@ -22,8 +25,8 @@ import static kmods.Privacy.JID;
 
 public class Utils {
     static int v1 = 2;
-    static int v2 = 4;
-    public static Context ctx;
+    static int v2 = 5;
+    static Context ctx;
     private static SQLiteOpenHelper sql;
     private static boolean getBoolean(final String s) {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
@@ -107,12 +110,11 @@ public class Utils {
                 name = jid.concat("_").concat(s);
             }
             return name;
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             return name;
         }
     }
-    //multitask
+    //mutitask
     public static Intent multiTask(Intent intent){
         if(getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
@@ -121,16 +123,27 @@ public class Utils {
         }
         return intent;
     }
-    //ActionBar Name
-    static void ShowName(final android.support.v7.a.a actionbar, final android.support.v7.a.m act) {
-        CharSequence name = "WhatsApp";
-        if (getBoolean("show_my_name_check")) {
-            name = getUserName(act);
-            if (getBoolean("show_my_status_check")) {
-                actionbar.b(getStatus(act));
+    //ActionBar
+    public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.m act) {
+        try{
+            if(act instanceof com.whatsapp.HomeActivity){
+                View pager = act.findViewById(getResID("pager", "id"));
+                pager.setBackgroundColor(Color.WHITE);
+                if(Utils.Auto_update()) {
+                    new Update2(act).execute((String[]) new String[0]);
+                }
+                CharSequence name = "WhatsApp";
+                if (getBoolean("show_my_name_check")) {
+                    name = getUserName(act);
+                    if (getBoolean("show_my_status_check")) {
+                        actionbar.b(getStatus(act));
+                    }
+                }
+                actionbar.a(name);
             }
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        actionbar.a(name);
     }
     private static String getUserName(Context ctx) {
         SharedPreferences prefs = ctx.getSharedPreferences("com.whatsapp_preferences", 0);
@@ -144,7 +157,7 @@ public class Utils {
     public static int getUpSize() {
         int n = 16;
         if(getBoolean("up_size")){
-            n = 700;
+            n = 1024;
         }
         return n;
     }
@@ -159,34 +172,26 @@ public class Utils {
     public static boolean contact_online_toast() {
         return getBoolean("contact_online_toast");
     }
-    private static void SetPrefString(final String name, final String value) {
-        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
-        edit.putString(name, value);
-        edit.apply();
-    }
-    private static void SetPrefInt(final String name, final int value) {
-        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
-        edit.putInt(name, value);
-        edit.apply();
-    }
-    private static void SetPrefBool(final String name, final Boolean value) {
-        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
-        edit.putBoolean(name, value);
-        edit.apply();
-    }
+    //Exo Init
     public static void init(Context ctx){
         if (ctx instanceof Activity) {
             Utils.ctx = ctx.getApplicationContext();
             Privacy.pctx = ctx.getApplicationContext();
+            Settings.sctx = ctx.getApplicationContext();
         } else {
             Utils.ctx = ctx;
             Privacy.pctx = ctx;
+            Settings.sctx = ctx;
         }
-        if(Utils.ctx == null || Privacy.pctx == null){
+        if(Utils.ctx == null || Privacy.pctx == null || Settings.sctx == null){
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
     }
+    private static void PrefSet(){
+        SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
+    }
+    //Other
     public static String ChangeP(final String s) {
         return s.replace("com.whatsapp", "com.whatsapp")
                 .replace("com.whatsapp.util", "com.whatsapp.util")
@@ -205,7 +210,7 @@ public class Utils {
     public static boolean Audio_sensor() {
         return getBoolean("Audio_sensor");
     }
-    static boolean Auto_update() {
+    private static boolean Auto_update() {
         return getBoolean("Auto_update");
     }
     static boolean Auto_restart() {
@@ -217,17 +222,28 @@ public class Utils {
     public static boolean CallBHide() {
         return getBoolean("call_btn");
     }
-    private static void PrefSet(){
-        SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
-        SetPrefInt("document_limit_mb", 1024);
-    }
     public static boolean TxtSelect() {
         return getBoolean("txt_select");
     }
     public static boolean getHideInfo() {
         return getBoolean("hideinfo");
     }
-    public static int getResID(String name, String type) {
-        return ctx.getResources().getIdentifier(name, type, Utils.ctx.getPackageName());
+    private static void SetPrefString(final String name, final String value) {
+        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
+        edit.putString(name, value);
+        edit.apply();
+    }
+    private static void SetPrefInt(final String name, final int value) {
+        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
+        edit.putInt(name, value);
+        edit.apply();
+    }
+    private static void SetPrefBool(final String name, final Boolean value) {
+        final SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
+        edit.putBoolean(name, value);
+        edit.apply();
+    }
+    static int getResID(String name, String type){
+        return ctx.getResources().getIdentifier(name, type, ctx.getPackageName());
     }
 }

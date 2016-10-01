@@ -3,29 +3,23 @@ package kmods;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.whatsapp.*;
+import com.whatsapp.ut;
 
 import java.lang.reflect.Field;
 
-import static kmods.Utils.getResID;
-
-public class Privacy extends ui {
+public class Privacy extends ut {
     static Context pctx;
     static String JID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getPreferenceManager().setSharedPreferencesName("kmods_privacy");
-        this.addPreferencesFromResource(getResID("privacy", "xml"));
+        this.addPreferencesFromResource(Utils.getResID("privacy", "xml"));
     }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         android.os.Process.killProcess(android.os.Process.myPid());
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
     private static String GetType(Object o) {
         for (final Field field : o.getClass().getFields()) {
@@ -51,6 +45,20 @@ public class Privacy extends ui {
         o = "C";
         return (String)o;
     }
+    private static String GetType2(Object o) {
+        for (final Field field : o.getClass().getFields()) {
+            if (String.class.isAssignableFrom(field.getType())) {
+                try {
+                    final Object value = field.get(o);
+                    if (value != null) {
+                        return value.toString();
+                    }
+                }
+                catch (Exception ignored) {}
+            }
+        }
+        return null;
+    }
     static boolean getPrivacyB(final String s) {
         return pctx.getSharedPreferences("kmods_privacy", 0).getBoolean(s, false);
     }
@@ -69,41 +77,26 @@ public class Privacy extends ui {
     }
     public static boolean HideCR(String JIDs,final int n) {
         if (n == 1) {
-            if(!getPrivacyB(JIDs)) {
-                return getPrivacyB("HideRecord");
-            } else {
-                return getPrivacyB(JIDs + "_HideRecord");
-            }
+            if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRecord");
+            return getPrivacyB("HideRecord");
         } else {
-            if(!getPrivacyB(JIDs)) {
-                return getPrivacyB("HideCompose");
-            } else {
-                return getPrivacyB(JIDs + "_HideCompose");
-            }
+            if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideCompose");
+            return getPrivacyB("HideCompose");
         }
     }
-    public static boolean HideRead(final com.whatsapp.anh o) {
-        String JIDs = o.a.a;
-        if(!getPrivacyB(JIDs)) {
-            return getPrivacyB(GetType(o) + "_HideRead");
-        } else {
-            return getPrivacyB(JIDs + "_HideRead");
-        }
+    public static boolean HideRead(final Object o) {
+        String JIDs = GetType2(o);
+        if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRead");
+        return getPrivacyB(GetType(o) + "_HideRead");
     }
-    public static boolean HidePlay(final com.whatsapp.protocol.bx o) {
-        String JIDs = o.e.a;
-        if(!getPrivacyB(JIDs)) {
-            return getPrivacyB(GetType(o) + "_HidePlay");
-        } else {
-            return getPrivacyB(JIDs + "_HidePlay");
-        }
+    public static boolean HidePlay(final Object o) {
+        String JIDs = GetType2(o);
+        if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HidePlay");
+        return getPrivacyB(GetType(o) + "_HidePlay");
     }
-    public static boolean HideReceipt(final com.whatsapp.protocol.bx o) {
-        String JIDs = o.e.a;
-        if(!getPrivacyB(JIDs)) {
-            return getPrivacyB(GetType(o) + "_HideReceipt");
-        } else {
-            return getPrivacyB(JIDs + "_HideReceipt");
-        }
+    public static boolean HideReceipt(final Object o) {
+        String JIDs = GetType2(o);
+        if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideReceipt");
+        return getPrivacyB(GetType(o) + "_HideReceipt");
     }
 }
