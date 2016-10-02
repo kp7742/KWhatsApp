@@ -2,9 +2,6 @@ package com.whatsapp;
 
 import java.util.LinkedHashMap;
 
-public class GroupChatInfo {
+public class GroupChatInfo extends uk {
     public LinkedHashMap<String, Integer> Counter;
-    public String l(){
-        return null;
-    }
 }
