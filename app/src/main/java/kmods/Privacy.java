@@ -3,11 +3,12 @@ package kmods;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import com.whatsapp.ut;
+
+import com.whatsapp.*;
 
 import java.lang.reflect.Field;
 
-public class Privacy extends ut {
+public class Privacy extends mv {
     static Context pctx;
     static String JID;
     @Override
@@ -69,27 +70,35 @@ public class Privacy extends ut {
         return getPrivacyB("hide_seen");
     }
     public static boolean HideCR(String JIDs,final int n) {
-        if (n == 1) {
-            if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRecord");
-            return getPrivacyB("HideRecord");
-        } else {
-            if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideCompose");
-            return getPrivacyB("HideCompose");
+        switch (n){
+            case 1:
+                if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRecord");
+                return getPrivacyB(GetType(JIDs) + "_HideRecord");
+            default:
+                if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideCompose");
+                return getPrivacyB(GetType(JIDs) + "_HideCompose");
         }
     }
-    public static boolean HideRead(final com.whatsapp.anu o) {
+    public static boolean HideRead(final com.whatsapp.zd o) {
         String JIDs = o.a.a;
         if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRead");
         return getPrivacyB(GetType(o) + "_HideRead");
     }
-    public static boolean HidePlay(final com.whatsapp.protocol.by o) {
+    public static boolean HidePlay(final com.whatsapp.protocol.j o) {
         String JIDs = o.e.a;
         if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HidePlay");
         return getPrivacyB(GetType(o) + "_HidePlay");
     }
-    public static boolean HideReceipt(final com.whatsapp.protocol.by o) {
+    public static boolean HideReceipt(final com.whatsapp.protocol.j o) {
         String JIDs = o.e.a;
         if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideReceipt");
         return getPrivacyB(GetType(o) + "_HideReceipt");
+    }
+    private static String GetType(String jid){
+        if(jid.contains("g.us")){
+            return "G";
+        } else {
+            return "C";
+        }
     }
 }

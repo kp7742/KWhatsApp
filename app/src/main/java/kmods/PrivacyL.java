@@ -30,7 +30,7 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
-        dialog.setTitle("Set Privacy");
+        dialog.setTitle("Set Custom Privacy");
         dialog.setContentView(getResID("custom_privacy", "layout"));
         final SwitchCompat toggle = (SwitchCompat) dialog.findViewById(getResID("tb", "id"));
         final SwitchCompat toggle1 = (SwitchCompat) dialog.findViewById(getResID("tb1", "id"));
@@ -54,9 +54,9 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
                     edit.putBoolean(JID + "_HideReceipt", getSpecific(JID,"_HideReceipt"));
                     toggle2.setChecked(getSpecific(JID,"_HideReceipt"));
                     edit.putBoolean(JID + "_HideCompose", getPrivacyB("HideCompose"));
-                    toggle3.setChecked(getPrivacyB("HideCompose"));
+                    toggle3.setChecked(getSpecific(JID,"_HideCompose"));
                     edit.putBoolean(JID + "_HideRecord", getPrivacyB("HideRecord"));
-                    toggle4.setChecked(getPrivacyB("HideRecord"));
+                    toggle4.setChecked(getSpecific(JID,"_HideRecord"));
                     edit.putBoolean(JID + "_HidePlay", getSpecific(JID,"_HidePlay"));
                     toggle5.setChecked(getSpecific(JID,"_HidePlay"));
                     edit.apply();
@@ -66,8 +66,8 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
         if(!toggle.isChecked()){
             edit.putBoolean(JID + "_HideRead", getSpecific(JID ,"_HideRead"));
             edit.putBoolean(JID + "_HideReceipt", getSpecific(JID,"_HideReceipt"));
-            edit.putBoolean(JID + "_HideCompose", getPrivacyB("HideCompose"));
-            edit.putBoolean(JID + "_HideRecord", getPrivacyB("HideRecord"));
+            edit.putBoolean(JID + "_HideCompose", getSpecific(JID,"_HideCompose"));
+            edit.putBoolean(JID + "_HideRecord", getSpecific(JID,"_HideRecord"));
             edit.putBoolean(JID + "_HidePlay", getSpecific(JID,"_HidePlay"));
         }
         toggle1.setChecked(getPrivacyB(JID + "_HideRead"));

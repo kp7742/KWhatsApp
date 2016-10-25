@@ -4,16 +4,10 @@
     <PreferenceCategory android:title="KWhatsApp" />
     <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-	<PreferenceScreen android:title="KWhatsApp 2.5" android:summary="Base v2.16.287">
-	    <PreferenceCategory android:title="Follow GeekBros">
-        <Preference android:title="Visit GeekBros's Website" android:summary="Visit Our Official Website For Other Updates" >
-            <intent android:action="android.intent.action.VIEW" android:data="http://geekbros.ml/" />
-        </Preference>
-        <Preference android:title="Join GeekBros On G+" android:summary="Join Our Google Plus Community" >
+	<PreferenceScreen android:title="KWhatsApp 2.5" android:summary="Base v2.16.318">
+	    <PreferenceCategory android:title="Follow KWhatsApp">
+        <Preference android:title="Join KWhatsApp On G+" android:summary="Join Our Google Plus Community" >
             <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/104734492401532515715" />
-        </Preference>
-        <Preference android:title="Join GeekBros On WhatsApp" android:summary="Join Our Official WhatsApp Group" >
-            <intent android:action="android.intent.action.VIEW" android:data="https://chat.whatsapp.com/5597xaq1KG8DpPAtuA2W0i" />
         </Preference>
 		</PreferenceCategory>
 	</PreferenceScreen>
@@ -38,14 +32,6 @@
         <CheckBoxPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
 		<ListPreference android:entries="@array/bubble_n" android:title="@string/B" android:key="bubble_s" android:summary="@string/SB" android:defaultValue="stock" android:entryValues="@array/bubble_v" />
         <ListPreference android:entries="@array/tick_n" android:title="@string/T" android:key="tick_s" android:summary="@string/ST" android:defaultValue="stock" android:entryValues="@array/tick_v" />
-	</PreferenceCategory>
-	<PreferenceCategory android:title="Hidden Mods" android:key="cat_h">
-	    <CheckBoxPreference android:title="Group Invites" android:key="group_invites" android:summary="Invite Friends to group with invite link" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Video Calling" android:key="video_calling" android:summary="Enable Video Calling" android:defaultValue="true" />
-        <CheckBoxPreference android:title="Two Step Authentication" android:key="two_factor_auth" android:summary="Enable Two step authentication" android:defaultValue="false" />
-		<CheckBoxPreference android:title="Gif Supporting" android:key="gif" android:summary="Send Gif To Contact" android:defaultValue="true" />
-		<CheckBoxPreference android:title="Mention Feature" android:key="user" android:summary="You Can Mention Any One In Group." android:defaultValue="true" />
-        <CheckBoxPreference android:title="Media Streaming" android:key="media_streaming" android:summary="Unknown Feature" android:defaultValue="true" />
 	</PreferenceCategory>
     <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
         <CheckBoxPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.widget.Toast;
 
-import com.whatsapp.ut;
+import com.whatsapp.*;
 import static kmods.Utils.getResID;
 
-public class Settings extends ut implements Preference.OnPreferenceClickListener {
+public class Settings extends mv implements Preference.OnPreferenceClickListener {
     static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -114,7 +114,7 @@ public class Utils {
             return name;
         }
     }
-    //mutitask
+    //multitask
     public static Intent multiTask(Intent intent){
         if(getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
@@ -124,7 +124,7 @@ public class Utils {
         return intent;
     }
     //ActionBar
-    public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.m act) {
+    public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
         try{
             if(act instanceof com.whatsapp.HomeActivity){
                 View pager = act.findViewById(getResID("pager", "id"));

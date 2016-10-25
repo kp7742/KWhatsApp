@@ -4,18 +4,20 @@
     <PreferenceCategory android:title="Global" android:key="cat_pc">
         <CheckBoxPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
         <CheckBoxPreference android:title="Always Online" android:key="always_online" android:summary="Stay always online even when screen is off" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/HideRecord" android:key="HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/HideCompose" android:key="HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Contacts" android:key="cat_pc">
         <CheckBoxPreference android:title="@string/HideRead" android:key="C_HideRead" android:summary="@string/HideReadSumC" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideReceipt" android:key="C_HideReceipt" android:summary="@string/HideReceiptSumC" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HidePlay" android:key="C_HidePlay" android:summary="@string/HidePlaySumC" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/HideRecord" android:key="C_HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/HideCompose" android:key="C_HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Group" android:key="cat_pg">
         <CheckBoxPreference android:title="@string/HideRead" android:key="G_HideRead" android:summary="@string/HideReadSumG" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HideReceipt" android:key="G_HideReceipt" android:summary="@string/HideReceiptSumG" android:defaultValue="false" />
         <CheckBoxPreference android:title="@string/HidePlay" android:key="G_HidePlay" android:summary="@string/HidePlaySumG" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/HideRecord" android:key="G_HideRecord" android:summary="@string/HideRecordSum" android:defaultValue="false" />
+        <CheckBoxPreference android:title="@string/HideCompose" android:key="G_HideCompose" android:summary="@string/HideComposeSum" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Broadcast" android:key="cat_pb">
         <CheckBoxPreference android:title="@string/HideRead" android:key="B_HideRead" android:summary="@string/HideReadSumB" android:defaultValue="false" />
