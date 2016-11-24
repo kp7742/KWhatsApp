@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.whatsapp.*;
 import static kmods.Utils.getResID;
 
-public class Settings extends my implements Preference.OnPreferenceClickListener {
+public class Settings extends mz implements Preference.OnPreferenceClickListener {
     static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

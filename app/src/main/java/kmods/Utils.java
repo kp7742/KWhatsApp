@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.whatsapp.App;
+import com.whatsapp.Conversation;
 import com.whatsapp.GroupChatInfo;
 
 import java.io.File;
@@ -44,10 +47,10 @@ public class Utils {
         }
     }
     public static MenuItem setMenuS(Menu menu){
-        return menu.add(2,getResID("mods", "id"),0,getResID("Mods", "string"));
+        return menu.add(1,getResID("mods", "id"),0,getResID("Mods", "string"));
     }
     public static MenuItem setMenuP(Menu menu){
-        return menu.add(2,getResID("privacy", "id"),0,getResID("Privacy", "string"));
+        return menu.add(1,getResID("privacy", "id"),0,getResID("Privacy", "string"));
     }
     //Group Counter
     public static void SetDB(final SQLiteOpenHelper sql) {
@@ -126,6 +129,29 @@ public class Utils {
         }
         return intent;
     }
+    //OpenChat
+    static Intent OpenChat(String number){
+        try {
+            return Conversation.a(number);
+        } catch (Exception e){
+            return null;
+        }
+    }
+    public static Intent OpenChat2(String number){
+        try {
+            Intent intent = new Intent(App.u().getApplicationContext(), Conversation.class);
+            if (getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+            }
+            intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            intent.putExtra("jid", number);
+            return intent;
+        } catch (Exception e){
+            return null;
+        }
+    }
     //ActionBar
     public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
         try{
@@ -188,13 +214,13 @@ public class Utils {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
-        setLanguage();
+        setLanguage(ctx.getApplicationContext());
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
     }
     //Other
-    private static void setLanguage() {
+    private static void setLanguage(Context ctx) {
         Locale locale = Locale.getDefault();
         final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("slang", "0"));
         switch (n) {

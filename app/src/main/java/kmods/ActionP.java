@@ -8,6 +8,8 @@ import android.os.Environment;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.File;
@@ -97,6 +99,34 @@ public class ActionP extends Preference {
                     }
                 });
                 alertDialog.show();
+                break;
+            case "openchat":
+                AlertDialog.Builder builder;
+                builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("New Chat");
+                builder.setMessage("Enter Number");
+                final EditText input = new EditText(getContext());
+                builder.setView(input);
+                builder.setPositiveButton("Message!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String number = input.getText().toString();
+                                if(input.getText() == null) {
+                                    Toast.makeText(getContext(),"You Didn't Enter Any Number yet!", Toast.LENGTH_SHORT).show();
+                                } else if(Utils.OpenChat(number) == null){
+                                    Toast.makeText(getContext(),"This Number not Exist On WhatsApp, Check Again!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    getContext().startActivity(Utils.OpenChat(number));
+                                }
+                            }
+                        });
+                builder.setNegativeButton("No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                builder.show();
                 break;
         }
     }

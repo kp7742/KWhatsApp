@@ -4,42 +4,45 @@
     <PreferenceCategory android:title="KWhatsApp" />
     <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-	<Preference android:title="KWhatsApp 2.5" android:summary="Base v2.16.359" />
-	<kmods.ActionP android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
-	<PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
+    <Preference android:title="KWhatsApp 2.5" android:summary="Base v2.16.366" />
+    <kmods.ActionP android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
+    <PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
+        <kmods.ActionP android:title="Open Chat" android:key="openchat" android:summary="Open Chat Of Any Number That On WhatsApp" />
         <SwitchPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
-		<SwitchPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Update Checking" android:defaultValue="true" />
+        <SwitchPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Update Checking" android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
         <SwitchPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
-		<SwitchPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
         <SwitchPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
-		<ListPreference android:entries="@array/lang_n" android:title="Language Changer" android:key="slang" android:summary="In App Language Changer" android:defaultValue="0" android:entryValues="@array/lang_v" />
+        <ListPreference android:entries="@array/lang_n" android:title="Language Changer" android:key="slang" android:summary="In App Language Changer" android:defaultValue="0" android:entryValues="@array/lang_v" />
         <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
         <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Special Mods" android:key="cat_extra">
         <SwitchPreference android:title="@string/coToast" android:key="contact_online_toast" android:summary="@string/coToastSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
-		<ListPreference android:entries="@array/bubble_n" android:title="@string/B" android:key="bubble_s" android:summary="@string/SB" android:defaultValue="stock" android:entryValues="@array/bubble_v" />
+        <ListPreference android:entries="@array/bubble_n" android:title="@string/B" android:key="bubble_s" android:summary="@string/SB" android:defaultValue="stock" android:entryValues="@array/bubble_v" />
         <ListPreference android:entries="@array/tick_n" android:title="@string/T" android:key="tick_s" android:summary="@string/ST" android:defaultValue="stock" android:entryValues="@array/tick_v" />
+    </PreferenceCategory>
+	<PreferenceCategory android:title="Hidden Mods" android:key="cat_extra">
 	</PreferenceCategory>
     <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
         <SwitchPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
         <kmods.BadlatiPrefs android:max="10240" android:title="Maximum Image Size" android:key="image_max_kbytes" android:defaultValue="5120" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="KB" />
         <kmods.BadlatiPrefs android:max="100" android:title="JPG Image Quality" android:key="image_quality" android:defaultValue="80" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="%" />
         <kmods.BadlatiPrefs android:max="5315" android:title="Maximum Image Resolution" android:key="image_max_edge" android:defaultValue="1280" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="PX" />
-	</PreferenceCategory>
-	<PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Backup And Restore" android:key="cat_br">
         <kmods.ActionP android:title="Backup" android:key="backup" android:summary="@string/BackupSum" />
         <kmods.ActionP android:title="Restore" android:key="restore" android:summary="@string/RestoreSum" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Share And Report" android:key="cat_sr">	    
-		<kmods.ActionP android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
-        <kmods.ActionP android:title="@string/report" android:key="report" android:summary="@string/reportSum" />       
+    <PreferenceCategory android:title="Share And Report" android:key="cat_sr">
+        <kmods.ActionP android:title="@string/Share" android:key="share" android:summary="@string/ShareSum" />
+        <kmods.ActionP android:title="@string/report" android:key="report" android:summary="@string/reportSum" />
     </PreferenceCategory>
 </PreferenceScreen>

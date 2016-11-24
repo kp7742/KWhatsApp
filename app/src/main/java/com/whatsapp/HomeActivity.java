@@ -1,9 +1,6 @@
 package com.whatsapp;
 
-import kmods.Update2;
-import kmods.Utils;
-
-public class HomeActivity extends ms {
+public class HomeActivity extends mt {
     @Override
     public void onResume() {
         super.onResume();

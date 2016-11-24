@@ -8,7 +8,7 @@ import com.whatsapp.*;
 
 import java.lang.reflect.Field;
 
-public class Privacy extends my {
+public class Privacy extends mz {
     static Context pctx;
     static String JID;
     @Override
