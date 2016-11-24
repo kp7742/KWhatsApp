@@ -53,9 +53,9 @@ public class PrivacyL extends LinearLayout implements View.OnClickListener {
                     toggle1.setChecked(getSpecific(JID ,"_HideRead"));
                     edit.putBoolean(JID + "_HideReceipt", getSpecific(JID,"_HideReceipt"));
                     toggle2.setChecked(getSpecific(JID,"_HideReceipt"));
-                    edit.putBoolean(JID + "_HideCompose", getPrivacyB("HideCompose"));
+                    edit.putBoolean(JID + "_HideCompose", getSpecific(JID,"_HideCompose"));
                     toggle3.setChecked(getSpecific(JID,"_HideCompose"));
-                    edit.putBoolean(JID + "_HideRecord", getPrivacyB("HideRecord"));
+                    edit.putBoolean(JID + "_HideRecord", getSpecific(JID,"_HideRecord"));
                     toggle4.setChecked(getSpecific(JID,"_HideRecord"));
                     edit.putBoolean(JID + "_HidePlay", getSpecific(JID,"_HidePlay"));
                     toggle5.setChecked(getSpecific(JID,"_HidePlay"));

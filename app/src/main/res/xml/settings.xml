@@ -4,37 +4,32 @@
     <PreferenceCategory android:title="KWhatsApp" />
     <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-	<PreferenceScreen android:title="KWhatsApp 2.5" android:summary="Base v2.16.318">
-	    <PreferenceCategory android:title="Follow KWhatsApp">
-        <Preference android:title="Join KWhatsApp On G+" android:summary="Join Our Google Plus Community" >
-            <intent android:action="android.intent.action.VIEW" android:data="https://plus.google.com/u/0/communities/104734492401532515715" />
-        </Preference>
-		</PreferenceCategory>
-	</PreferenceScreen>
+	<Preference android:title="KWhatsApp 2.5" android:summary="Base v2.16.359" />
 	<kmods.ActionP android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
 	<PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
-        <CheckBoxPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
-		<CheckBoxPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Update Checking" android:defaultValue="true" />
+        <SwitchPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/ArchvChat" android:key="Archv_chats" android:summary="@string/ArchvChatSum" android:defaultValue="false" />
+		<SwitchPreference android:title="Auto Update" android:key="Auto_update" android:summary="Auto Update Checking" android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Misc Mods" android:key="cat_misc">
-        <CheckBoxPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
-		<CheckBoxPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
+        <SwitchPreference android:title="@string/SmN" android:key="show_my_name_check" android:summary="@string/SmNSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
+		<SwitchPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
+        <SwitchPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
+		<ListPreference android:entries="@array/lang_n" android:title="Language Changer" android:key="slang" android:summary="In App Language Changer" android:defaultValue="0" android:entryValues="@array/lang_v" />
         <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
         <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Special Mods" android:key="cat_extra">
-        <CheckBoxPreference android:title="@string/coToast" android:key="contact_online_toast" android:summary="@string/coToastSum" android:defaultValue="false" />
-        <CheckBoxPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/coToast" android:key="contact_online_toast" android:summary="@string/coToastSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/gCounter" android:key="gCounter_check" android:summary="@string/gCounterSum" android:defaultValue="false" />
 		<ListPreference android:entries="@array/bubble_n" android:title="@string/B" android:key="bubble_s" android:summary="@string/SB" android:defaultValue="stock" android:entryValues="@array/bubble_v" />
         <ListPreference android:entries="@array/tick_n" android:title="@string/T" android:key="tick_s" android:summary="@string/ST" android:defaultValue="stock" android:entryValues="@array/tick_v" />
 	</PreferenceCategory>
     <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
-        <CheckBoxPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />
         <kmods.BadlatiPrefs android:max="10240" android:title="Maximum Image Size" android:key="image_max_kbytes" android:defaultValue="5120" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="KB" />
         <kmods.BadlatiPrefs android:max="100" android:title="JPG Image Quality" android:key="image_quality" android:defaultValue="80" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="%" />
         <kmods.BadlatiPrefs android:max="5315" android:title="Maximum Image Resolution" android:key="image_max_edge" android:defaultValue="1280" robobunny:min="0" robobunny:unitsLeft="" robobunny:unitsRight="PX" />

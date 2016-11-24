@@ -8,7 +8,7 @@ import com.whatsapp.*;
 
 import java.lang.reflect.Field;
 
-public class Privacy extends mv {
+public class Privacy extends my {
     static Context pctx;
     static String JID;
     @Override
@@ -79,7 +79,7 @@ public class Privacy extends mv {
                 return getPrivacyB(GetType(JIDs) + "_HideCompose");
         }
     }
-    public static boolean HideRead(final com.whatsapp.zd o) {
+    public static boolean HideRead(final com.whatsapp.abd o) {
         String JIDs = o.a.a;
         if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRead");
         return getPrivacyB(GetType(o) + "_HideRead");
@@ -97,8 +97,6 @@ public class Privacy extends mv {
     private static String GetType(String jid){
         if(jid.contains("g.us")){
             return "G";
-        } else {
-            return "C";
-        }
+        } else return "C";
     }
 }

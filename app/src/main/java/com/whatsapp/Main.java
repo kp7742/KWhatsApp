@@ -1,4 +1,4 @@
 package com.whatsapp;
 
-public class Main extends mp {
+public class Main extends ms {
 }

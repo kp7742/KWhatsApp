@@ -6,7 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 public class Styles {
-    public static Drawable BubbleStyle(Context ctx,final int id){//cy
+    public static Drawable BubbleStyle(Context ctx,final int id){
         try {
             String name = ctx.getSharedPreferences("com.whatsapp_preferences", 0).getString("bubble_s", "stock");
             int n = 0;

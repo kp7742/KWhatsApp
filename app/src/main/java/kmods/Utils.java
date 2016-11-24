@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
@@ -20,6 +22,7 @@ import com.whatsapp.GroupChatInfo;
 
 import java.io.File;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 
 import static kmods.Privacy.JID;
 
@@ -126,9 +129,7 @@ public class Utils {
     //ActionBar
     public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
         try{
-            if(act instanceof com.whatsapp.HomeActivity){
-                View pager = act.findViewById(getResID("pager", "id"));
-                pager.setBackgroundColor(Color.WHITE);
+            if(act instanceof com.whatsapp.HomeActivity){                
                 if(Utils.Auto_update()) {
                     new Update2(act).execute((String[]) new String[0]);
                 }
@@ -187,11 +188,63 @@ public class Utils {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
+        setLanguage();
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
     }
     //Other
+    private static void setLanguage() {
+        Locale locale = Locale.getDefault();
+        final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("slang", "0"));
+        switch (n) {
+            case 0: {
+                locale = Locale.getDefault();
+                break;
+            }
+            case 1: {
+                locale = new Locale("en_US");
+                break;
+            }
+            case 2: {
+                locale = new Locale("ar");
+                break;
+            }
+            case 3: {
+                locale = new Locale("es");
+                break;
+            }
+            case 4: {
+                locale = new Locale("it");
+                break;
+            }
+            case 5: {
+                locale = new Locale("pt", "BR");
+                break;
+            }
+            case 6: {
+                locale = new Locale("ng");
+                break;
+            }
+            case 7: {
+                locale = new Locale("de");
+                break;
+            }
+            case 8: {
+                locale = new Locale("tr");
+                break;
+            }
+            case 9: {
+                locale = new Locale("fr");
+                break;
+            }
+        }
+        final Resources resources = ctx.getApplicationContext().getResources();
+        final Configuration configuration = resources.getConfiguration();
+        configuration.locale = locale;
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        Locale.setDefault(locale);
+    }
     public static String ChangeP(final String s) {
         return s.replace("com.whatsapp", "com.whatsapp")
                 .replace("com.whatsapp.util", "com.whatsapp.util")
