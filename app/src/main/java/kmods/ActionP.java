@@ -106,14 +106,13 @@ public class ActionP extends Preference {
                 builder.setTitle("New Chat");
                 builder.setMessage("Enter Number");
                 final EditText input = new EditText(getContext());
+                input.setText("0");
                 builder.setView(input);
                 builder.setPositiveButton("Message!",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                String number = input.getText().toString();
-                                if(input.getText() == null) {
-                                    Toast.makeText(getContext(),"You Didn't Enter Any Number yet!", Toast.LENGTH_SHORT).show();
-                                } else if(Utils.OpenChat(number) == null){
+                                String number = input.getText().toString() + "@s.whatsapp.net";
+                                if(Utils.OpenChat(number) == null){
                                     Toast.makeText(getContext(),"This Number not Exist On WhatsApp, Check Again!", Toast.LENGTH_SHORT).show();
                                 } else {
                                     getContext().startActivity(Utils.OpenChat(number));
