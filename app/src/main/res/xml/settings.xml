@@ -4,10 +4,10 @@
     <PreferenceCategory android:title="KWhatsApp" />
     <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-    <Preference android:title="KWhatsApp 2.5" android:summary="Base v2.16.366" />
+    <Preference android:title="KWhatsApp v2.5" android:summary="Base v2.16.366" />
+    <kmods.ActionP android:title="Changelog" android:key="clogs" android:summary="ChangesLog Of KWhatsApp" />
     <kmods.ActionP android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
     <PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">
-        <kmods.ActionP android:title="Open Chat" android:key="openchat" android:summary="Open Chat Of Any Number That On WhatsApp" />
         <SwitchPreference android:title="@string/HideDate" android:key="hideinfo" android:summary="@string/HideDateSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/CallBtn" android:key="call_btn" android:summary="@string/CallBtnSum" android:defaultValue="false" />
         <SwitchPreference android:title="@string/TxtSelect" android:key="txt_select" android:summary="@string/TxtSelectSum" android:defaultValue="false" />
@@ -19,7 +19,6 @@
         <SwitchPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
         <SwitchPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
         <SwitchPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
-        <ListPreference android:entries="@array/lang_n" android:title="Language Changer" android:key="slang" android:summary="In App Language Changer" android:defaultValue="0" android:entryValues="@array/lang_v" />
         <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
         <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>

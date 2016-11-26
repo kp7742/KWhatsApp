@@ -100,32 +100,20 @@ public class ActionP extends Preference {
                 });
                 alertDialog.show();
                 break;
-            case "openchat":
-                AlertDialog.Builder builder;
-                builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("New Chat");
-                builder.setMessage("Enter Number");
-                final EditText input = new EditText(getContext());
-                input.setText("0");
-                builder.setView(input);
-                builder.setPositiveButton("Message!",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                String number = input.getText().toString() + "@s.whatsapp.net";
-                                if(Utils.OpenChat(number) == null){
-                                    Toast.makeText(getContext(),"This Number not Exist On WhatsApp, Check Again!", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    getContext().startActivity(Utils.OpenChat(number));
-                                }
-                            }
-                        });
-                builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                builder.show();
+            case "clogs":
+                AlertDialog.Builder ab;
+                ab = new AlertDialog.Builder(getContext());
+                ab.setTitle("Changelog");
+                WebView cl = new WebView(getContext());
+                cl.loadUrl("file:///android_asset/CL.html");
+                ab.setView(cl);
+                ab.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                ab.show();
                 break;
         }
     }

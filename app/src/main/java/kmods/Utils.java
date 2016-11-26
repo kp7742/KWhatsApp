@@ -1,7 +1,9 @@
 package kmods;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -10,6 +12,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -17,11 +20,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.whatsapp.App;
 import com.whatsapp.Conversation;
 import com.whatsapp.GroupChatInfo;
+import com.whatsapp.c.bd;
 
 import java.io.File;
 import java.util.LinkedHashMap;
@@ -38,12 +44,39 @@ public class Utils {
         return ctx.getSharedPreferences("com.whatsapp_preferences", 0).getBoolean(s, false);
     }
     //Menu
-    public static void addMenu(com.whatsapp.HomeActivity a, MenuItem b){
+    public static void addMenu(final com.whatsapp.HomeActivity a, MenuItem b){
         if(b.getItemId() == getResID("mods", "id")){
             a.startActivity(new Intent(a, kmods.Settings.class));
         }
         if(b.getItemId() == getResID("privacy", "id")){
             a.startActivity(new Intent(a, kmods.Privacy.class));
+        }
+        if(b.getItemId() == getResID("openchat", "id")){
+            AlertDialog.Builder builder;
+            builder = new AlertDialog.Builder(a);
+            builder.setTitle("New Chat");
+            builder.setMessage("Enter Number");
+            final EditText input = new EditText(a);
+            input.setText("0");
+            builder.setView(input);
+            builder.setPositiveButton("Message!",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            String number = input.getText().toString() + "@s.whatsapp.net";
+                            if(Utils.OpenChat(number) == null){
+                                Toast.makeText(a,"This Number not Exist On WhatsApp, Check Again!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                a.startActivity(Utils.OpenChat(number));
+                            }
+                        }
+                    });
+            builder.setNegativeButton("No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+            builder.show();
         }
     }
     public static MenuItem setMenuS(Menu menu){
@@ -51,6 +84,9 @@ public class Utils {
     }
     public static MenuItem setMenuP(Menu menu){
         return menu.add(1,getResID("privacy", "id"),0,getResID("Privacy", "string"));
+    }
+    public static MenuItem setMenuC(Menu menu){
+        return menu.add(1,getResID("openchat", "id"),0,getResID("open_chat", "string"));
     }
     //Group Counter
     public static void SetDB(final SQLiteOpenHelper sql) {
@@ -145,11 +181,25 @@ public class Utils {
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
             }
-            intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
             intent.putExtra("jid", number);
             return intent;
         } catch (Exception e){
             return null;
+        }
+    }
+    //Make Call
+    public static CharSequence[] Calldialog(final Conversation.a convo) {
+        return new CharSequence[] { convo.a(getResID("video_call", "string")), convo.a(getResID("audio_call", "string")), convo.a(getResID("call_phone", "string")) };
+    }
+    public static void dialNumber(Activity act, bd bd){
+        final Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + com.whatsapp.c.bd.b(bd.t)));
+        act.startActivity(intent);
+    }
+    //OnlineToast
+    public static void OnlineToast(String s){
+        if(Utils.contact_online_toast()) {
+            kmods.plus.Utils.checkContactOnline(App.u(), s, App.S.jabber_id);
         }
     }
     //ActionBar
@@ -214,15 +264,15 @@ public class Utils {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
-        setLanguage(ctx.getApplicationContext());
+        setLanguage(ctx);
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
     }
     //Other
     private static void setLanguage(Context ctx) {
-        Locale locale = Locale.getDefault();
-        final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("slang", "0"));
+        Locale locale = null;
+        final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("language_key", "0"));
         switch (n) {
             case 0: {
                 locale = Locale.getDefault();
@@ -265,11 +315,13 @@ public class Utils {
                 break;
             }
         }
-        final Resources resources = ctx.getApplicationContext().getResources();
-        final Configuration configuration = resources.getConfiguration();
-        configuration.locale = locale;
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-        Locale.setDefault(locale);
+        if (locale != null) {
+            final Resources resources = ctx.getApplicationContext().getResources();
+            final Configuration configuration = resources.getConfiguration();
+            configuration.locale = locale;
+            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+            Locale.setDefault(locale);
+        }
     }
     public static String ChangeP(final String s) {
         return s.replace("com.whatsapp", "com.whatsapp")

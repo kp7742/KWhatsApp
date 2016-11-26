@@ -2,6 +2,7 @@
 <resources>
     <item type="id" name="mods" />
 	<item type="id" name="privacy" />
+    <item type="id" name="openchat" />
     <item type="id" name="cprivacy" />
 	<item type="id" name="tb" />
     <item type="id" name="tb1" />

@@ -25,7 +25,7 @@ public class Update extends AsyncTask<String, String, String> {
     }
     protected String doInBackground(final String... array) {
         try {
-            InputStreamReader in = new InputStreamReader(new URL("http://kp7742.github.io/update/UpdateC.html").openStream());
+            InputStreamReader in = new InputStreamReader(new URL("http://kp7742.github.io/Update.html").openStream());
             BufferedReader br = new  BufferedReader(in);
             String string = "";
             while (true) {
@@ -47,7 +47,7 @@ public class Update extends AsyncTask<String, String, String> {
     protected void onPostExecute(final String s) {
         if (this.a > Utils.v1 || this.b > Utils.v2 && this.b != 10) {
             WebView wv = new WebView(ctx);
-            wv.loadUrl("http://kp7742.github.io/update/CL.html");
+            wv.loadUrl("http://kp7742.github.io/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
             builder.setTitle("New Update Of KWhatsApp v" + this.a + "." + this.b);
             builder.setView(wv);

@@ -69,4 +69,6 @@
     <string name="T">Tick Style</string>
 	<string name="SB">Change Chat Bubble Style</string>
     <string name="ST">Change Chat Tick Style</string>
+    <string name="call_phone">Phone call</string>
+    <string name="open_chat">Open chat</string>
 </resources>
