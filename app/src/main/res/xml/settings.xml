@@ -29,6 +29,13 @@
         <ListPreference android:entries="@array/tick_n" android:title="@string/T" android:key="tick_s" android:summary="@string/ST" android:defaultValue="stock" android:entryValues="@array/tick_v" />
     </PreferenceCategory>
 	<PreferenceCategory android:title="Hidden Mods" android:key="cat_extra">
+        <SwitchPreference android:title="2-Factor Auth." android:key="two_factor_auth" android:summary="Enable Two Factor Auth." android:defaultValue="false" />
+        <SwitchPreference android:title="Gif Search" android:key="gif_search" android:summary="Enable Gif Search Provider" android:defaultValue="false" />
+        <SwitchPreference android:title="Media Streaming" android:key="media_streaming" android:summary="Enable New Video Streamer" android:defaultValue="false" />
+        <SwitchPreference android:title="ADM" android:key="adm" android:summary="Enable ADM" android:defaultValue="false" />
+        <SwitchPreference android:title="Bing Search" android:key="use_bing_image_v6" android:summary="Enable Bing Web Search Provider" android:defaultValue="false" />
+        <SwitchPreference android:title="New Ui" android:key="status_v3" android:summary="Enable New Status And Camera Ui(Note: This will disable your old status option.)" android:defaultValue="false" />
+        <SwitchPreference android:title="Contact Array" android:key="contact_array_enabled" android:summary="Enable New Contact List For Status Privacy" android:defaultValue="false" />
 	</PreferenceCategory>
     <PreferenceCategory android:title="Media Mods" android:key="cat_misc">
         <SwitchPreference android:title="@string/UpSizeLimit" android:key="up_size" android:summary="@string/UpSizeLimitSum" android:defaultValue="false" />

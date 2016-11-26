@@ -30,6 +30,8 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Profile Pic Zoom.
 - Clear Recent Emojis.
 - Bubble And Tick Changing.
+- Send message to any WhatsApp number! Even if it's not in your contact!!
+- Option to make Phone call instead of WhatsApp call
 - All Hidden Features UnLocked.
 
 # **Note**:
