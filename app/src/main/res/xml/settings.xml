@@ -19,6 +19,7 @@
         <SwitchPreference android:title="@string/SmS" android:key="show_my_status_check" android:summary="@string/SmSSum" android:dependency="show_my_name_check" android:defaultValue="false" />
         <SwitchPreference android:title="@string/MultiChat" android:key="Multi_chats" android:summary="@string/MultiChatSum" android:defaultValue="false" />
         <SwitchPreference android:title="Auto Restart" android:key="Auto_restart" android:summary="Auto Restart On Back Press" android:defaultValue="true" />
+        <ListPreference android:entries="@array/lang_n" android:title="Language Changer" android:key="language_key" android:summary="In App Language Changer" android:defaultValue="0" android:entryValues="@array/lang_v" />
         <kmods.ActionP android:title="Clear Emojis" android:key="clemoji" android:summary="Clear Your Recent Emojis." />
         <Preference android:title="Create Shortcut" android:key="cshort" android:summary="@string/ShortcutSum" />
     </PreferenceCategory>

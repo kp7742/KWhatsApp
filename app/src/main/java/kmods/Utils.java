@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.whatsapp.App;
 import com.whatsapp.Conversation;
 import com.whatsapp.GroupChatInfo;
+import com.whatsapp.TextEmojiLabel;
 import com.whatsapp.c.bd;
 
 import java.io.File;
@@ -70,7 +71,7 @@ public class Utils {
                             }
                         }
                     });
-            builder.setNegativeButton("No",
+            builder.setNegativeButton("Cancel",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
@@ -189,18 +190,12 @@ public class Utils {
     }
     //Make Call
     public static CharSequence[] Calldialog(final Conversation.a convo) {
-        return new CharSequence[] { convo.a(getResID("video_call", "string")), convo.a(getResID("audio_call", "string")), convo.a(getResID("call_phone", "string")) };
+        return new CharSequence[] { convo.a(getResID("audio_call", "string")), convo.a(getResID("video_call", "string")), convo.a(getResID("call_phone", "string")) };
     }
     public static void dialNumber(Activity act, bd bd){
         final Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + com.whatsapp.c.bd.b(bd.t)));
         act.startActivity(intent);
-    }
-    //OnlineToast
-    public static void OnlineToast(String s){
-        if(Utils.contact_online_toast()) {
-            kmods.plus.Utils.checkContactOnline(App.u(), s, App.S.jabber_id);
-        }
     }
     //ActionBar
     public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
@@ -246,8 +241,10 @@ public class Utils {
         return n;
     }
     //online toast
-    public static boolean contact_online_toast() {
-        return getBoolean("contact_online_toast");
+    public static void OnlineToast(String s){
+        if(getBoolean("contact_online_toast")) {
+            kmods.plus.Utils.checkContactOnline(App.u(), s, App.S.jabber_id);
+        }
     }
     //Exo Init
     public static void init(Context ctx){
@@ -264,63 +261,40 @@ public class Utils {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
-        setLanguage(ctx);
+        setLanguage();
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
     }
     //Other
-    private static void setLanguage(Context ctx) {
+    private static void setLanguage() {
         Locale locale = null;
         final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("language_key", "0"));
-        switch (n) {
-            case 0: {
-                locale = Locale.getDefault();
-                break;
-            }
-            case 1: {
-                locale = new Locale("en_US");
-                break;
-            }
-            case 2: {
-                locale = new Locale("ar");
-                break;
-            }
-            case 3: {
-                locale = new Locale("es");
-                break;
-            }
-            case 4: {
-                locale = new Locale("it");
-                break;
-            }
-            case 5: {
-                locale = new Locale("pt", "BR");
-                break;
-            }
-            case 6: {
-                locale = new Locale("ng");
-                break;
-            }
-            case 7: {
-                locale = new Locale("de");
-                break;
-            }
-            case 8: {
-                locale = new Locale("tr");
-                break;
-            }
-            case 9: {
-                locale = new Locale("fr");
-                break;
-            }
+        if(n == 1){
+            locale = new Locale("en_US");
+        } else if(n == 2){
+            locale = new Locale("ar");
+        } else if(n == 3){
+            locale = new Locale("es");
+        } else if(n == 4){
+            locale = new Locale("it");
+        } else if(n == 5){
+            locale = new Locale("pt", "BR");
+        } else if(n == 6){
+            locale = new Locale("gu");
+        } else if(n == 7){
+            locale = new Locale("hi");
+        } else if(n == 8){
+            locale = new Locale("fr");
+        } else {
+            locale = null;
         }
         if (locale != null) {
-            final Resources resources = ctx.getApplicationContext().getResources();
-            final Configuration configuration = resources.getConfiguration();
+            Locale.setDefault(locale);
+            Resources resources = ctx.getResources();
+            Configuration configuration = resources.getConfiguration();
             configuration.locale = locale;
             resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-            Locale.setDefault(locale);
         }
     }
     public static String ChangeP(final String s) {
@@ -353,8 +327,10 @@ public class Utils {
     public static boolean CallBHide() {
         return getBoolean("call_btn");
     }
-    public static boolean TxtSelect() {
-        return getBoolean("txt_select");
+    public static void TxtSelect(TextEmojiLabel tl) {
+        if(getBoolean("txt_select")){
+            tl.setTextIsSelectable(true);
+        }
     }
     public static boolean getHideInfo() {
         return getBoolean("hideinfo");
