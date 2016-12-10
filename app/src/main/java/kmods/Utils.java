@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -31,6 +33,7 @@ import com.whatsapp.TextEmojiLabel;
 import com.whatsapp.c.bd;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 
@@ -58,17 +61,17 @@ public class Utils {
             builder.setTitle("New Chat");
             builder.setMessage("Enter Number");
             final EditText input = new EditText(a);
-            input.setText("0");
+            input.setHint("Ex: +91 XXXXXXXXXX");
             builder.setView(input);
             builder.setPositiveButton("Message!",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            String number = input.getText().toString() + "@s.whatsapp.net";
-                            if(Utils.OpenChat(number) == null){
-                                Toast.makeText(a,"This Number not Exist On WhatsApp, Check Again!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                a.startActivity(Utils.OpenChat(number));
+                            String number = input.getText().toString().trim().replace("+", "").replace(" ", "");
+                            String s = number + "@s.whatsapp.net";
+                            if (number.contains("-")) {
+                                s = number + "@g.us";
                             }
+                            a.startActivity(Utils.OpenChat(s));
                         }
                     });
             builder.setNegativeButton("Cancel",
@@ -167,7 +170,7 @@ public class Utils {
         return intent;
     }
     //OpenChat
-    static Intent OpenChat(String number){
+    private static Intent OpenChat(String number){
         try {
             return Conversation.a(number);
         } catch (Exception e){
@@ -200,6 +203,20 @@ public class Utils {
     //ActionBar
     public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
         try{
+            if(Build.VERSION.SDK_INT >= 25){
+                ShortcutManager shortcutManager = act.getSystemService(ShortcutManager.class);
+                ShortcutInfo shortcut = new ShortcutInfo.Builder(act, "kmods")
+                        .setIntent(new Intent(act, kmods.Settings.class))
+                        .setShortLabel("KMODs")
+                        .setLongLabel("KMODs Mod Menu")
+                        .build();
+                ShortcutInfo shortcut2 = new ShortcutInfo.Builder(act, "privacy")
+                        .setIntent(new Intent(act, kmods.Settings.class))
+                        .setShortLabel("Privacy")
+                        .setLongLabel("Privacy Mod Menu")
+                        .build();
+                shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut,shortcut2));
+            }
             if(act instanceof com.whatsapp.HomeActivity){                
                 if(Utils.Auto_update()) {
                     new Update2(act).execute((String[]) new String[0]);
