@@ -6,17 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -24,24 +20,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.whatsapp.App;
 import com.whatsapp.Conversation;
 import com.whatsapp.GroupChatInfo;
 import com.whatsapp.TextEmojiLabel;
-import com.whatsapp.c.bd;
+import com.whatsapp.data.bl;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 
 import static kmods.Privacy.JID;
 
 public class Utils {
-    static int v1 = 2;
-    static int v2 = 5;
+    static String ver = "2.6";
+    static String[] vers = ver.split("\\.");
     static Context ctx;
     private static SQLiteOpenHelper sql;
     private static boolean getBoolean(final String s) {
@@ -179,7 +173,7 @@ public class Utils {
     }
     public static Intent OpenChat2(String number){
         try {
-            Intent intent = new Intent(App.u().getApplicationContext(), Conversation.class);
+            Intent intent = new Intent(App.o().getApplicationContext(), Conversation.class);
             if (getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -195,28 +189,14 @@ public class Utils {
     public static CharSequence[] Calldialog(final Conversation.a convo) {
         return new CharSequence[] { convo.a(getResID("audio_call", "string")), convo.a(getResID("video_call", "string")), convo.a(getResID("call_phone", "string")) };
     }
-    public static void dialNumber(Activity act, bd bd){
+    public static void dialNumber(Activity act, bl bl){
         final Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse("tel:" + com.whatsapp.c.bd.b(bd.t)));
+        intent.setData(Uri.parse("tel:" + com.whatsapp.data.bl.b(bl.t)));
         act.startActivity(intent);
     }
     //ActionBar
     public static void DoColor(final android.support.v7.a.a actionbar, final android.support.v7.a.d act) {
         try{
-            if(Build.VERSION.SDK_INT >= 25){
-                ShortcutManager shortcutManager = act.getSystemService(ShortcutManager.class);
-                ShortcutInfo shortcut = new ShortcutInfo.Builder(act, "kmods")
-                        .setIntent(new Intent(act, kmods.Settings.class))
-                        .setShortLabel("KMODs")
-                        .setLongLabel("KMODs Mod Menu")
-                        .build();
-                ShortcutInfo shortcut2 = new ShortcutInfo.Builder(act, "privacy")
-                        .setIntent(new Intent(act, kmods.Settings.class))
-                        .setShortLabel("Privacy")
-                        .setLongLabel("Privacy Mod Menu")
-                        .build();
-                shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut,shortcut2));
-            }
             if(act instanceof com.whatsapp.HomeActivity){                
                 if(Utils.Auto_update()) {
                     new Update2(act).execute((String[]) new String[0]);
@@ -260,7 +240,7 @@ public class Utils {
     //online toast
     public static void OnlineToast(String s){
         if(getBoolean("contact_online_toast")) {
-            kmods.plus.Utils.checkContactOnline(App.u(), s, App.S.jabber_id);
+            kmods.plus.Utils.checkContactOnline(App.o(), s, App.T.jabber_id);
         }
     }
     //Exo Init
@@ -278,13 +258,15 @@ public class Utils {
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
         PrefSet();
-        setLanguage();
+        ShortcutsManager shortcutsManager = ShortcutsManager.getShortcutsManager(ctx);
+        if (shortcutsManager != null)
+            shortcutsManager.loadShortcuts();
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
     }
     //Other
-    private static void setLanguage() {
+    public static void setLanguage(Activity ctx) {
         Locale locale = null;
         final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("language_key", "0"));
         if(n == 1){
@@ -307,12 +289,21 @@ public class Utils {
             locale = null;
         }
         if (locale != null) {
-            Locale.setDefault(locale);
             Resources resources = ctx.getResources();
             Configuration configuration = resources.getConfiguration();
             configuration.locale = locale;
             resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+            Locale.setDefault(locale);
         }
+    }
+    static void refreshApplication(Activity activity) {
+        Intent app = activity.getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage(activity.getBaseContext().getPackageName());
+        app.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent current = new Intent(activity, com.whatsapp.HomeActivity.class);
+        activity.finish();
+        activity.startActivity(app);
+        activity.startActivity(current);
     }
     public static String ChangeP(final String s) {
         return s.replace("com.whatsapp", "com.whatsapp")

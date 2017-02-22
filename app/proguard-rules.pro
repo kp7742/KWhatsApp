@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-dontusemixedcaseclassnames
+-dontoptimize
+-dontpreverify
+-dontwarn com.whatsapp.**
+-dontwarn kmods.plus.**

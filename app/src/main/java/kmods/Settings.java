@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 import com.whatsapp.*;
 import static kmods.Utils.getResID;
+import static kmods.Utils.refreshApplication;
 
-public class Settings extends mz implements Preference.OnPreferenceClickListener {
+public class Settings extends nm implements Preference.OnPreferenceClickListener {
     static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class Settings extends mz implements Preference.OnPreferenceClickListener
     public void onBackPressed() {
         super.onBackPressed();
         if(Utils.Auto_restart()) {
-            android.os.Process.killProcess(android.os.Process.myPid());
+            refreshApplication(this);
         }
     }
 }

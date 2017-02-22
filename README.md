@@ -5,8 +5,8 @@ KWhatsApp Is Basically Well Improved And Pollished WhatsApp. KWhatsApp is a modi
 To include this code to WhatsApp you need to compile this project to an APK, and decompile to get the smali code, layout, pngs And Xmls to merge both apps.
 
 # **_Features_**
-- KWhatsApp 2.5
-- Base On v2.16.366
+- KWhatsApp 2.6
+- Base On v2.17.73
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed

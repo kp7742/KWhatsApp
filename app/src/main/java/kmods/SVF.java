@@ -13,7 +13,7 @@ public class SVF {
     }
     public static byte[] a()
     {
-        return Base64.decode("nQ1dr6ECDGgqSMLvUKBmog==", Base64.DEFAULT);//This Key From Original Apk of v2.16.366.
+        return Base64.decode("iWBXnUhIwD7NkxtcaVqNGw==", Base64.DEFAULT);//This Key From Original Apk of v2.17.73.
     }
     public static byte[] b()
     {

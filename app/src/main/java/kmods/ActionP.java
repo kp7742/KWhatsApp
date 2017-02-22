@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.io.File;
 
 import static kmods.Utils.getResID;
+import static kmods.Utils.vers;
 
 public class ActionP extends Preference {
     public ActionP(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -68,7 +69,7 @@ public class ActionP extends Preference {
                 final Intent intent2 = new Intent("android.intent.action.SEND");
                 intent2.setType("message/rfc822");
                 intent2.putExtra("android.intent.extra.EMAIL", new String[] { "patel.kuldip91@gmali.com" });
-                intent2.putExtra("android.intent.extra.SUBJECT", "KWhatsApp v" + Utils.v1 + "." + Utils.v2);
+                intent2.putExtra("android.intent.extra.SUBJECT", "KWhatsApp v" + Integer.parseInt(vers[0]) + "." + Integer.parseInt(vers[1]));
                 intent2.putExtra("android.intent.extra.TEXT", "");
                 try {
                     getContext().startActivity(Intent.createChooser(intent2,"Report..."));

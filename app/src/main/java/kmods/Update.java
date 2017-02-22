@@ -15,6 +15,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import static kmods.Utils.ver;
+import static kmods.Utils.vers;
+
 public class Update extends AsyncTask<String, String, String> {
     private int a = 0;
     private int b = 0;
@@ -25,7 +28,7 @@ public class Update extends AsyncTask<String, String, String> {
     }
     protected String doInBackground(final String... array) {
         try {
-            InputStreamReader in = new InputStreamReader(new URL("http://kp7742.github.io/Update.html").openStream());
+            InputStreamReader in = new InputStreamReader(new URL("https://raw.githubusercontent.com/kp7742/kp7742.github.io/master/Update.html").openStream());
             BufferedReader br = new  BufferedReader(in);
             String string = "";
             while (true) {
@@ -45,7 +48,7 @@ public class Update extends AsyncTask<String, String, String> {
         }
     }
     protected void onPostExecute(final String s) {
-        if (this.a > Utils.v1 || this.b > Utils.v2 && this.b != 10) {
+        if (this.a > Integer.parseInt(vers[0]) || (this.b > Integer.parseInt(vers[1]) && this.b != 0)) {
             WebView wv = new WebView(ctx);
             wv.loadUrl("http://kp7742.github.io/CL.html");
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
@@ -71,7 +74,7 @@ public class Update extends AsyncTask<String, String, String> {
             builder2.show();
         } else {
             AlertDialog.Builder builder3 = new AlertDialog.Builder(ctx);
-            builder3.setTitle("Good!").setMessage("You have latest update!:" + "\nKWhatsApp v" + Utils.v1 + "." + Utils.v2);
+            builder3.setTitle("Good!").setMessage("You have latest update!:" + "\nKWhatsApp v" + ver);
             builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
