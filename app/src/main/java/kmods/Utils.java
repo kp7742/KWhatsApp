@@ -204,7 +204,7 @@ public class Utils {
                 CharSequence name = "WhatsApp";
                 if (getBoolean("show_my_name_check")) {
                     name = getUserName(act);
-                    if (getBoolean("show_my_status_check")) {
+                    if (getBoolean("show_my_status_check") && !getBoolean("status_mode")) {
                         actionbar.b(getStatus(act));
                     }
                 }
@@ -257,13 +257,15 @@ public class Utils {
         if(Utils.ctx == null || Privacy.pctx == null || Settings.sctx == null){
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
-        PrefSet();
         ShortcutsManager shortcutsManager = ShortcutsManager.getShortcutsManager(ctx);
-        if (shortcutsManager != null)
+        if (shortcutsManager != null) {
             shortcutsManager.loadShortcuts();
+        }
+        PrefSet();
     }
     private static void PrefSet(){
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
+        SetPrefInt("up_size",getUpSize());
     }
     //Other
     public static void setLanguage(Activity ctx) {

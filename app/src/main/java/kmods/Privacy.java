@@ -81,7 +81,7 @@ public class Privacy extends nm {
                 return getPrivacyB(GetType(JIDs) + "_HideCompose");
         }
     }
-    public static boolean HideRead(final com.whatsapp.aaf o) {
+    public static boolean HideRead(final com.whatsapp.aag o) {
         String JIDs = o.a.a;
         if(getPrivacyB(JIDs)) return getPrivacyB(JIDs + "_HideRead");
         return getPrivacyB(GetType(o) + "_HideRead");

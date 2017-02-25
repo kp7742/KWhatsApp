@@ -6,7 +6,7 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 
 # **_Features_**
 - KWhatsApp 2.6
-- Base On v2.17.73
+- Base On v2.17.81
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed

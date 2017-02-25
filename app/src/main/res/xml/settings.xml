@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="KWhatsApp" />
     <kmods.ActionP android:title="Check For Update" android:key="cfu" android:summary="Checking Latest Update" />
     <Preference android:title="Restart Whatsapp" android:key="rest" android:summary="Restart To Apply Changes" />
-    <Preference android:title="KWhatsApp v2.6" android:summary="Base v2.17.73" />
+    <Preference android:title="KWhatsApp v2.6" android:summary="Base v2.17.81" />
     <kmods.ActionP android:title="Changelog" android:key="clogs" android:summary="ChangesLog Of KWhatsApp" />
     <kmods.ActionP android:title="Special Thanks To" android:key="credits" android:summary="Credits" />
     <PreferenceCategory android:title="Globle Whatsapp" android:key="cat_wa">

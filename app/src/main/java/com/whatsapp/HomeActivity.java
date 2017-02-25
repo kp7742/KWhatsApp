@@ -8,7 +8,6 @@ public class HomeActivity extends ng {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Utils.setLanguage(this);
     }
     @Override
     public void onResume() {
