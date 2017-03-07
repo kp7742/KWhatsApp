@@ -6,17 +6,15 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 
 # **_Features_**
 - KWhatsApp 2.6
-- Base On v2.17.81
+- Base On v2.17.87
 - Fast , Secure , Stable and Clean as Stock
 - Anti ban
 - Sms Verification Fixed
 - Smart Custom Privacy (choose Privacy for Groups, Broadcasts, Contacts And Custom Contact)
 - Media Sharing Limit Increased to 700MB (send video(s) upto 700MB)
 - Send more than 10 images!
-- Set status upto 256
-- Group Subject Name upto 35
+- Group Subject Name upto 45
 - Select text in conversation
-- Hide Call Icon in conversation screen
 - Hide Archived Chat
 - Contact Status Copy
 - Hide Date and name while copying 2 messages or more
@@ -29,7 +27,8 @@ To include this code to WhatsApp you need to compile this project to an APK, and
 - Group Counter.
 - Profile Pic Zoom.
 - Clear Recent Emojis.
-- Bubble And Tick Changing.
+- Clear Logs.
+- Bubble And Tick Changing.(Disabled)
 - Send message to any WhatsApp number! Even if it's not in your contact!!
 - Option to make Phone call instead of WhatsApp call
 - All Hidden Features UnLocked.
