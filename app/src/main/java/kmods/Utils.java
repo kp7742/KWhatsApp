@@ -6,20 +6,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.whatsapp.App;
 import com.whatsapp.Conversation;
@@ -29,13 +30,13 @@ import com.whatsapp.data.bl;
 
 import java.io.File;
 import java.util.LinkedHashMap;
-import java.util.Locale;
 
 import static kmods.Privacy.JID;
 
 public class Utils {
     static String ver = "2.6";
     static String[] vers = ver.split("\\.");
+    public static LinkedHashMap<String, Integer> GCounter;
     static Context ctx;
     private static SQLiteOpenHelper sql;
     private static boolean getBoolean(final String s) {
@@ -91,67 +92,48 @@ public class Utils {
         Utils.sql = sql;
     }
     public static LinkedHashMap GetGroupMsgs(final String s) {
-        final LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        final LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();
         final Cursor rawQuery = Utils.sql.getReadableDatabase().rawQuery("SELECT remote_resource, count(remote_resource) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND remote_resource!=\"\" GROUP BY remote_resource UNION SELECT remote_resource, count(key_from_me) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND key_from_me=1 And receipt_server_timestamp!=-1 GROUP BY remote_resource ORDER BY total DESC", null);
         rawQuery.moveToFirst();
-        if (rawQuery.getCount() <= 0) {
+        if (rawQuery == null || rawQuery.getCount() <= 0) {
             rawQuery.close();
-        } else {
-            do {
-                linkedHashMap.put(rawQuery.getString(0), rawQuery.getInt(1));
-            } while (rawQuery.moveToNext());
-            rawQuery.close();
+            return linkedHashMap;
         }
+        do {
+            linkedHashMap.put(rawQuery.getString(0), rawQuery.getInt(1));
+        } while (rawQuery.moveToNext());
+        rawQuery.close();
         return linkedHashMap;
     }
-    public static void SetGroupMsgs(final String s, final GroupChatInfo groupChatInfo, final View view) {
-        final LinkedHashMap counter = groupChatInfo.Counter;
-        String s2 = s;
+    public static void GetGroupMsgs2(final String s) {
+        final LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();
+        final Cursor rawQuery = Utils.sql.getReadableDatabase().rawQuery("SELECT remote_resource, count(remote_resource) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND remote_resource!=\"\" GROUP BY remote_resource UNION SELECT remote_resource, count(key_from_me) as total FROM messages WHERE key_remote_jid=\"" + s + "\" AND key_from_me=1 And receipt_server_timestamp!=-1 GROUP BY remote_resource ORDER BY total DESC", null);
+        rawQuery.moveToFirst();
+        if (rawQuery == null || rawQuery.getCount() <= 0) {
+            rawQuery.close();
+            GCounter = linkedHashMap;
+            return;
+        }
+        do {
+            linkedHashMap.put(rawQuery.getString(0), rawQuery.getInt(1));
+        } while (rawQuery.moveToNext());
+        rawQuery.close();
+        GCounter = linkedHashMap;
+    }
+    public static void SetGroupMsgs(String s, final GroupChatInfo groupChatInfo, final View view) {
         final TextView textView = (TextView)view.findViewById(getResID("gcounter", "id"));
-        if (counter != null) {
+        if (groupChatInfo.Counter != null) {
             if(getBoolean("gCounter_check")) {
                 textView.setVisibility(View.VISIBLE);
             }
             if (s.equals("me")) {
-                s2 = null;
+                s = null;
             }
-            if (counter.get(s2) == null) {
-                textView.setText("0");
-            } else {
-                textView.setText(String.valueOf(counter.get(s2)));
+            if (groupChatInfo.Counter.get(s) != null) {
+                textView.setText(new StringBuilder().append(groupChatInfo.Counter.get(s)));
+                return;
             }
-        }
-    }
-    //custom wallp
-    public static Drawable getCwallp(final Drawable drawable) {
-        try {
-            final String string = "/data/data/com.whatsapp/files/" + JID + "_wallpaper.jpg";
-            final File file = new File("/data/data/com.whatsapp/files/wallpaper.jpg");
-            Drawable drawable2;
-            if (new File(string).exists() && getBoolean("custom_wallp")) {
-                drawable2 = Drawable.createFromPath(string);
-            } else {
-                drawable2 = drawable;
-                if (file.exists() && file.length() > 2L) {
-                    drawable2 = Drawable.createFromPath("/data/data/com.whatsapp/files/wallpaper.jpg");
-                }
-            }
-            return drawable2;
-        }
-        catch (Exception ex) {
-            return drawable;
-        }
-    }
-    public static String setCwallp(final String s) {
-        String name = s;
-        final String jid = JID;
-        try {
-            if (getBoolean("custom_wallp") && jid != null) {
-                name = jid.concat("_").concat(s);
-            }
-            return name;
-        } catch (Exception ex) {
-            return name;
+            textView.setText("0");
         }
     }
     //multitask
@@ -173,7 +155,7 @@ public class Utils {
     }
     public static Intent OpenChat2(String number){
         try {
-            Intent intent = new Intent(App.o().getApplicationContext(), Conversation.class);
+            Intent intent = new Intent(App.n().getApplicationContext(), Conversation.class);
             if (getBoolean("Multi_chats") && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -204,7 +186,7 @@ public class Utils {
                 CharSequence name = "WhatsApp";
                 if (getBoolean("show_my_name_check")) {
                     name = getUserName(act);
-                    if (getBoolean("show_my_status_check") && !getBoolean("status_mode")) {
+                    if (getBoolean("show_my_status_check") && getBoolean("old_status")) {
                         actionbar.b(getStatus(act));
                     }
                 }
@@ -240,7 +222,8 @@ public class Utils {
     //online toast
     public static void OnlineToast(String s){
         if(getBoolean("contact_online_toast")) {
-            kmods.plus.Utils.checkContactOnline(App.o(), s, App.T.jabber_id);
+            kmods.plus.Utils.checkContactOnline(App.n(), s, App.R.jabber_id);
+            //checkContactOnline(App.n(), s, App.R.jabber_id);
         }
     }
     //Exo Init
@@ -257,47 +240,30 @@ public class Utils {
         if(Utils.ctx == null || Privacy.pctx == null || Settings.sctx == null){
             Log.d("KMods", "Context var initialized to NULL!!!");
         }
-        ShortcutsManager shortcutsManager = ShortcutsManager.getShortcutsManager(ctx);
-        if (shortcutsManager != null) {
-            shortcutsManager.loadShortcuts();
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1) {
+            final ShortcutsManager shortcutsManager = ShortcutsManager.getShortcutsManager(ctx);
+            if (shortcutsManager != null) {
+                shortcutsManager.loadShortcuts();
+            }
         }
         PrefSet();
     }
     private static void PrefSet(){
+        int n = 1;
+        int n2 = 1;
+        if(!getBoolean("gif_s_provider")) {
+            n = 0;
+        }
+        if(!getBoolean("old_status")) {
+            n2 = 0;
+        }
         SetPrefString("documents", "csv,pdf,txt,doc,docx,xls,xlsx,ppt,pptx,apk,zip,unknown");
-        SetPrefInt("up_size",getUpSize());
+        SetPrefInt("media_limit_mb",700);
+        SetPrefInt("gif_provider", n);
+        SetPrefInt("status_v2", n2);
+        SetPrefInt("subject_length_limit", 45);
     }
     //Other
-    public static void setLanguage(Activity ctx) {
-        Locale locale = null;
-        final int n = Integer.parseInt(ctx.getSharedPreferences("com.whatsapp_preference", 0).getString("language_key", "0"));
-        if(n == 1){
-            locale = new Locale("en_US");
-        } else if(n == 2){
-            locale = new Locale("ar");
-        } else if(n == 3){
-            locale = new Locale("es");
-        } else if(n == 4){
-            locale = new Locale("it");
-        } else if(n == 5){
-            locale = new Locale("pt", "BR");
-        } else if(n == 6){
-            locale = new Locale("gu");
-        } else if(n == 7){
-            locale = new Locale("hi");
-        } else if(n == 8){
-            locale = new Locale("fr");
-        } else {
-            locale = null;
-        }
-        if (locale != null) {
-            Resources resources = ctx.getResources();
-            Configuration configuration = resources.getConfiguration();
-            configuration.locale = locale;
-            resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-            Locale.setDefault(locale);
-        }
-    }
     static void refreshApplication(Activity activity) {
         Intent app = activity.getBaseContext().getPackageManager()
                 .getLaunchIntentForPackage(activity.getBaseContext().getPackageName());
@@ -362,5 +328,17 @@ public class Utils {
     }
     static int getResID(String name, String type){
         return ctx.getResources().getIdentifier(name, type, ctx.getPackageName());
+    }
+    private static void checkContactOnline(final Context ctxt,final String s, final String s2) {
+        try {
+            String stripJID = s;
+            if (stripJID.contains("@g.us") || stripJID.contains("@s.whatsapp.net") || stripJID.contains("@broadcast")) {
+                stripJID = stripJID.substring(0, stripJID.indexOf("@"));
+            }
+            if ((!s.contains("-") && !stripJID.equals(s2)) && (s != null && !s.isEmpty())) {
+                new ContactToast(ctxt).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Object[])new String[] { stripJID });
+            }
+        }
+        catch (Exception ignored) {}
     }
 }

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.App.Home.Splash" parent="@style/Theme.App.Home">
-        <item name="android:windowBackground">@drawable/splash</item>
-        <item name="android:statusBarColor">#ffbdbdbd</item>
-        <item name="android:navigationBarColor">#ffbdbdbd</item>
-    </style>
-</resources>

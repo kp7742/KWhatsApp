@@ -10,7 +10,7 @@ import com.whatsapp.*;
 import static kmods.Utils.getResID;
 import static kmods.Utils.refreshApplication;
 
-public class Settings extends nm implements Preference.OnPreferenceClickListener {
+public class Settings extends np implements Preference.OnPreferenceClickListener {
     static Context sctx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

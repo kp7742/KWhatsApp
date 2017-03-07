@@ -36,6 +36,7 @@ public class ActionP extends Preference {
                 break;
             case "reset":
                 getContext().getSharedPreferences("kmods_privacy", 0).edit().clear().apply();
+                Toast.makeText(getContext(), "All Privacy Reset", Toast.LENGTH_SHORT).show();
                 break;
             case "backup":
                 if (new File(Environment.getDataDirectory(), "data/com.whatsapp").exists()) {
@@ -84,6 +85,15 @@ public class ActionP extends Preference {
                     Toast.makeText(getContext(), "All Recent Emojis Cleared", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "No Recent Emojis There!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "cllogs":
+                final File files = new File("/data/data/com.whatsapp/files/","Logs");
+                if (files.exists() && files.isDirectory()) {
+                    files.delete();
+                    Toast.makeText(getContext(), "All Logs Cleared", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "No Logs There!", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "credits":

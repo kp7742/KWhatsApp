@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Global" android:key="cat_pc">
         <SwitchPreference android:title="@string/HideSeen" android:key="hide_seen" android:summary="@string/HideSeenSum" android:defaultValue="false" />
-        <SwitchPreference android:title="Always Online" android:key="always_online" android:summary="Stay always online even when screen is off" android:defaultValue="false" />
+        <SwitchPreference android:title="@string/awonline" android:key="always_online" android:summary="@string/awonlineSum" android:defaultValue="false" />
+        <SwitchPreference android:title="Hide Status View" android:key="hide_status_view" android:summary="Don't Tell contact that you view their status" android:defaultValue="false" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Contacts" android:key="cat_pc">
         <SwitchPreference android:title="@string/HideRead" android:key="C_HideRead" android:summary="@string/HideReadSumC" android:defaultValue="false" />

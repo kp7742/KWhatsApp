@@ -38,7 +38,7 @@
     <string name="SmN">Set My Name</string>
     <string name="SmNSum">Set Your Name To Home ActionBar</string>
     <string name="SmS">Set My Status</string>
-    <string name="SmSSum">Set Your Status To Home ActionBar Under Name</string>
+    <string name="SmSSum">Set Your Status To Home ActionBar Under Name(Work if and only old status enabled)</string>
     <string name="HideDate">Hide date and name</string>
     <string name="HideDateSum">Hide the date and the name when copying 2 messages or more</string>
     <string name="ShowDate">Show date and name</string>

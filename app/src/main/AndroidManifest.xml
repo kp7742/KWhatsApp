@@ -7,11 +7,10 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@android:style/Theme.DeviceDefault">
-		<activity 
-		        android:theme="@style/Theme.App.Home.Splash" 
-				android:name="com.whatsapp.Main" 
-				android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" 
-				android:hardwareAccelerated="false">
+        <activity
+            android:name="com.whatsapp.Main"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+            android:hardwareAccelerated="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,12 +18,12 @@
             </intent-filter>
         </activity>
         <activity
-                android:theme="@style/Theme.Prefs"
-                android:name="kmods.Settings"
-                android:label="KMods" />
+            android:theme="@style/Theme.Prefs"
+            android:name="kmods.Settings"
+            android:label="KMods" />
         <activity
-                android:theme="@style/Theme.Prefs"
-                android:name="kmods.Privacy"
-                android:label="Privacy"  />
+            android:theme="@style/Theme.Prefs"
+            android:name="kmods.Privacy"
+            android:label="Privacy"  />
     </application>
 </manifest>

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "kmods.res"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    provided files('libs/whatsapp.jar')
+    provided files('libs/whatsapp-dex2jar.jar')
     compile files('libs/fabric.jar')
 }

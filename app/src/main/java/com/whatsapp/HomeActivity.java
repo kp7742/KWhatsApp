@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import kmods.Utils;
 
-public class HomeActivity extends ng {
+public class HomeActivity extends nj {
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
