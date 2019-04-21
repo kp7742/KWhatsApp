@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
- <kmods.RestoreB android:gravity="center" android:layout_gravity="bottom|center" android:layout_width="280.0dip" android:layout_height="36.0dip" android:layout_marginTop="14.0dip" android:layout_marginBottom="24.0dip" android:text="Restore" style="@style/RegistrationButton" />
- </LinearLayout>

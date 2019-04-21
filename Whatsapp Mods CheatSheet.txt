@@ -1,0 +1,36 @@
+/res/drawable-hdpi/about_logo.png - SMS Fix
+
+msgstore/edit/revoke - Anti Revoke
+
+presencestatemanager/setAvailable/new-state - Hide Seen
+
+xmpp/writer/write/active - Hide Online
+
+playbackFragment/onPlaybackStarted sending-status-rr - Hide Status Seen
+
+xmpp/writer/before/write/message-received - Hide Receipt
+
+xmpp/writer/before/write/message-played - Hide Play
+
+xmpp/writer/before/write/composing - Hide Composing
+
+---------------------------------------------------------------
+
+c.d.b.a.a.a.c(Application attachBaseContext) - before super.attachBaseContext
+
+---------------------------------------------------------------
+
+Preference Keys:
+
+search_by_image
+shape_picker_v2_enabled
+payments_web_enabled
+group_join_permissions
+auth_fingerprint_enabled
+stickers_keyboard_integration_enabled
+status_ranking
+add_contact_by_phone_number_enabled
+stad_display
+dark_mode_enabled
+
+---------------------------------------------------------------

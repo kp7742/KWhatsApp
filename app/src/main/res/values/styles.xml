@@ -1,4 +1,0 @@
-<resources>
-	<style name="Theme.App.Home" parent="@android:style/Theme.DeviceDefault" />
-    <style name="Theme.Prefs" parent="@style/Theme.App.Home" />
-</resources>
