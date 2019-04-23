@@ -18,15 +18,17 @@ public class KMODs {
             Log.d("KMODs", "Context var initialized to NULL!!!");
             return;
         }
-        if(KMODs.ctx == null) {
+
+        if(KMODs.ctx == null)
             KMODs.ctx = base.getApplicationContext();
-        }
-        if(cl == null){
+
+        if(cl == null)
             cl = ctx.getClassLoader();
-        }
-        if(KMODs.prefs == null) {
+
+        if(KMODs.prefs == null)
             KMODs.prefs = Prefs.with(ctx);
-        }
+
+        //Hidden Features
         prefs.writeBoolean("dark_mode_enabled", true);
         prefs.writeBoolean("search_by_image", true);
         prefs.writeBoolean("shape_picker_v2_enabled", true);
