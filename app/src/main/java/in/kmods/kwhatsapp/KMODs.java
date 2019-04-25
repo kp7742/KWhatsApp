@@ -76,7 +76,7 @@ public class KMODs {
         prefs.writeBoolean("add_contact_by_phone_number_enabled", true);
         prefs.writeBoolean("stad_display", true);
 
-        XposedHelpers.findAndHookMethod("com.whatsapp.DialogToastActivity", cl, "", new XC_MethodHook() {
+        XposedHelpers.findAndHookMethod("com.whatsapp.DialogToastActivity", cl, "onResume", new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 Activity act = (Activity) param.thisObject;
@@ -279,15 +279,15 @@ public class KMODs {
         content.setBackgroundColor(ColorsManager.getColor(ColorsManager.BACKGROUND));
     }
 
-    private static String getUserName(Context ctx) {
+    public static String getUserName() {
         return prefs.read("push_name", "WhatsApp");
     }
 
-    private static String getStatus(Context ctx) {
+    public static String getStatus() {
         return prefs.read("my_current_status", "_Set_Your_Status_");
     }
 
-    public static Drawable getUserPicture(Context ctx) {
+    public static Drawable getUserPicture() {
         String s = getApplicationPath();
         String pathName = s + "/files/me.jpg";
         return Drawable.createFromPath(pathName);

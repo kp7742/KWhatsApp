@@ -16,8 +16,6 @@ xmpp/writer/before/write/message-played - Hide Play
 
 xmpp/writer/before/write/composing - Hide Composing
 
-send-read-job/malformed participant flipping - Hide Read
-
 ---------------------------------------------------------------
 
 .method public final attachBaseContext(Landroid/content/Context;)V - before super.attachBaseContext

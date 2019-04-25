@@ -6,6 +6,8 @@ public final class Resources {
         /** General */
         public static final int toolbar = getID("toolbar");
         public static final int action_bar = getID("action_bar");
+        public static final int action_bar_title = getID("action_bar_title");
+        public static final int action_bar_subtitle = getID("action_bar_subtitle");
         public static final int status = getID("status");
         public static final int pager = getID("pager");
 
@@ -36,7 +38,6 @@ public final class Resources {
         public static int conversation_contact_status = getID("conversation_contact_status");
         public static int conversation_contact_photo = getID("conversation_contact_photo");
         public static int action_mode_bar = getID("action_mode_bar");
-        public static int action_bar_title = getID("action_bar_title");
         public static int menuitem_star = getID("menuitem_star");
         public static int menuitem_delete = getID("menuitem_delete");
         public static int menuitem_copy = getID("menuitem_copy");
