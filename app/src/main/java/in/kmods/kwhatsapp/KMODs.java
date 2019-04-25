@@ -2,6 +2,7 @@ package in.kmods.kwhatsapp;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
 public class KMODs {
     private static Context ctx;
@@ -10,7 +11,7 @@ public class KMODs {
 
     /*
     * Class: c.d.b.a.a.a.c
-    * Place: before super.attachBaseContext()
+    * Place: after super.attachBaseContext()
     * invoke-static {p0}, Lin/kmods/kwhatsapp/KMODs;->init(Landroid/content/Context;)V
     */
     public static void init(Context base){
@@ -20,13 +21,13 @@ public class KMODs {
         }
 
         if(KMODs.ctx == null)
-            KMODs.ctx = base.getApplicationContext();
+            KMODs.ctx = base;
 
-        if(cl == null)
-            cl = ctx.getClassLoader();
+        if(KMODs.cl == null)
+            KMODs.cl = KMODs.class.getClassLoader();
 
         if(KMODs.prefs == null)
-            KMODs.prefs = Prefs.with(ctx);
+            KMODs.prefs = Prefs.with(KMODs.ctx);
 
         //Hidden Features
         prefs.writeBoolean("dark_mode_enabled", true);
@@ -39,6 +40,13 @@ public class KMODs {
         prefs.writeBoolean("status_ranking", true);
         prefs.writeBoolean("add_contact_by_phone_number_enabled", true);
         prefs.writeBoolean("stad_display", true);
+    }
+
+    private static String getUserName(Context ctx) {
+        return prefs.read("push_name", "WhatsApp");
+    }
+    private static String getStatus(Context ctx) {
+        return prefs.read("my_current_status", "_Set_Your_Status_");
     }
 
     public static int getResID(String name, String type) {

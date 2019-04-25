@@ -10,7 +10,7 @@ import de.robv.android.xposed.callbacks.XCallback;
  * <p>Usually, anonymous subclasses of this class are created which override
  * {@link #beforeHookedMethod} and/or {@link #afterHookedMethod}.
  */
-public class XC_MethodHook extends XCallback {
+public abstract class XC_MethodHook extends XCallback {
     /**
      * Creates a new callback with default priority.
      */

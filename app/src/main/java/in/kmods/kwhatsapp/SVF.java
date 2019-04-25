@@ -20,7 +20,7 @@ public class SVF {
     }
 
     /*  2
-     *  Replace: invoke-static {p0}, Lc/a/f/r;->a(Landroid/content/Context;)[Landroid/content/pm/Signature;
+     *  Replace: invoke-virtual {v0}, Landroid/content/pm/Signature;->toByteArray()[B
      *  invoke-static {}, Lin/kmods/kwhatsapp/SVF;->Signature()[B
      */
     public static byte[] Signature() {

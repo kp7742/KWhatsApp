@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="android_wear_voice_input_choices">
+        <item>@string/android_wear_smile_emoji</item>
+        <item>@string/android_wear_yes</item>
+        <item>@string/android_wear_no</item>
+        <item>@string/android_wear_on_my_way</item>
+        <item>@string/android_wear_ok</item>
+        <item>@string/android_wear_see_you_soon</item>
+        <item>@string/android_wear_haha</item>
+        <item>@string/android_wear_lol</item>
+        <item>@string/android_wear_nice</item>
+        <item>@string/android_wear_cant_talk</item>
+        <item>@string/android_wear_sad_emoji</item>
+        <item>@string/android_wear_thanks</item>
+    </string-array>
+    <string-array name="autodownload">
+        <item>@string/settings_autodownload_images</item>
+        <item>@string/settings_autodownload_audio</item>
+        <item>@string/settings_autodownload_videos</item>
+        <item>@string/settings_autodownload_documents</item>
+    </string-array>
+    <string-array name="autodownload_cellular_defaults">
+        <item>0</item>
+    </string-array>
+    <array name="autodownload_roaming_defaults" />
+    <string-array name="autodownload_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="autodownload_wifi_defaults">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="camera_actions">
+        <item>@string/take_picture</item>
+        <item>@string/record_video</item>
+    </string-array>
+    <string-array name="default_statuses">
+        <item>@string/status_default_available</item>
+        <item>@string/status_default_busy</item>
+        <item>@string/status_default_at_school</item>
+        <item>@string/status_default_at_movies</item>
+        <item>@string/status_default_at_work</item>
+        <item>@string/status_default_battery_die</item>
+        <item>@string/status_default_cannot_talk</item>
+        <item>@string/status_default_in_meeting</item>
+        <item>@string/status_default_at_gym</item>
+        <item>@string/status_default_sleeping</item>
+        <item>@string/status_default_urgent</item>
+    </string-array>
+    <string-array name="delete_reason_choices">
+        <item>@string/delete_account_reason_select_option</item>
+        <item>@string/delete_account_reason_changed_device</item>
+        <item>@string/delete_account_reason_change_phone_number</item>
+        <item>@string/delete_account_reason_temporarily</item>
+        <item>@string/delete_account_reason_missing_feature</item>
+        <item>@string/delete_account_reason_not_working</item>
+        <item>@string/delete_account_reason_other</item>
+    </string-array>
+    <string-array name="font_size">
+        <item>@string/font_small</item>
+        <item>@string/font_medium</item>
+        <item>@string/font_large</item>
+    </string-array>
+    <string-array name="font_size_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="gdrive_backup_frequency_options">
+        <item>@string/settings_gdrive_backup_frequency_option_off</item>
+        <item>@string/settings_gdrive_backup_frequency_option_manual</item>
+        <item>@string/settings_gdrive_backup_frequency_option_daily</item>
+        <item>@string/settings_gdrive_backup_frequency_option_weekly</item>
+        <item>@string/settings_gdrive_backup_frequency_option_monthly</item>
+    </string-array>
+    <string-array name="gdrive_backup_frequency_options_values">
+        <item>0</item>
+        <item>4</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="gdrive_backup_network_settings_options">
+        <item>@string/settings_gdrive_backup_network_setting_option_wifi</item>
+        <item>@string/settings_gdrive_backup_network_setting_option_wifi_and_cellular</item>
+    </string-array>
+    <string-array name="gdrive_backup_network_settings_options_summary">
+        <item>@string/settings_gdrive_backup_network_setting_option_wifi_summary</item>
+        <item>@string/settings_gdrive_backup_network_setting_option_wifi_and_cellular</item>
+    </string-array>
+    <string-array name="incoming_call_reply_messages">
+        <item>@string/incomming_call_reply_0</item>
+        <item>@string/incomming_call_reply_1</item>
+        <item>@string/incomming_call_reply_2</item>
+        <item>@string/incomming_call_reply_3</item>
+        <item>@string/incomming_call_reply_custom</item>
+    </string-array>
+    <string-array name="led_color_values">
+        <item>000000</item>
+        <item>FFFFFF</item>
+        <item>FF0000</item>
+        <item>FFFF00</item>
+        <item>00FF00</item>
+        <item>00FFFF</item>
+        <item>0000FF</item>
+        <item>FF00FF</item>
+    </string-array>
+    <string-array name="led_colors">
+        <item>@string/color_none</item>
+        <item>@string/color_white</item>
+        <item>@string/color_red</item>
+        <item>@string/color_yellow</item>
+        <item>@string/color_green</item>
+        <item>@string/color_cyan</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_purple</item>
+    </string-array>
+    <integer-array name="mute_time_count">
+        <item>8</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
+    <integer-array name="mute_time_unit">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+    </integer-array>
+    <integer-array name="mute_time_value">
+        <item>480</item>
+        <item>10080</item>
+        <item>525949</item>
+    </integer-array>
+    <string-array name="popup_mode">
+        <item>@string/popup_notification_mode_none</item>
+        <item>@string/popup_notification_mode_screen_on</item>
+        <item>@string/popup_notification_mode_screen_off</item>
+        <item>@string/popup_notification_mode_always</item>
+    </string-array>
+    <string-array name="popup_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="privacy_levels">
+        <item>@string/privacy_everyone</item>
+        <item>@string/privacy_contacts</item>
+        <item>@string/privacy_nobody</item>
+    </string-array>
+    <string-array name="privacy_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="ratings">
+        <item>@string/rating_1</item>
+        <item>@string/rating_2</item>
+        <item>@string/rating_3</item>
+        <item>@string/rating_4</item>
+        <item>@string/rating_5</item>
+    </string-array>
+    <string-array name="solic_color_wallpaper_names">
+        <item>@string/color_name_cinder_black</item>
+        <item>@string/color_name_midnight_express</item>
+        <item>@string/color_name_mandarian_orange</item>
+        <item>@string/color_name_buccaneer_brown</item>
+        <item>@string/color_name_breaker_bay</item>
+        <item>@string/color_name_fjord_gray</item>
+        <item>@string/color_name_tory_blue</item>
+        <item>@string/color_name_pelorus_blue</item>
+        <item>@string/color_name_seagull_blue</item>
+        <item>@string/color_name_downy_green</item>
+        <item>@string/color_name_cruise_green</item>
+        <item>@string/color_name_scandal_green</item>
+        <item>@string/color_name_monte_carlo_green</item>
+        <item>@string/color_name_cape_honey_yellow</item>
+        <item>@string/color_name_canary_yellow</item>
+        <item>@string/color_name_radical_red</item>
+        <item>@string/color_name_bittersweet_orange</item>
+        <item>@string/color_name_rose_bud</item>
+        <item>@string/color_name_flamingo_red</item>
+        <item>@string/color_name_caramel_yellow</item>
+        <item>@string/color_name_tusk_green</item>
+        <item>@string/color_name_orinoco_green</item>
+        <item>@string/color_name_brook_green</item>
+        <item>@string/color_name_hawkes_blue</item>
+        <item>@string/color_name_quartz_blue</item>
+        <item>@string/color_name_very_light_gray</item>
+        <item>@string/color_name_solitude_gray</item>
+    </string-array>
+    <integer-array name="solid_color_wallpaper_colors">
+        <item>0xFF1D2326</item>
+        <item>0xFF301E34</item>
+        <item>0xFF922040</item>
+        <item>0xFF644D52</item>
+        <item>0xFF517E7E</item>
+        <item>0xFF55626F</item>
+        <item>0xFF35558A</item>
+        <item>0xFF3190BB</item>
+        <item>0xFF63BDCF</item>
+        <item>0xFF66D2D5</item>
+        <item>0xFFBBE4E5</item>
+        <item>0xFFAED8C7</item>
+        <item>0xFF7ACBA5</item>
+        <item>0xFFFEEFA9</item>
+        <item>0xFFFFFEA2</item>
+        <item>0xFFFB4668</item>
+        <item>0xFFFD6769</item>
+        <item>0xFFFD9A9B</item>
+        <item>0xFFDC6E4F</item>
+        <item>0xFFFED297</item>
+        <item>0xFFE6E1B1</item>
+        <item>0xFFD1DABE</item>
+        <item>0xFFE7E8D2</item>
+        <item>0xFFCBDAEC</item>
+        <item>0xFFD6D0F0</item>
+        <item>0xFFCECECE</item>
+        <item>0xFFECF0F1</item>
+    </integer-array>
+    <string-array name="text_status_background_color_names">
+        <item>@string/color_name_medium_red_violet</item>
+        <item>@string/color_name_wasabi</item>
+        <item>@string/color_name_sundance</item>
+        <item>@string/color_name_scarlett</item>
+        <item>@string/color_name_brandy_rose</item>
+        <item>@string/color_name_bright_sun</item>
+        <item>@string/color_name_earls_green</item>
+        <item>@string/color_name_prelude</item>
+        <item>@string/color_name_ce_soir</item>
+        <item>@string/color_name_mona_lisa</item>
+        <item>@string/color_name_emerald</item>
+        <item>@string/color_name_bittersweet</item>
+        <item>@string/color_name_summer_sky</item>
+        <item>@string/color_name_maya_blue</item>
+        <item>@string/color_name_scorpion</item>
+        <item>@string/color_name_bali_hai</item>
+        <item>@string/color_name_maya_blue_1</item>
+        <item>@string/color_name_vivid_violet</item>
+        <item>@string/color_name_monte_carlo</item>
+        <item>@string/color_name_elephant</item>
+        <item>@string/color_name_polo_blue</item>
+    </string-array>
+    <string-array name="text_status_font_names">
+        <item>@string/font_name_sans_serif</item>
+        <item>@string/font_name_serif</item>
+        <item>@string/font_name_bryndan_write</item>
+        <item>@string/font_name_norican</item>
+        <item>@string/font_name_oswald</item>
+    </string-array>
+    <string-array name="vibrate_lengths">
+        <item>@string/vibrate_length_off</item>
+        <item>@string/vibrate_length_default</item>
+        <item>@string/vibrate_length_short</item>
+        <item>@string/vibrate_length_long</item>
+    </string-array>
+    <string-array name="vibrate_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

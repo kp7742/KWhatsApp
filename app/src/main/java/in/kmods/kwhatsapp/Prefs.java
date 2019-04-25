@@ -18,14 +18,14 @@ public class Prefs {
     private SharedPreferences sharedPreferences;
 
     private Prefs(Context context) {
-        sharedPreferences = context.getApplicationContext().getSharedPreferences(
+        sharedPreferences = context.getSharedPreferences(
                 context.getPackageName() + "_preferences",
                 Context.MODE_PRIVATE
         );
     }
 
     private Prefs(Context context, String preferencesName) {
-        sharedPreferences = context.getApplicationContext().getSharedPreferences(
+        sharedPreferences = context.getSharedPreferences(
                 preferencesName,
                 Context.MODE_PRIVATE
         );

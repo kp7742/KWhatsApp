@@ -1,3 +1,5 @@
+Search Key Words:
+
 /res/drawable-hdpi/about_logo.png - SMS Fix
 
 msgstore/edit/revoke - Anti Revoke
@@ -16,7 +18,7 @@ xmpp/writer/before/write/composing - Hide Composing
 
 ---------------------------------------------------------------
 
-c.d.b.a.a.a.c(Application attachBaseContext) - before super.attachBaseContext
+.method public final attachBaseContext(Landroid/content/Context;)V - before super.attachBaseContext
 
 ---------------------------------------------------------------
 
