@@ -23,17 +23,16 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
+import androidx.appcompat.widget.Toolbar;
+
+import com.whatsapp.BidiToolbar;
 import com.whatsapp.ContactInfo;
 import com.whatsapp.Conversation;
 import com.whatsapp.HomeActivity;
 import com.whatsapp.MediaView;
 import com.whatsapp.QuickContactActivity;
 import com.whatsapp.ViewProfilePhoto;
-
-import de.robv.android.xposed.XC_MethodHook;
-import de.robv.android.xposed.XposedHelpers;
 
 public class KMODs {
     private static Context ctx;
@@ -65,7 +64,7 @@ public class KMODs {
             KMODs.prefs = Prefs.with(KMODs.ctx);
 
         //Hidden Features
-        prefs.writeBoolean("dark_mode_enabled", true);
+        prefs.writeBoolean("dark_mode_enabled", false);
         prefs.writeBoolean("search_by_image", true);
         prefs.writeBoolean("shape_picker_v2_enabled", true);
         prefs.writeBoolean("payments_web_enabled", true);
@@ -75,20 +74,21 @@ public class KMODs {
         prefs.writeBoolean("status_ranking", true);
         prefs.writeBoolean("add_contact_by_phone_number_enabled", true);
         prefs.writeBoolean("stad_display", true);
+    }
 
-        XposedHelpers.findAndHookMethod("com.whatsapp.DialogToastActivity", cl, "onResume", new XC_MethodHook() {
-            @Override
-            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                Activity act = (Activity) param.thisObject;
-                if(act == null)
-                    return;
+    /*
+     * Class: com.whatsapp.DialogToastActivity
+     * Place: before super.onResume()
+     * invoke-static {p0}, Lin/kmods/kwhatsapp/KMODs;->_onResume(Landroid/app/Activity;)V
+     */
+    public static void _onResume(Activity act){
+        if(act == null)
+            return;
 
-                if(act instanceof PreferenceActivity)
-                    DoColorP((PreferenceActivity) act);
-                else
-                    DoColor(act);
-            }
-        });
+        if(act instanceof PreferenceActivity)
+            DoColorP((PreferenceActivity) act);
+        else
+            DoColor(act);
     }
 
     private static void DoColor(Activity act){
@@ -130,7 +130,7 @@ public class KMODs {
                 }
             }
 
-            final Toolbar toolbar = (Toolbar) act.findViewById(Resources.id.toolbar);
+            final Toolbar toolbar = act.findViewById(Resources.id.toolbar);
             if(toolbar != null){
                 toolbar.setBackgroundColor(ColorsManager.getColor(ColorsManager.TOOLBAR));
                 toolbar.setTitleTextColor(ColorsManager.getColor(ColorsManager.TOOLBAR_TITLE));
@@ -185,7 +185,11 @@ public class KMODs {
                 if (act instanceof QuickContactActivity)
                     act.getWindow().setStatusBarColor(Color.TRANSPARENT);
             }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
+        try{
             if(act instanceof HomeActivity)
                 in.kmods.kwhatsapp.WAClass.HomeActivity._onCreate((HomeActivity) act);
         } catch (Exception e){
@@ -312,7 +316,7 @@ public class KMODs {
     }
 
     public static String getVersionName() {
-        return "v2.6";
+        return "v3.0";
     }
 
     public static String getWhatsAppVersionName() {
